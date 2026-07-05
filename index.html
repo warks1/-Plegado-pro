@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Plegado Pro</title>
+  <meta name="theme-color" content="#101827" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>Plegado Pro</h1>
+      <p>Calculadora rápida para plegadora</p>
+    </div>
+    <span class="status">Offline ready</span>
+  </header>
+
+  <main class="app">
+    <nav class="tabs" aria-label="Secciones">
+      <button class="tab active" data-tab="calc">📐 Cálculo</button>
+      <button class="tab" data-tab="tools">🔧 Herramientas</button>
+      <button class="tab" data-tab="sequence">🔁 Secuencia</button>
+      <button class="tab" data-tab="diagnosis">🛠 Problemas</button>
+      <button class="tab" data-tab="ai">🤖 IA</button>
+    </nav>
+
+    <section id="calc" class="panel active">
+      <div class="grid two">
+        <div class="card">
+          <h2>Datos de pieza</h2>
+          <label>Material
+            <select id="material"></select>
+          </label>
+          <label>Espesor chapa (mm)
+            <input id="thickness" type="number" min="0.1" step="0.1" value="2" />
+          </label>
+          <label>Longitud pliegue (mm)
+            <input id="length" type="number" min="1" step="1" value="1000" />
+          </label>
+          <label>Ángulo final interior (°)
+            <input id="angle" type="number" min="1" max="179" step="1" value="90" />
+          </label>
+          <label>Pestaña A (mm)
+            <input id="legA" type="number" min="0" step="0.1" value="50" />
+          </label>
+          <label>Pestaña B (mm)
+            <input id="legB" type="number" min="0" step="0.1" value="50" />
+          </label>
+        </div>
+
+        <div class="card result-card">
+          <h2>Resultado rápido</h2>
+          <div class="result-grid">
+            <div><small>Tonelaje total</small><strong id="tonTotal">-</strong></div>
+            <div><small>Ton/m</small><strong id="tonMeter">-</strong></div>
+            <div><small>Matriz recomendada</small><strong id="dieRec">-</strong></div>
+            <div><small>Punzón recomendado</small><strong id="punchRec">-</strong></div>
+            <div><small>Radio interior aprox.</small><strong id="radius">-</strong></div>
+            <div><small>Desarrollo</small><strong id="flat">-</strong></div>
+            <div><small>BA</small><strong id="ba">-</strong></div>
+            <div><small>BD</small><strong id="bd">-</strong></div>
+          </div>
+          <div class="notice" id="warning"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Selección manual</h2>
+        <div class="grid two compact">
+          <label>Matriz
+            <select id="dieSelect"></select>
+          </label>
+          <label>Punzón
+            <select id="punchSelect"></select>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <section id="tools" class="panel">
+      <div class="grid two">
+        <div class="card">
+          <h2>Biblioteca de matrices</h2>
+          <div id="dieList" class="list"></div>
+        </div>
+        <div class="card">
+          <h2>Biblioteca de punzones</h2>
+          <div id="punchList" class="list"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sequence" class="panel">
+      <div class="card">
+        <h2>Secuencia orientativa</h2>
+        <p class="muted">Para una pieza simple de dos alas. En piezas con varias líneas, priorizar pliegues interiores, pestañas cortas y evitar colisiones.</p>
+        <ol id="sequenceList" class="steps"></ol>
+      </div>
+    </section>
+
+    <section id="diagnosis" class="panel">
+      <div class="card">
+        <h2>Diagnóstico de problemas</h2>
+        <label>Problema habitual
+          <select id="problem">
+            <option value="marks">Marcas en la chapa</option>
+            <option value="angle">No llega al ángulo</option>
+            <option value="crack">Grietas o rotura</option>
+            <option value="bow">Hace barriga / deformación</option>
+            <option value="collision">Riesgo de colisión</option>
+          </select>
+        </label>
+        <div id="problemSolution" class="solution"></div>
+      </div>
+    </section>
+
+    <section id="ai" class="panel">
+      <div class="card">
+        <h2>Buscar con IA</h2>
+        <p class="muted">Preparado para conectar a una API online. Ahora responde con una base local ligera.</p>
+        <label>Pregunta técnica
+          <textarea id="aiQuestion" rows="4" placeholder="Ejemplo: ¿Qué matriz uso para inox de 3 mm?"></textarea>
+        </label>
+        <button id="aiBtn" class="primary">Buscar respuesta</button>
+        <div id="aiAnswer" class="solution"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Cálculos orientativos para plegado al aire. Verificar siempre con tabla real de máquina, herramienta y material.
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
