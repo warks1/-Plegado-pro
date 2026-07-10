@@ -1,26 +1,27 @@
-# Plegado Pro
+# Plegar Pro · Beta Mecos funcional
 
-Aplicación web ligera para cálculo rápido de plegado de chapa.
+Demo web estática para GitHub Pages.
 
-## Funciones
-- Tonelaje total y por metro.
-- Desarrollo aproximado.
-- BA y BD.
-- Biblioteca de matrices y punzones compatibles tipo Bystronic.
-- Diagnóstico de problemas frecuentes.
-- Secuencia orientativa de plegado.
-- Preparada como PWA.
+## Incluye
 
-## Ejecutar en local
-Abre `index.html` en el navegador.
+- Más de 2 plegados configurables.
+- Alas y plegados editables.
+- Base de datos local de materiales, punzones Mecos y matrices Mecos.
+- Recomendación automática de útiles por plegado.
+- Cálculo de desarrollo plano total.
+- Simulación visual paso a paso del plegado.
+- Coste estimado.
+- Informe técnico.
+- Importación/exportación JSON.
+- Guardado local en LocalStorage.
 
-## Publicar en GitHub Pages
-1. Crear repositorio en GitHub.
-2. Subir todos los archivos.
-3. Ir a Settings > Pages.
-4. Source: Deploy from branch.
-5. Branch: main / root.
-6. Abrir la URL publicada.
+## Uso en GitHub Pages
 
-## Aviso
-Cálculos orientativos para plegado al aire. Verificar con tablas reales de máquina, herramientas y material.
+1. Sube todos los archivos al repositorio.
+2. Entra en Settings > Pages.
+3. Elige rama `main` y carpeta `/root`.
+4. Abre la URL generada.
+
+## Nota
+
+La base Mecos incluida es demostrativa y editable para la beta. Antes de fabricar piezas reales hay que contrastar referencias, capacidades y geometrías con el catálogo oficial disponible en el taller.

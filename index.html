@@ -3,137 +3,95 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Plegado Pro</title>
-  <meta name="theme-color" content="#101827" />
-  <link rel="manifest" href="manifest.json" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <title>Plegar Pro · Beta Mecos</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="topbar">
-    <div>
-      <h1>Plegado Pro</h1>
-      <p>Calculadora rápida para plegadora</p>
-    </div>
-    <span class="status">Offline ready</span>
-  </header>
-
-  <main class="app">
-    <nav class="tabs" aria-label="Secciones">
-      <button class="tab active" data-tab="calc">📐 Cálculo</button>
-      <button class="tab" data-tab="tools">🔧 Herramientas</button>
-      <button class="tab" data-tab="sequence">🔁 Secuencia</button>
-      <button class="tab" data-tab="diagnosis">🛠 Problemas</button>
-      <button class="tab" data-tab="ai">🤖 IA</button>
-    </nav>
-
-    <section id="calc" class="panel active">
-      <div class="grid two">
-        <div class="card">
-          <h2>Datos de pieza</h2>
-          <label>Material
-            <select id="material"></select>
-          </label>
-          <label>Espesor chapa (mm)
-            <input id="thickness" type="number" min="0.1" step="0.1" value="2" />
-          </label>
-          <label>Longitud pliegue (mm)
-            <input id="length" type="number" min="1" step="1" value="1000" />
-          </label>
-          <label>Ángulo final interior (°)
-            <input id="angle" type="number" min="1" max="179" step="1" value="90" />
-          </label>
-          <label>Pestaña A (mm)
-            <input id="legA" type="number" min="0" step="0.1" value="50" />
-          </label>
-          <label>Pestaña B (mm)
-            <input id="legB" type="number" min="0" step="0.1" value="50" />
-          </label>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand"><div class="logo">PP</div><div><b>Plegar Pro</b><span>Beta Mecos</span></div></div>
+      <button class="nav active" data-page="dashboard">Panel</button>
+      <button class="nav" data-page="project">Proyecto</button>
+      <button class="nav" data-page="bends">Plegados</button>
+      <button class="nav" data-page="tools">Útiles recomendados</button>
+      <button class="nav" data-page="development">Desarrollo</button>
+      <button class="nav" data-page="simulation">Simulación</button>
+      <button class="nav" data-page="database">Base de datos</button>
+      <button class="nav" data-page="reports">Informes</button>
+      <div class="sideCard"><span>Estado</span><b id="systemStatus">Listo</b><small id="lastSaved">Sin guardar</small></div>
+    </aside>
+    <main class="main">
+      <header class="topbar">
+        <div><h1 id="pageTitle">Panel general</h1><p id="pageSub">Cálculo multi-plegado, útiles Mecos y simulación visual.</p></div>
+        <div class="actions">
+          <button id="loadExample" class="btn ghost">Cargar ejemplo</button>
+          <button id="saveProject" class="btn">Guardar</button>
+          <button id="exportProject" class="btn accent">Exportar</button>
         </div>
+      </header>
 
-        <div class="card result-card">
-          <h2>Resultado rápido</h2>
-          <div class="result-grid">
-            <div><small>Tonelaje total</small><strong id="tonTotal">-</strong></div>
-            <div><small>Ton/m</small><strong id="tonMeter">-</strong></div>
-            <div><small>Matriz recomendada</small><strong id="dieRec">-</strong></div>
-            <div><small>Punzón recomendado</small><strong id="punchRec">-</strong></div>
-            <div><small>Radio interior aprox.</small><strong id="radius">-</strong></div>
-            <div><small>Desarrollo</small><strong id="flat">-</strong></div>
-            <div><small>BA</small><strong id="ba">-</strong></div>
-            <div><small>BD</small><strong id="bd">-</strong></div>
-          </div>
-          <div class="notice" id="warning"></div>
+      <section id="dashboard" class="page active">
+        <div class="grid cards4">
+          <div class="card kpi"><span>Material</span><b id="kpiMaterial">-</b><small id="kpiMaterialInfo">-</small></div>
+          <div class="card kpi"><span>Plegados</span><b id="kpiBends">0</b><small>Operaciones configuradas</small></div>
+          <div class="card kpi"><span>Desarrollo</span><b id="kpiFlat">0 mm</b><small>Longitud plana total</small></div>
+          <div class="card kpi"><span>Estado</span><b id="kpiFeasible">Pendiente</b><small id="kpiFeasibleInfo">Sin calcular</small></div>
         </div>
-      </div>
-
-      <div class="card">
-        <h2>Selección manual</h2>
-        <div class="grid two compact">
-          <label>Matriz
-            <select id="dieSelect"></select>
-          </label>
-          <label>Punzón
-            <select id="punchSelect"></select>
-          </label>
+        <div class="grid two">
+          <div class="card"><h2>Vista rápida del desarrollo</h2><canvas id="preview" width="940" height="420"></canvas><div class="legend"><span class="okdot"></span> Alas <span class="warnDot"></span> Líneas de plegado <span class="toolDot"></span> Útiles</div></div>
+          <div class="card"><h2>Resumen técnico</h2><div id="summary" class="summary"></div><button id="calculateMain" class="btn accent full">Calcular y recomendar útiles</button></div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="tools" class="panel">
-      <div class="grid two">
-        <div class="card">
-          <h2>Biblioteca de matrices</h2>
-          <div id="dieList" class="list"></div>
+      <section id="project" class="page">
+        <div class="grid two">
+          <div class="card"><h2>Datos del proyecto</h2><div class="form">
+            <label>Nombre del proyecto<input id="projectName" /></label>
+            <label>Cliente<input id="clientName" /></label>
+            <label>Longitud de plegado / ancho pieza (mm)<input id="bendLength" type="number" min="1" step="1" /></label>
+            <label>Espesor (mm)<input id="thickness" type="number" min="0.1" step="0.1" /></label>
+            <label>Cantidad<input id="quantity" type="number" min="1" step="1" /></label>
+            <label>Coste hora máquina (€)<input id="machineRate" type="number" min="1" step="1" /></label>
+          </div></div>
+          <div class="card"><h2>Material y cálculo</h2><div class="form">
+            <label>Material<select id="materialSelect"></select></label>
+            <label>K-Factor automático<input id="kFactor" type="number" min="0.1" max="0.8" step="0.01" /></label>
+            <label>Modo de útiles<select id="toolMode"><option value="auto">Automático Mecos</option><option value="manual">Manual</option></select></label>
+            <label>Punzón manual<select id="punchSelect"></select></label>
+            <label>Matriz manual<select id="dieSelect"></select></label>
+          </div><button id="autoSelect" class="btn full">Recomendar útiles Mecos</button></div>
         </div>
-        <div class="card">
-          <h2>Biblioteca de punzones</h2>
-          <div id="punchList" class="list"></div>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="sequence" class="panel">
-      <div class="card">
-        <h2>Secuencia orientativa</h2>
-        <p class="muted">Para una pieza simple de dos alas. En piezas con varias líneas, priorizar pliegues interiores, pestañas cortas y evitar colisiones.</p>
-        <ol id="sequenceList" class="steps"></ol>
-      </div>
-    </section>
+      <section id="bends" class="page">
+        <div class="card"><h2>Plegados de la pieza</h2><p class="hint">Añade tantos plegados como necesites. El desarrollo se calcula con todas las alas y todas las compensaciones.</p><div id="bendsEditor" class="bendEditor"></div><div class="actionsInline"><button id="addBend" class="btn accent">Añadir plegado</button><button id="removeBend" class="btn ghost">Quitar último</button></div></div>
+      </section>
 
-    <section id="diagnosis" class="panel">
-      <div class="card">
-        <h2>Diagnóstico de problemas</h2>
-        <label>Problema habitual
-          <select id="problem">
-            <option value="marks">Marcas en la chapa</option>
-            <option value="angle">No llega al ángulo</option>
-            <option value="crack">Grietas o rotura</option>
-            <option value="bow">Hace barriga / deformación</option>
-            <option value="collision">Riesgo de colisión</option>
-          </select>
-        </label>
-        <div id="problemSolution" class="solution"></div>
-      </div>
-    </section>
+      <section id="tools" class="page">
+        <div class="grid two"><div class="card"><h2>Recomendación automática</h2><div id="toolRecommendation"></div></div><div class="card"><h2>Compatibilidad general</h2><div id="compatibility"></div></div></div>
+        <div class="card"><h2>Útiles por plegado</h2><div id="perBendTools" class="toolGrid"></div></div>
+      </section>
 
-    <section id="ai" class="panel">
-      <div class="card">
-        <h2>Buscar con IA</h2>
-        <p class="muted">Preparado para conectar a una API online. Ahora responde con una base local ligera.</p>
-        <label>Pregunta técnica
-          <textarea id="aiQuestion" rows="4" placeholder="Ejemplo: ¿Qué matriz uso para inox de 3 mm?"></textarea>
-        </label>
-        <button id="aiBtn" class="primary">Buscar respuesta</button>
-        <div id="aiAnswer" class="solution"></div>
-      </div>
-    </section>
-  </main>
+      <section id="development" class="page">
+        <div class="grid two"><div class="card"><h2>Desarrollo plano</h2><table><tbody id="calcTable"></tbody></table></div><div class="card"><h2>Coste estimado</h2><table><tbody id="costTable"></tbody></table></div></div>
+        <div class="card"><h2>Tabla de plegados</h2><div class="tableWrap"><table><thead><tr><th>#</th><th>Ala antes</th><th>Ángulo</th><th>Radio</th><th>BA</th><th>Útiles</th><th>Fuerza</th></tr></thead><tbody id="bendTable"></tbody></table></div></div>
+      </section>
 
-  <footer>
-    Cálculos orientativos para plegado al aire. Verificar siempre con tabla real de máquina, herramienta y material.
-  </footer>
+      <section id="simulation" class="page">
+        <div class="grid two"><div class="card"><h2>Simulación visual paso a paso</h2><canvas id="simCanvas" width="940" height="460"></canvas><input id="simStep" type="range" min="0" value="0" step="1" /><div class="actionsInline"><button id="prevStep" class="btn ghost">Anterior</button><button id="playSim" class="btn accent">Reproducir</button><button id="nextStep" class="btn ghost">Siguiente</button></div></div><div class="card"><h2>Secuencia de plegado</h2><div id="sequenceList" class="timeline"></div></div></div>
+      </section>
 
-  <script src="js/data.js"></script>
-  <script src="js/app.js"></script>
+      <section id="database" class="page">
+        <div class="grid three"><div class="card"><h2>Materiales</h2><div id="materialsDb" class="dbList"></div></div><div class="card"><h2>Punzones Mecos</h2><div id="punchesDb" class="dbList"></div></div><div class="card"><h2>Matrices Mecos</h2><div id="diesDb" class="dbList"></div></div></div>
+        <div class="card"><h2>Editar / añadir registro local</h2><div class="form row"><select id="dbType"><option value="materials">Material</option><option value="punches">Punzón Mecos</option><option value="dies">Matriz Mecos</option></select><input id="dbName" placeholder="Nombre / referencia" /><input id="dbA" placeholder="Dato A: V o ángulo" /><input id="dbB" placeholder="Dato B: radio o espesor máx" /><button id="addDb" class="btn accent">Añadir</button><button id="resetDb" class="btn ghost">Restaurar BD Mecos</button></div><p class="hint">Base local en LocalStorage. Las referencias Mecos son una base demostrativa editable para la beta.</p></div>
+      </section>
+
+      <section id="reports" class="page">
+        <div class="grid two"><div class="card"><h2>Informe</h2><textarea id="reportText"></textarea><button id="generateReport" class="btn full">Generar informe</button></div><div class="card"><h2>Importar / exportar</h2><input type="file" id="importFile" accept=".json" /><button id="importProject" class="btn full">Importar proyecto</button><button id="downloadReport" class="btn accent full">Descargar informe TXT</button></div></div>
+      </section>
+    </main>
+  </div>
+  <div id="toast" class="toast"></div>
+  <script src="app.js"></script>
 </body>
 </html>
