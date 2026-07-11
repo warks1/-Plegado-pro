@@ -1,0 +1,9 @@
+{
+  "name": "Plegar Pro v19.0 Industrial Engineering Beta",
+  "short_name": "Plegar Pro v19",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#050b13",
+  "theme_color": "#07111f",
+  "icons": []
+}

@@ -1,0 +1,14 @@
+{
+  "version": "19.0",
+  "files": {
+    "index.html": "5e7d546743ebca97a9a81237f50852d29e1c934bfdc92ed0f58f0286d969dfc1",
+    "manifest.webmanifest": "b0675574a7f70a96f1ac71f0b94ea8358034a86a86c18529d656565c9c372ad9",
+    "README.md": "2d2daafb6e1f87dfb4e3d9fe8f7fdea9b2dda6b853b32ae21ae8addd8127ae6d",
+    "INICIAR_PC.bat": "2732635f57c35bfd42bdb3b7d7e8b3987217f1f16d2ccce98c63fed9b7c148c5",
+    "INICIAR_MAC_LINUX.sh": "442a554f31dac0689ac11741e288bc236c709f301f83ba5fcc2407cbd7475424",
+    "assets/styles.css": "17ef6c0f21a09925c2dee2b73687bc0da4800f5e9df46deafad80b576e974094",
+    "assets/app.js": "7fe97814f929d8fdfe40d6bbe48ddda503ec777b7cdf01269cdf0d382e5de8aa",
+    "data/tooling_seed.json": "38c3ed6ee962c63a7b83add47fe84a736e9b80212ff42189f9b35822d02769cc",
+    "data/engine_registry.json": "642ab00788eea85389831c9083667c26a7c2607d4b0906cd45b9417c05c090b1"
+  }
+}

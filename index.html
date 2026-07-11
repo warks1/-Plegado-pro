@@ -1,97 +1,546 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Plegar Pro · Beta Mecos</title>
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07111f">
+<title>Plegar Pro v19.0 Industrial Engineering Beta</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-  <div class="app">
-    <aside class="sidebar">
-      <div class="brand"><div class="logo">PP</div><div><b>Plegar Pro</b><span>Beta Mecos</span></div></div>
-      <button class="nav active" data-page="dashboard">Panel</button>
-      <button class="nav" data-page="project">Proyecto</button>
-      <button class="nav" data-page="bends">Plegados</button>
-      <button class="nav" data-page="tools">Útiles recomendados</button>
-      <button class="nav" data-page="development">Desarrollo</button>
-      <button class="nav" data-page="simulation">Simulación</button>
-      <button class="nav" data-page="database">Base de datos</button>
-      <button class="nav" data-page="reports">Informes</button>
-      <div class="sideCard"><span>Estado</span><b id="systemStatus">Listo</b><small id="lastSaved">Sin guardar</small></div>
-    </aside>
-    <main class="main">
-      <header class="topbar">
-        <div><h1 id="pageTitle">Panel general</h1><p id="pageSub">Cálculo multi-plegado, útiles Mecos y simulación visual.</p></div>
-        <div class="actions">
-          <button id="loadExample" class="btn ghost">Cargar ejemplo</button>
-          <button id="saveProject" class="btn">Guardar</button>
-          <button id="exportProject" class="btn accent">Exportar</button>
-        </div>
-      </header>
-
-      <section id="dashboard" class="page active">
-        <div class="grid cards4">
-          <div class="card kpi"><span>Material</span><b id="kpiMaterial">-</b><small id="kpiMaterialInfo">-</small></div>
-          <div class="card kpi"><span>Plegados</span><b id="kpiBends">0</b><small>Operaciones configuradas</small></div>
-          <div class="card kpi"><span>Desarrollo</span><b id="kpiFlat">0 mm</b><small>Longitud plana total</small></div>
-          <div class="card kpi"><span>Estado</span><b id="kpiFeasible">Pendiente</b><small id="kpiFeasibleInfo">Sin calcular</small></div>
-        </div>
-        <div class="grid two">
-          <div class="card"><h2>Vista rápida del desarrollo</h2><canvas id="preview" width="940" height="420"></canvas><div class="legend"><span class="okdot"></span> Alas <span class="warnDot"></span> Líneas de plegado <span class="toolDot"></span> Útiles</div></div>
-          <div class="card"><h2>Resumen técnico</h2><div id="summary" class="summary"></div><button id="calculateMain" class="btn accent full">Calcular y recomendar útiles</button></div>
-        </div>
-      </section>
-
-      <section id="project" class="page">
-        <div class="grid two">
-          <div class="card"><h2>Datos del proyecto</h2><div class="form">
-            <label>Nombre del proyecto<input id="projectName" /></label>
-            <label>Cliente<input id="clientName" /></label>
-            <label>Longitud de plegado / ancho pieza (mm)<input id="bendLength" type="number" min="1" step="1" /></label>
-            <label>Espesor (mm)<input id="thickness" type="number" min="0.1" step="0.1" /></label>
-            <label>Cantidad<input id="quantity" type="number" min="1" step="1" /></label>
-            <label>Coste hora máquina (€)<input id="machineRate" type="number" min="1" step="1" /></label>
-          </div></div>
-          <div class="card"><h2>Material y cálculo</h2><div class="form">
-            <label>Material<select id="materialSelect"></select></label>
-            <label>K-Factor automático<input id="kFactor" type="number" min="0.1" max="0.8" step="0.01" /></label>
-            <label>Modo de útiles<select id="toolMode"><option value="auto">Automático Mecos</option><option value="manual">Manual</option></select></label>
-            <label>Punzón manual<select id="punchSelect"></select></label>
-            <label>Matriz manual<select id="dieSelect"></select></label>
-          </div><button id="autoSelect" class="btn full">Recomendar útiles Mecos</button></div>
-        </div>
-      </section>
-
-      <section id="bends" class="page">
-        <div class="card"><h2>Plegados de la pieza</h2><p class="hint">Añade tantos plegados como necesites. El desarrollo se calcula con todas las alas y todas las compensaciones.</p><div id="bendsEditor" class="bendEditor"></div><div class="actionsInline"><button id="addBend" class="btn accent">Añadir plegado</button><button id="removeBend" class="btn ghost">Quitar último</button></div></div>
-      </section>
-
-      <section id="tools" class="page">
-        <div class="grid two"><div class="card"><h2>Recomendación automática</h2><div id="toolRecommendation"></div></div><div class="card"><h2>Compatibilidad general</h2><div id="compatibility"></div></div></div>
-        <div class="card"><h2>Útiles por plegado</h2><div id="perBendTools" class="toolGrid"></div></div>
-      </section>
-
-      <section id="development" class="page">
-        <div class="grid two"><div class="card"><h2>Desarrollo plano</h2><table><tbody id="calcTable"></tbody></table></div><div class="card"><h2>Coste estimado</h2><table><tbody id="costTable"></tbody></table></div></div>
-        <div class="card"><h2>Tabla de plegados</h2><div class="tableWrap"><table><thead><tr><th>#</th><th>Ala antes</th><th>Ángulo</th><th>Radio</th><th>BA</th><th>Útiles</th><th>Fuerza</th></tr></thead><tbody id="bendTable"></tbody></table></div></div>
-      </section>
-
-      <section id="simulation" class="page">
-        <div class="grid two"><div class="card"><h2>Simulación visual paso a paso</h2><canvas id="simCanvas" width="940" height="460"></canvas><input id="simStep" type="range" min="0" value="0" step="1" /><div class="actionsInline"><button id="prevStep" class="btn ghost">Anterior</button><button id="playSim" class="btn accent">Reproducir</button><button id="nextStep" class="btn ghost">Siguiente</button></div></div><div class="card"><h2>Secuencia de plegado</h2><div id="sequenceList" class="timeline"></div></div></div>
-      </section>
-
-      <section id="database" class="page">
-        <div class="grid three"><div class="card"><h2>Materiales</h2><div id="materialsDb" class="dbList"></div></div><div class="card"><h2>Punzones Mecos</h2><div id="punchesDb" class="dbList"></div></div><div class="card"><h2>Matrices Mecos</h2><div id="diesDb" class="dbList"></div></div></div>
-        <div class="card"><h2>Editar / añadir registro local</h2><div class="form row"><select id="dbType"><option value="materials">Material</option><option value="punches">Punzón Mecos</option><option value="dies">Matriz Mecos</option></select><input id="dbName" placeholder="Nombre / referencia" /><input id="dbA" placeholder="Dato A: V o ángulo" /><input id="dbB" placeholder="Dato B: radio o espesor máx" /><button id="addDb" class="btn accent">Añadir</button><button id="resetDb" class="btn ghost">Restaurar BD Mecos</button></div><p class="hint">Base local en LocalStorage. Las referencias Mecos son una base demostrativa editable para la beta.</p></div>
-      </section>
-
-      <section id="reports" class="page">
-        <div class="grid two"><div class="card"><h2>Informe</h2><textarea id="reportText"></textarea><button id="generateReport" class="btn full">Generar informe</button></div><div class="card"><h2>Importar / exportar</h2><input type="file" id="importFile" accept=".json" /><button id="importProject" class="btn full">Importar proyecto</button><button id="downloadReport" class="btn accent full">Descargar informe TXT</button></div></div>
-      </section>
-    </main>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand">PLEGAR <span>PRO</span></div>
+  <div class="version">v19.0 Industrial Engineering Beta</div>
+  <nav class="nav" id="nav"></nav>
+</aside>
+<main class="main">
+  <div class="header">
+    <button class="hamburger" onclick="toggleMenu(true)" aria-label="Abrir menú">☰</button>
+    <div><h1 id="pageTitle">Panel principal</h1><p id="pageSub">Gemelo digital integral y sistema operativo industrial</p></div>
+    <div class="status" id="deviceStatus">● Detectando dispositivo</div>
   </div>
-  <div id="toast" class="toast"></div>
-  <script src="app.js"></script>
+
+<section class="page active" data-page="dashboard">
+<div class="version-banner"><b>VERSIÓN 19.0 · CONTENIDO VERIFICABLE</b><br><span>36 matrices Mecos, punzones solicitados, multiplegado, simulación, WhatsApp, correo, CRM, presupuestos, inventarios y más.</span><div class="actions"><button class="btn" onclick="go('tools')">Ver matrices y punzones</button><button class="btn secondary" onclick="go('clients')">Ver WhatsApp y correo</button><button class="btn secondary" onclick="go('bends')">Ver multiplegado</button></div></div>
+<div class="grid">
+  <div class="card"><div class="kpis">
+    <div class="kpi"><span>Dispositivo</span><b id="kDevice">—</b></div>
+    <div class="kpi"><span>Pliegues activos</span><b id="kBends">3</b></div>
+    <div class="kpi"><span>Herramientas</span><b id="kTools">—</b></div>
+    <div class="kpi"><span>Tiempo estimado</span><b id="kTime">0 min</b></div>
+  </div>
+<div class="graphic-strip">
+  <div class="graphic-chip"><b>3D Ultimate</b><span>Gemelo visual con utillaje dinámico, secuencia automática y captura</span></div>
+  <div class="graphic-chip"><b>36 matrices</b><span>Mecos V6–V50 y cuatro ángulos</span></div>
+  <div class="graphic-chip"><b>21 módulos</b><span>Ingeniería, producción, CRM e IA</span></div>
+  <div class="graphic-chip"><b>100 % responsive</b><span>Diseño fluido sin desplazamiento lateral</span></div>
+</div></div>
+  <div class="card c8">
+    <h2>Trabajo actual</h2>
+    <div class="fields cols3">
+      <div class="field"><label>Nombre</label><input id="jobName" value="Soporte multiplegado"></div>
+      <div class="field"><label>Material</label><select id="jobMaterial"><option>Acero S235</option><option>Acero inoxidable</option><option>Aluminio</option><option>Galvanizado</option></select></div>
+      <div class="field"><label>Espesor (mm)</label><input id="jobThickness" type="number" step=".1" value="2"></div>
+      <div class="field"><label>Cantidad</label><input id="jobQty" type="number" value="20"></div>
+      <div class="field"><label>Máquina</label><select><option>Bystronic Xpert 3100 × 100 t</option><option>Máquina personalizada</option></select></div>
+      <div class="field"><label>Estado</label><select><option>Preparación</option><option>En producción</option><option>Finalizado</option></select></div>
+    </div>
+    <div class="actions"><button class="btn" onclick="go('bends')">Configurar pliegues</button><button class="btn secondary" onclick="go('simulation')">Simular 3D</button><button class="btn secondary" onclick="go('tools')">Montaje</button></div>
+  </div>
+  <div class="card c4">
+    <h2>Gemelo digital</h2>
+    <p><b>Bystronic Xpert</b></p>
+    <p class="muted">Mesa, bancada, trancha/ariete, punzón, matriz, topes y zona de trabajo representados en la simulación.</p>
+    <span class="pill">3100 mm</span><span class="pill">100 t</span><span class="pill">Mecos</span>
+  </div>
+  <div class="card">
+    <h2>Funciones acumuladas</h2>
+    <div class="table-wrap"><table>
+      <tr><th>Módulo</th><th>Funciones disponibles</th><th>Estado</th></tr>
+      <tr><td>Importación</td><td>Imágenes, PDF, DXF, DWG, SVG, STEP, IGES, STL, OBJ y 3MF</td><td class="good">Activo</td></tr>
+      <tr><td>Cálculos</td><td>Desarrollo, BA, BD, radio, variación de cota por cambio de V y correcciones</td><td class="good">Activo</td></tr>
+      <tr><td>Multiplegado</td><td>Secuencia editable con varios pliegues</td><td class="good">Activo</td></tr>
+      <tr><td>Producción</td><td>Preparación, montaje, reglaje, tiempo por pieza, serie y cronómetro</td><td class="good">Activo</td></tr>
+      <tr><td>Bibliotecas</td><td>Materiales, máquinas, punzones, matrices, montaje y catálogos</td><td class="good">Activo</td></tr>
+    </table></div>
+  </div>
+<div class="card"><h2>Todos los módulos</h2><div class="module-grid" id="moduleLauncher"></div></div></div></section>
+
+<section class="page" data-page="import">
+<div class="grid">
+  <div class="card">
+    <h2>Importación universal</h2>
+    <input id="fileInput" type="file" hidden multiple accept=".pdf,.dxf,.dwg,.svg,.step,.stp,.iges,.igs,.stl,.obj,.3mf,.jpg,.jpeg,.png,.webp,.heic,.tif,.tiff">
+    <div class="drop" id="drop"><b>Arrastra archivos o pulsa para seleccionarlos</b><p class="muted">Planos 2D, documentos, fotografías y modelos 3D</p></div>
+    <div id="fileList"></div>
+  </div>
+  <div class="card c6">
+    <h2>Datos detectados</h2>
+    <div class="fields">
+      <div class="field"><label>Material</label><input id="detMat" value="Pendiente"></div>
+      <div class="field"><label>Espesor</label><input id="detThk" value="Pendiente"></div>
+      <div class="field"><label>Número de pliegues</label><input id="detBends" value="0"></div>
+      <div class="field"><label>Escala</label><input id="detScale" value="1:1"></div>
+    </div>
+  </div>
+  <div class="card c6">
+    <h2>Validación IA</h2>
+    <div class="notice" id="validation">Carga un plano para comenzar.</div>
+    <div class="actions"><button class="btn" onclick="analyzeFiles()">Analizar</button><button class="btn secondary" onclick="go('bends')">Crear secuencia</button></div>
+  </div>
+</div></section>
+
+<section class="page" data-page="bends">
+<div class="grid">
+  <div class="card c5">
+    <h2>Secuencia multiplegado</h2>
+    <p class="muted">Añade tantos pliegues como necesites y ordénalos según la fabricación.</p>
+    <div class="bend-list" id="bendList"></div>
+    <div class="actions"><button class="btn" onclick="addBend()">Añadir pliegue</button><button class="btn secondary" onclick="loadExampleBends()">Ejemplo 5 pliegues</button></div>
+  </div>
+  <div class="card c7">
+    <h2>Resumen de secuencia</h2>
+    <div id="bendSummary"></div>
+    <h3>Recomendación IA</h3>
+    <div class="notice" id="sequenceAdvice">Configura los pliegues para analizar la secuencia.</div>
+  </div>
+</div></section>
+
+<section class="page" data-page="calc">
+<div class="grid">
+  <div class="card c4">
+    <h2>Comparador de matrices V</h2>
+    <div class="fields" style="grid-template-columns:1fr">
+      <div class="field"><label>Espesor (mm)</label><input id="cT" type="number" step=".1" value="2"></div>
+      <div class="field"><label>Ángulo interior (°)</label><input id="cA" type="number" value="90"></div>
+      <div class="field"><label>Ala 1 (mm)</label><input id="cL1" type="number" value="50"></div>
+      <div class="field"><label>Ala 2 (mm)</label><input id="cL2" type="number" value="100"></div>
+      <div class="field"><label>V actual</label><select id="cV1"></select></div>
+      <div class="field"><label>V alternativa</label><select id="cV2"></select></div>
+      <div class="field"><label>Factor K</label><input id="cK" type="number" step=".01" value=".33"></div>
+      <div class="field"><label>Calibración taller (mm)</label><input id="cCal" type="number" step=".01" value="0"></div>
+    </div>
+    <div class="actions"><button class="btn" onclick="calculateV()">Calcular pérdida/ganancia</button></div>
+  </div>
+  <div class="card c8">
+    <h2>Resultado</h2>
+    <div id="calcResult" class="muted">Pendiente de cálculo.</div>
+  </div>
+</div></section>
+
+
+
+<section class="page" data-page="simulation">
+<div class="grid">
+  <div class="card sim-card">
+    <div class="sim-head">
+      <div class="sim-title-wrap">
+        <h2>Simulación industrial 3D · Gemelo digital de plegadora</h2>
+        <p>Escena interactiva con máquina, utillaje, topes, apoyos, chapa y secuencia multiplegado.</p>
+      </div>
+      <div class="sim-badges">
+        <span class="pill">Motor v17</span><span class="pill">Perspectiva dinámica</span><span class="pill">Utillaje enlazado</span>
+      </div>
+    </div>
+
+    <div class="sim-sidepanel">
+      <aside class="sim-config">
+        <h3>Configuración de escena</h3>
+        <div class="field"><label>Vista</label>
+          <select id="cameraSelect" onchange="setCameraView(this.value)">
+            <option value="operator">Operador</option><option value="front">Frontal</option>
+            <option value="side">Lateral</option><option value="top">Superior</option>
+            <option value="iso">Isométrica</option>
+          </select>
+        </div>
+        <div class="field"><label>Calidad gráfica</label>
+          <select id="renderQuality" onchange="setRenderQuality(this.value)">
+            <option value="high">Alta</option><option value="medium">Media</option><option value="mobile">Móvil</option>
+          </select>
+        </div>
+        <div class="field"><label>Acabado de chapa</label>
+          <select id="sheetFinish" onchange="drawSim()">
+            <option value="steel">Acero</option><option value="inox">Inoxidable</option>
+            <option value="aluminium">Aluminio</option><option value="galvanized">Galvanizado</option>
+          </select>
+        </div>
+        <div class="field"><label>Espesor visual</label>
+          <input id="visualThickness" type="range" min="1" max="8" step="1" value="3" oninput="drawSim()">
+        </div>
+        <div class="field"><label>Zoom</label>
+          <input id="sceneZoom" type="range" min="70" max="130" value="100" oninput="drawSim()">
+        </div>
+        <div class="scene-toggle">
+          <button id="toggleBackgauge" class="active" onclick="toggleScenePart('backgauge',this)">Topes</button>
+          <button id="toggleSupports" class="active" onclick="toggleScenePart('supports',this)">Apoyos</button>
+          <button id="toggleSafety" class="active" onclick="toggleScenePart('safety',this)">Seguridad</button>
+        </div>
+
+        <div class="sim-readout">
+          <div class="readout"><span>Pliegue</span><b id="readBend">1/3</b></div>
+          <div class="readout"><span>Ángulo</span><b id="readAngle">0°</b></div>
+          <div class="readout"><span>V</span><b id="readV">V16</b></div>
+          <div class="readout"><span>Punzón</span><b id="readPunch">30°</b></div>
+        </div>
+        <div class="scene-help">Arrastra sobre la escena para girar la vista. Usa la rueda o el gesto de pellizco para acercar y alejar.</div>
+        <div class="collision-panel">
+          <div><b>Estado de colisión</b><br><span id="collisionDetail" class="muted">Sin interferencias detectadas.</span></div>
+          <div id="collisionDot" class="collision-dot"></div>
+        </div>
+        <div class="legend-3d">
+          <div class="legend-item"><span class="legend-swatch" style="background:#cad3da"></span>Ariete / trancha</div>
+          <div class="legend-item"><span class="legend-swatch" style="background:#eef3f6"></span>Punzón</div>
+          <div class="legend-item"><span class="legend-swatch" style="background:#6c8294"></span>Matriz</div>
+          <div class="legend-item"><span class="legend-swatch" style="background:#4ce0be"></span>Chapa</div>
+        </div>
+      </aside>
+
+      <div class="sim-stage-wrap">
+        <div class="sim-stage">
+          <canvas id="sim"></canvas>
+          <div class="machine-badge">Bystronic Xpert 3100 × 100 t · Mecos</div>
+          <div class="sim-hud">
+            <div class="hud-panel hud-left">
+              <div class="hud-label">Máquina</div><div class="hud-value">Bystronic Xpert</div>
+              <div class="mini-gauge"><span>Carga</span><i></i></div>
+            </div>
+            <div class="hud-panel hud-right">
+              <div class="hud-label">Operación activa</div><div class="hud-value" id="simInfo">Pliegue 1/3 · 0°</div>
+              <div id="collisionInfo" class="good" style="font-size:12px;margin-top:3px">Sin colisiones</div>
+            </div>
+            <div class="hud-bottom">
+              <span class="pill" id="hudTool">Punzón recto 30°</span>
+              <span class="pill" id="hudDie">Matriz V16 88°</span>
+              <span class="pill" id="hudMaterial">Chapa 2,0 mm</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scene-toolbar">
+      <button class="btn secondary" onclick="playFullSequence()">▶ Secuencia completa</button>
+      <button class="btn secondary" onclick="setSpeed(0.6)">Lenta</button>
+      <button class="btn secondary" onclick="setSpeed(1)">Normal</button>
+      <button class="btn secondary" onclick="setSpeed(1.8)">Rápida</button>
+      <button class="btn secondary" onclick="captureScene()">Capturar vista</button>
+    </div>
+    <div class="scene-status">
+      <div class="readout"><span>Cámara</span><b id="statusCamera">Operador</b></div>
+      <div class="readout"><span>Velocidad</span><b id="statusSpeed">Normal</b></div>
+      <div class="readout"><span>Secuencia</span><b id="statusSequence">Manual</b></div>
+      <div class="readout"><span>Calidad</span><b id="statusQuality">Alta</b></div>
+      <div class="readout"><span>FPS objetivo</span><b>60</b></div>
+    </div>
+    <div style="padding:0 14px 12px;background:#081521"><div class="sequence-track" id="sequenceTrack"></div></div>
+    <div class="sim-controls">
+      <div class="sim-control-left">
+        <button class="btn" onclick="toggleSim()">▶ Reproducir / Pausa</button>
+        <button class="btn secondary" onclick="stepSim(-1)">◀ Anterior</button>
+        <button class="btn secondary" onclick="stepSim(1)">Siguiente ▶</button>
+        <button class="btn secondary" onclick="resetSim()">↺ Reiniciar</button>
+      </div>
+      <div class="sim-control-right">
+        <span class="pill">Arrastre táctil</span><span class="pill">Zoom</span><span class="pill">Multiplegado</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Estado visual del trabajo</h2>
+    <div class="panel-grid">
+      <div class="panel-stat"><span>Herramienta superior</span><b id="statPunch">Recto 30°</b></div>
+      <div class="panel-stat"><span>Herramienta inferior</span><b id="statDie">V16 88°</b></div>
+      <div class="panel-stat"><span>Secuencia</span><b id="statSequence">3 pliegues</b></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="page" data-page="tools">
+<div class="grid">
+  <div class="card c4">
+    <h2>Filtros de utillaje</h2>
+    <div class="fields" style="grid-template-columns:1fr">
+      <div class="field"><label>Fabricante / casa</label><select id="fBrand" onchange="renderTools()"><option>Todos</option><option>Mecos</option><option>Bystronic</option><option>TRUMPF</option><option>AMADA</option><option>Corplec</option></select></div>
+      <div class="field"><label>Tipo</label><select id="fType" onchange="renderTools()"><option>Todos</option><option>Punzón</option><option>Matriz</option></select></div>
+      <div class="field"><label>Ángulo</label><select id="fAngle" onchange="renderTools()"><option>Todos</option><option>30</option><option>60</option><option>88</option><option>90</option></select></div>
+      <div class="field"><label>Buscar matriz o punzón</label>
+      <input id="fSearch" oninput="renderTools()" placeholder="Ej.: V16, Bystronic, Mecos, 90°, pata de cabra">
+    </div>
+    <div class="actions" style="margin-top:4px">
+      <button class="btn secondary" onclick="clearToolFilters()">Limpiar filtros</button>
+      <span class="pill" id="toolCount">0 coincidencias</span>
+    </div>
+    </div>
+    <h3>Montaje seleccionado</h3>
+    <div id="mountInfo" class="notice">Selecciona un punzón y una matriz.</div>
+  </div>
+  <div class="card c8">
+    <h2>Biblioteca Mecos / Bystronic y multimarca</h2>
+    <div class="tool-grid" id="toolGrid"></div>
+  </div>
+<div class="card"><h2>Comprobación visible de matrices Mecos añadidas</h2><p class="muted">Cada apertura incluye versiones de 30°, 60°, 88° y 90°.</p><div class="tool-proof"><div><b>V6</b><br>30° · 60° · 88° · 90°</div><div><b>V12</b><br>30° · 60° · 88° · 90°</div><div><b>V16</b><br>30° · 60° · 88° · 90°</div><div><b>V22</b><br>30° · 60° · 88° · 90°</div><div><b>V24</b><br>30° · 60° · 88° · 90°</div><div><b>V32</b><br>30° · 60° · 88° · 90°</div><div><b>V36</b><br>30° · 60° · 88° · 90°</div><div><b>V40</b><br>30° · 60° · 88° · 90°</div><div><b>V50</b><br>30° · 60° · 88° · 90°</div></div><h3>Punzones Mecos añadidos</h3><span class="pill">Recto 30°</span><span class="pill">Pata de cabra 90°</span><span class="pill">Recto 88°</span></div></div></section>
+
+<section class="page" data-page="production">
+<div class="grid">
+  <div class="card c4">
+    <h2>Tiempos de fabricación</h2>
+    <div class="fields" style="grid-template-columns:1fr">
+      <div class="field"><label>Cantidad</label><input id="pQty" type="number" value="20"></div>
+      <div class="field"><label>Pliegues por pieza</label><input id="pBends" type="number" value="3"></div>
+      <div class="field"><label>Tiempo por pliegue (s)</label><input id="pBend" type="number" value="6"></div>
+      <div class="field"><label>Manipulación por pliegue (s)</label><input id="pHandle" type="number" value="5"></div>
+      <div class="field"><label>Programación (min)</label><input id="pProg" type="number" value="4"></div>
+      <div class="field"><label>Montaje/cambio utillaje (min)</label><input id="pTool" type="number" value="8"></div>
+      <div class="field"><label>Reglaje y primera pieza (min)</label><input id="pSetup" type="number" value="3"></div>
+    </div>
+    <div class="actions"><button class="btn" onclick="calcProduction()">Calcular</button><button class="btn secondary" onclick="startTimer()">Cronómetro</button></div>
+  </div>
+  <div class="card c8">
+    <h2>Resumen</h2><div id="productionResult" class="muted">Pendiente de cálculo.</div>
+    <h3>Tiempo real</h3><div id="timer" style="font-size:38px;font-weight:950">00:00:00</div>
+    <div class="actions"><button class="btn secondary" onclick="pauseTimer()">Pausar</button><button class="btn secondary" onclick="resetTimer()">Reiniciar</button></div>
+  </div>
+</div></section>
+
+<section class="page" data-page="quality">
+<div class="grid">
+  <div class="card c5">
+    <h2>Control de primera pieza</h2>
+    <div class="fields">
+      <div class="field"><label>Cota prevista</label><input id="qTarget" type="number" value="100"></div>
+      <div class="field"><label>Cota medida</label><input id="qMeasured" type="number" value="99.4"></div>
+      <div class="field"><label>Ángulo previsto</label><input id="qAngleTarget" type="number" value="90"></div>
+      <div class="field"><label>Ángulo medido</label><input id="qAngleMeasured" type="number" value="89"></div>
+    </div>
+    <div class="actions"><button class="btn" onclick="qualityCheck()">Diagnosticar</button></div>
+  </div>
+  <div class="card c7"><h2>Diagnóstico IA</h2><div id="qualityResult" class="notice">Introduce las medidas reales de la primera pieza.</div></div>
+</div></section>
+
+<section class="page" data-page="clients">
+<div class="grid">
+  <div class="card c4">
+    <h2>Clientes y contactos</h2>
+    <div class="fields" style="grid-template-columns:1fr">
+      <div class="field"><label>Buscar cliente</label><input id="clientSearch" oninput="renderClients()" placeholder="Empresa, contacto o teléfono"></div>
+    </div>
+    <div class="client-list" id="clientList"></div>
+    <div class="actions"><button class="btn" onclick="newClient()">Nuevo cliente</button><button class="btn secondary" onclick="saveClient()">Guardar</button></div>
+  </div>
+  <div class="card c8">
+    <h2>Ficha del cliente</h2>
+    <div class="fields cols3">
+      <div class="field"><label>Empresa</label><input id="clCompany"></div>
+      <div class="field"><label>Persona de contacto</label><input id="clContact"></div>
+      <div class="field"><label>CIF/NIF</label><input id="clTax"></div>
+      <div class="field"><label>Teléfono / WhatsApp</label><input id="clPhone" inputmode="tel" placeholder="34600111222"></div>
+      <div class="field"><label>Correo electrónico</label><input id="clEmail" type="email" placeholder="cliente@empresa.com"></div>
+      <div class="field"><label>Dirección</label><input id="clAddress"></div>
+    </div>
+    <div class="field" style="margin-top:10px"><label>Observaciones</label><textarea id="clNotes" rows="3"></textarea></div>
+    <h3>Comunicación</h3>
+    <div class="comm-grid">
+      <div class="comm-card"><h3>WhatsApp</h3><div class="field"><label>Mensaje</label><textarea id="waMessage" rows="4">Hola, le escribimos desde Plegar Pro sobre su trabajo.</textarea></div><div class="contact-actions"><button class="btn" onclick="openWhatsApp()">Abrir WhatsApp</button><button class="btn secondary" onclick="copyWhatsApp()">Copiar mensaje</button></div><p class="muted small">Abre una conversación usando el número guardado. El envío de archivos se completa desde WhatsApp.</p></div>
+      <div class="comm-card"><h3>Correo electrónico</h3><div class="field"><label>Asunto</label><input id="mailSubject" value="Información de su trabajo - Plegar Pro"></div><div class="field"><label>Mensaje</label><textarea id="mailBody" rows="4">Hola, adjuntamos la información correspondiente a su trabajo.</textarea></div><div class="contact-actions"><button class="btn" onclick="openEmail()">Redactar correo</button><button class="btn secondary" onclick="copyEmail()">Copiar contenido</button></div><p class="muted small">Abre la aplicación de correo configurada en el dispositivo.</p></div>
+    </div>
+    <h3>Historial del cliente</h3>
+    <div class="table-wrap"><table><tr><th>Fecha</th><th>Trabajo</th><th>Estado</th><th>Canal</th></tr><tbody id="clientHistory"></tbody></table></div>
+  </div>
+</div></section>
+
+
+<section class="page" data-page="quotes">
+<div class="grid">
+  <div class="card c5"><h2>Presupuesto técnico</h2><div class="fields">
+    <div class="field"><label>Cliente</label><input id="qClient" value="Cliente seleccionado"></div>
+    <div class="field"><label>Referencia</label><input id="qRef" value="SOP-001"></div>
+    <div class="field"><label>Cantidad</label><input id="qQty" type="number" value="20"></div>
+    <div class="field"><label>Material (€)</label><input id="qMaterial" type="number" step=".01" value="42"></div>
+    <div class="field"><label>Máquina €/h</label><input id="qMachine" type="number" step=".01" value="55"></div>
+    <div class="field"><label>Mano de obra €/h</label><input id="qLabor" type="number" step=".01" value="28"></div>
+    <div class="field"><label>Tiempo total (min)</label><input id="qMinutes" type="number" value="35"></div>
+    <div class="field"><label>Margen (%)</label><input id="qMargin" type="number" value="25"></div>
+  </div><div class="actions"><button class="btn" onclick="calcQuote()">Calcular presupuesto</button><button class="btn secondary" onclick="printQuote()">Imprimir / PDF</button></div></div>
+  <div class="card c7"><h2>Resumen</h2><div id="quoteResult" class="muted">Pendiente de cálculo.</div></div>
+</div></section>
+
+<section class="page" data-page="planner">
+<div class="grid"><div class="card c4"><h2>Nueva orden</h2><div class="fields" style="grid-template-columns:1fr">
+<div class="field"><label>Trabajo</label><input id="plJob" value="Soporte multiplegado"></div><div class="field"><label>Entrega</label><input id="plDate" type="date"></div><div class="field"><label>Máquina</label><select id="plMachine"><option>Bystronic Xpert 3100 × 100 t</option><option>Otra máquina</option></select></div><div class="field"><label>Prioridad</label><select id="plPriority"><option>Normal</option><option>Alta</option><option>Urgente</option></select></div></div><div class="actions"><button class="btn" onclick="addPlan()">Añadir orden</button></div></div>
+<div class="card c8"><h2>Plan de producción</h2><div class="table-wrap"><table id="planTable"><tr><th>Trabajo</th><th>Entrega</th><th>Máquina</th><th>Prioridad</th><th>Estado</th></tr></table></div></div></div></section>
+
+<section class="page" data-page="inventory">
+<div class="grid"><div class="card c6"><h2>Inventario de materiales</h2><div class="fields cols3"><div class="field"><label>Material</label><input id="invMat" value="S235"></div><div class="field"><label>Espesor</label><input id="invThk" value="2 mm"></div><div class="field"><label>Cantidad</label><input id="invQty" type="number" value="12"></div></div><div class="actions"><button class="btn" onclick="addMaterialStock()">Añadir material</button></div><div class="table-wrap"><table id="matStock"><tr><th>Material</th><th>Espesor</th><th>Stock</th></tr></table></div></div>
+<div class="card c6"><h2>Inventario de utillaje</h2><div class="fields cols3"><div class="field"><label>Código</label><input id="invToolCode" value="MEC-V16-88"></div><div class="field"><label>Ubicación</label><input id="invToolLoc" value="Armario A-2"></div><div class="field"><label>Estado</label><select id="invToolState"><option>Disponible</option><option>Montado</option><option>Mantenimiento</option></select></div></div><div class="actions"><button class="btn" onclick="addToolStock()">Añadir útil</button></div><div class="table-wrap"><table id="toolStock"><tr><th>Código</th><th>Ubicación</th><th>Estado</th></tr></table></div></div></div></section>
+
+<section class="page" data-page="documents">
+<div class="grid"><div class="card c5"><h2>Documentos del trabajo</h2><input id="docInput" type="file" multiple><div class="actions"><button class="btn" onclick="saveDocs()">Registrar documentos</button><button class="btn secondary" onclick="exportBackup()">Exportar copia JSON</button></div><p class="muted">Planos, fotografías, certificados, desarrollos y notas.</p></div><div class="card c7"><h2>Registro documental</h2><div id="docList" class="muted">Sin documentos registrados.</div></div></div></section>
+
+<section class="page" data-page="analytics">
+<div class="grid"><div class="card"><h2>Indicadores del taller</h2><div class="kpis"><div class="kpi"><span>Órdenes activas</span><b id="aOrders">0</b></div><div class="kpi"><span>Stock materiales</span><b id="aMaterials">0</b></div><div class="kpi"><span>Útiles inventariados</span><b id="aTools">0</b></div><div class="kpi"><span>Presupuesto último</span><b id="aQuote">0 €</b></div></div></div><div class="card"><h2>Resumen operativo</h2><div id="analyticsText" class="notice">Los indicadores se actualizan al usar los módulos de presupuestos, planificación e inventario.</div></div></div></section>
+
+
+<section class="page" data-page="preparation">
+<div class="grid">
+  <div class="card c6">
+    <h2>Asistente de preparación</h2>
+    <div class="checklist" id="prepChecklist">
+      <label class="check"><input type="checkbox"><span><b>Plano y revisión correctos</b><br><span class="muted">Confirmar que se utiliza la versión vigente.</span></span></label>
+      <label class="check"><input type="checkbox"><span><b>Material y espesor verificados</b><br><span class="muted">Comparar orden, plano y material físico.</span></span></label>
+      <label class="check"><input type="checkbox"><span><b>Punzón y matriz disponibles</b><br><span class="muted">Comprobar montaje, longitud y estado.</span></span></label>
+      <label class="check"><input type="checkbox"><span><b>Secuencia y simulación revisadas</b><br><span class="muted">Validar pliegues, giros y posibles interferencias.</span></span></label>
+      <label class="check"><input type="checkbox"><span><b>Primera pieza y cota crítica definidas</b><br><span class="muted">Preparar medición y corrección.</span></span></label>
+    </div>
+    <div class="actions"><button class="btn" onclick="validatePreparation()">Validar preparación</button><button class="btn secondary" onclick="resetPreparation()">Reiniciar</button></div>
+  </div>
+  <div class="card c6">
+    <h2>Informe previo</h2>
+    <div id="prepResult" class="notice">Completa la lista antes de iniciar el trabajo.</div>
+    <h3>Riesgos revisados</h3>
+    <div class="table-wrap"><table>
+      <tr><th>Riesgo</th><th>Comprobación</th></tr>
+      <tr><td>Colisión con pieza o máquina</td><td>Simulación multiplegado</td></tr>
+      <tr><td>Agujero próximo al pliegue</td><td>Comparador V y radio</td></tr>
+      <tr><td>Tonelaje o herramienta incorrecta</td><td>Montaje y biblioteca</td></tr>
+      <tr><td>Error de medida por cambio de V</td><td>Pérdida/ganancia y desarrollo</td></tr>
+    </table></div>
+  </div>
+</div></section>
+
+<section class="page" data-page="strategies">
+<div class="grid">
+  <div class="card c4">
+    <h2>Modo “Qué pasaría si…”</h2>
+    <div class="fields" style="grid-template-columns:1fr">
+      <div class="field"><label>Material</label><select id="sMaterial"><option>Acero S235</option><option>Acero inoxidable</option><option>Aluminio</option></select></div>
+      <div class="field"><label>Espesor (mm)</label><input id="sThickness" type="number" step=".1" value="2"></div>
+      <div class="field"><label>V escenario A</label><select id="sV1"></select></div>
+      <div class="field"><label>V escenario B</label><select id="sV2"></select></div>
+      <div class="field"><label>Cantidad</label><input id="sQty" type="number" value="20"></div>
+    </div>
+    <div class="actions"><button class="btn" onclick="compareStrategies()">Comparar estrategias</button></div>
+  </div>
+  <div class="card c8">
+    <h2>Comparación</h2>
+    <div class="strategy-grid" id="strategyResult">
+      <div class="strategy-card"><b>Precisión</b><p class="muted">Pendiente.</p></div>
+      <div class="strategy-card"><b>Producción</b><p class="muted">Pendiente.</p></div>
+      <div class="strategy-card"><b>Riesgo</b><p class="muted">Pendiente.</p></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="page" data-page="calibration">
+<div class="grid">
+  <div class="card c5">
+    <h2>Calibración por máquina</h2>
+    <div class="fields">
+      <div class="field"><label>Máquina</label><select id="calMachine"><option>Bystronic Xpert 3100 × 100 t</option></select></div>
+      <div class="field"><label>Material</label><select id="calMaterial"><option>S235</option><option>Inoxidable</option><option>Aluminio</option></select></div>
+      <div class="field"><label>Espesor</label><input id="calThickness" type="number" step=".1" value="2"></div>
+      <div class="field"><label>Matriz V</label><select id="calV"></select></div>
+      <div class="field"><label>Error teórico/real (mm)</label><input id="calError" type="number" step=".01" value="0.20"></div>
+      <div class="field"><label>Corrección angular (°)</label><input id="calAngle" type="number" step=".1" value="1"></div>
+    </div>
+    <div class="actions"><button class="btn" onclick="saveCalibration()">Guardar calibración</button></div>
+  </div>
+  <div class="card c7">
+    <h2>Curvas y experiencia del taller</h2>
+    <div class="table-wrap"><table id="calTable"><tr><th>Máquina</th><th>Material</th><th>Espesor</th><th>V</th><th>Corrección</th><th>Ángulo</th></tr></table></div>
+  </div>
+</div></section>
+
+<section class="page" data-page="traceability">
+<div class="grid">
+  <div class="card c5">
+    <h2>Pasaporte digital de la pieza</h2>
+    <div class="fields">
+      <div class="field"><label>Referencia</label><input id="trRef" value="SOP-001-R1"></div>
+      <div class="field"><label>Cliente</label><input id="trClient" value="Taller Ejemplo"></div>
+      <div class="field"><label>Revisión</label><input id="trRevision" value="R1"></div>
+      <div class="field"><label>Operario</label><input id="trOperator" value="Operario 1"></div>
+      <div class="field"><label>Máquina</label><input id="trMachine" value="Bystronic Xpert 3100 × 100 t"></div>
+      <div class="field"><label>Resultado</label><select id="trResult"><option>Correcta</option><option>Con corrección</option><option>Incidencia</option></select></div>
+    </div>
+    <div class="actions"><button class="btn" onclick="addTrace()">Registrar hito</button></div>
+  </div>
+  <div class="card c7">
+    <h2>Trazabilidad</h2>
+    <div class="timeline" id="traceTimeline"><div class="timeline-item"><b>Inicio</b><span>Pasaporte preparado para registrar ingeniería, fabricación, calidad y comunicación.</span></div></div>
+  </div>
+</div></section>
+
+<section class="page" data-page="rules">
+<div class="grid">
+  <div class="card c5">
+    <h2>Reglas del taller</h2>
+    <div class="fields" style="grid-template-columns:1fr">
+      <div class="field"><label>Condición</label><input id="ruleCondition" value="Inoxidable 1,5 mm con agujero próximo"></div>
+      <div class="field"><label>Recomendación</label><input id="ruleAction" value="Priorizar V12 y verificar deformación"></div>
+    </div>
+    <div class="actions"><button class="btn" onclick="addRule()">Añadir regla</button></div>
+  </div>
+  <div class="card c7">
+    <h2>Biblioteca de procedimientos</h2>
+    <div id="ruleList"></div>
+  </div>
+</div></section>
+
+
+<section class="page" data-page="engineering">
+<div class="grid">
+  <div class="card">
+    <h2>Industrial Engineering Core</h2>
+    <p class="muted">Estado verificable de los motores que comparten el mismo trabajo y la misma biblioteca.</p>
+    <div class="engine-grid" id="engineGrid"></div>
+  </div>
+  <div class="card c5">
+    <h2>Analizador de preparación</h2>
+    <div class="fields" style="grid-template-columns:1fr">
+      <div class="field"><label>Material</label><select id="engMaterial"><option>Acero S235</option><option>Acero inoxidable</option><option>Aluminio</option><option>Galvanizado</option></select></div>
+      <div class="field"><label>Espesor (mm)</label><input id="engThickness" type="number" step="0.1" value="2"></div>
+      <div class="field"><label>Longitud de plegado (mm)</label><input id="engLength" type="number" value="1000"></div>
+      <div class="field"><label>Matriz</label><select id="engV"></select></div>
+      <div class="field"><label>Ángulo interior</label><input id="engAngle" type="number" value="90"></div>
+      <div class="field"><label>Número de pliegues</label><input id="engBends" type="number" value="3"></div>
+    </div>
+    <div class="actions"><button class="btn" onclick="runEngineeringAnalysis()">Analizar trabajo</button><button class="btn secondary" onclick="applyEngineeringToJob()">Aplicar al trabajo</button></div>
+  </div>
+  <div class="card c7">
+    <h2>Informe de decisión</h2>
+    <div id="engineeringReport" class="notice">Introduce los datos del trabajo y ejecuta el análisis.</div>
+    <div class="source-legend">
+      <span><i class="src registered"></i>Dato registrado</span>
+      <span><i class="src calculated"></i>Cálculo</span>
+      <span><i class="src recommendation"></i>Recomendación</span>
+    </div>
+  </div>
+  <div class="card">
+    <h2>Integridad del proyecto</h2>
+    <div class="integrity-grid">
+      <div class="integrity-item"><span>Biblioteca Mecos/Bystronic</span><b id="integrityTools">—</b></div>
+      <div class="integrity-item"><span>Pliegues activos</span><b id="integrityBends">—</b></div>
+      <div class="integrity-item"><span>Clientes guardados</span><b id="integrityClients">—</b></div>
+      <div class="integrity-item"><span>Calibraciones</span><b id="integrityCal">—</b></div>
+      <div class="integrity-item"><span>Reglas del taller</span><b id="integrityRules">—</b></div>
+      <div class="integrity-item"><span>Estado del núcleo</span><b class="good">Operativo</b></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="page" data-page="ai">
+<div class="grid">
+  <div class="card">
+    <h2>Copiloto IA especializado</h2>
+    <div class="chat" id="chat"><div class="msg ai">Estoy conectado al trabajo, la secuencia, el montaje y el comparador V. Pregúntame por medidas, radios, tiempos, colisiones o utillaje.</div></div>
+    <div class="chatrow"><input id="chatInput" placeholder="¿Cuánto cambia la pieza si paso de V16 a V12?"><button class="btn" onclick="askAI()">Enviar</button></div>
+  </div>
+</div></section>
+</main></div>
+
+<script src="assets/app.js" defer></script>
 </body>
 </html>
