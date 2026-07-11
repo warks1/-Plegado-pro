@@ -145,7 +145,7 @@ radial-gradient(circle at 50% 18%,#234968 0,#0c2338 34%,#06111c 78%);border-radi
 }
 
 
-/* v16 Industrial Vision Ultimate */
+/* v16 Multiplegado Engineering */
 :root{
   --metal:#cbd6df;--steel:#60788d;--machine:#15324b;--machine2:#0d2438;
   --cyan:#50ddff;--green:#47dfbd;--amber:#ffbe62;
@@ -180,7 +180,7 @@ radial-gradient(circle at 75% 5%,#4eb9ff12,transparent 22%);background-size:34px
 @media(max-width:560px){.sim-head{align-items:flex-start;flex-direction:column}.sim-badges{justify-content:flex-start}.hud-right{top:auto;bottom:62px}.graphic-strip{grid-template-columns:1fr 1fr}.sim-stage canvas{height:500px}.view-buttons{display:grid;grid-template-columns:repeat(3,1fr);width:100%}.view-btn{font-size:11px;padding:8px 6px}}
 
 
-/* v17 Industrial Vision Ultimate */
+/* v17 Multiplegado Engineering */
 .sim-sidepanel{
   display:grid;grid-template-columns:280px minmax(0,1fr);gap:0;background:#030910;
 }
@@ -218,7 +218,7 @@ radial-gradient(circle at 75% 5%,#4eb9ff12,transparent 22%);background-size:34px
 }
 
 
-/* v18 Industrial Vision Ultimate */
+/* v18 Multiplegado Engineering */
 .scene-toolbar{display:flex;gap:8px;flex-wrap:wrap;padding:10px 14px;background:#07131f;border-top:1px solid #28445d}
 .scene-toolbar .btn{padding:8px 11px}
 .scene-status{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;padding:12px 14px;background:#081521;border-top:1px solid #20394f}
@@ -238,6 +238,25 @@ radial-gradient(circle at 75% 5%,#4eb9ff12,transparent 22%);background-size:34px
 @media(max-width:900px){.scene-status{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.scene-status{grid-template-columns:1fr 1fr}.scene-toolbar .btn{flex:1 1 120px}}
 
+
+/* v18.1 Multiplegado Engineering */
+.mode-switch{display:flex;gap:6px;padding:5px;background:#071521;border:1px solid #2d4f68;border-radius:11px}
+.mode-switch button{border:0;background:transparent;color:#91aabd;padding:8px 13px;border-radius:8px;cursor:pointer;font-weight:800}
+.mode-switch button.active{background:#17415b;color:#fff;box-shadow:0 0 0 1px #4edcff55}
+.sim2d-wrap{display:none;min-height:500px;background:linear-gradient(180deg,#07131d,#02070c);position:relative}
+.sim2d-wrap.active{display:block}.sim-stage-wrap.hidden{display:none}
+#sim2d{width:100%;height:clamp(500px,68vh,760px);display:block}
+.bend-editor{display:grid;gap:9px}
+.bend-row-v181{display:grid;grid-template-columns:54px repeat(6,minmax(90px,1fr)) 42px;gap:7px;align-items:end;background:#0a2031;border:1px solid #294b65;border-radius:12px;padding:9px}
+.bend-row-v181 .num{display:grid;place-items:center;height:38px;border-radius:10px;background:#12334a;font-weight:900}
+.bend-row-v181 .field{margin:0}.bend-row-v181 label{font-size:10px}
+.dev-summary{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px}
+.dev-summary>div{background:#0a2031;border:1px solid #294b65;border-radius:12px;padding:10px}.dev-summary span{display:block;font-size:10px;color:#8ca7ba;text-transform:uppercase}.dev-summary b{display:block;font-size:18px;margin-top:4px}
+.multi-v-table td:first-child,.multi-v-table th:first-child{position:sticky;left:0;background:#0a1d2c;z-index:2}
+.dev-diagram{width:100%;height:330px;background:#04101a;border:1px solid #294b65;border-radius:13px}
+@media(max-width:1100px){.bend-row-v181{grid-template-columns:48px repeat(3,minmax(100px,1fr));}.bend-row-v181 .delete-cell{grid-column:-2/-1}}
+@media(max-width:700px){.bend-row-v181{grid-template-columns:42px 1fr 1fr}.dev-summary{grid-template-columns:1fr 1fr}.dev-summary>div:last-child{grid-column:1/-1}}
+
 </style>
 </head>
 <body>
@@ -255,7 +274,7 @@ radial-gradient(circle at 75% 5%,#4eb9ff12,transparent 22%);background-size:34px
   </div>
 
 <section class="page active" data-page="dashboard">
-<div class="version-banner"><b>VERSIÓN 18.0 · CONTENIDO VERIFICABLE</b><br><span>36 matrices Mecos, punzones solicitados, multiplegado, simulación, WhatsApp, correo, CRM, presupuestos, inventarios y más.</span><div class="actions"><button class="btn" onclick="go('tools')">Ver matrices y punzones</button><button class="btn secondary" onclick="go('clients')">Ver WhatsApp y correo</button><button class="btn secondary" onclick="go('bends')">Ver multiplegado</button></div></div>
+<div class="version-banner"><b>VERSIÓN 18.1 · CONTENIDO VERIFICABLE</b><br><span>36 matrices Mecos, punzones solicitados, multiplegado, simulación, WhatsApp, correo, CRM, presupuestos, inventarios y más.</span><div class="actions"><button class="btn" onclick="go('tools')">Ver matrices y punzones</button><button class="btn secondary" onclick="go('clients')">Ver WhatsApp y correo</button><button class="btn secondary" onclick="go('bends')">Ver multiplegado</button></div></div>
 <div class="grid">
   <div class="card"><div class="kpis">
     <div class="kpi"><span>Dispositivo</span><b id="kDevice">—</b></div>
@@ -324,43 +343,87 @@ radial-gradient(circle at 75% 5%,#4eb9ff12,transparent 22%);background-size:34px
   </div>
 </div></section>
 
+
 <section class="page" data-page="bends">
 <div class="grid">
-  <div class="card c5">
-    <h2>Secuencia multiplegado</h2>
-    <p class="muted">Añade tantos pliegues como necesites y ordénalos según la fabricación.</p>
-    <div class="bend-list" id="bendList"></div>
-    <div class="actions"><button class="btn" onclick="addBend()">Añadir pliegue</button><button class="btn secondary" onclick="loadExampleBends()">Ejemplo 5 pliegues</button></div>
+  <div class="card c8">
+    <div class="section-heading">
+      <div><h2>Multiplegado con datos dimensionales</h2><p class="muted">Define longitud de ala, ángulo, radio, sentido, V y longitud de plegado para cada operación.</p></div>
+      <div class="actions"><button class="btn" onclick="addDetailedBend()">Añadir pliegue</button><button class="btn secondary" onclick="loadBendExample()">Ejemplo</button></div>
+    </div>
+    <div class="bend-editor" id="detailedBendRows"></div>
   </div>
-  <div class="card c7">
-    <h2>Resumen de secuencia</h2>
-    <div id="bendSummary"></div>
-    <h3>Recomendación IA</h3>
-    <div class="notice" id="sequenceAdvice">Configura los pliegues para analizar la secuencia.</div>
+  <div class="card c4">
+    <h2>Resumen de la pieza</h2>
+    <div class="dev-summary" style="grid-template-columns:1fr 1fr">
+      <div><span>Pliegues</span><b id="sumBends">0</b></div>
+      <div><span>Longitud nominal</span><b id="sumNominal">0 mm</b></div>
+      <div><span>Desarrollo</span><b id="sumDeveloped">0 mm</b></div>
+      <div><span>Deducción total</span><b id="sumDeduction">0 mm</b></div>
+    </div>
+    <div class="actions"><button class="btn" onclick="calculateDetailedDevelopment()">Calcular desarrollo</button><button class="btn secondary" onclick="go('development')">Abrir desarrollo</button></div>
+    <div id="bendWarnings" class="notice">Añade o modifica operaciones para recalcular.</div>
   </div>
-</div></section>
+</div>
+</section>
+
+
+<section class="page" data-page="development">
+<div class="grid">
+  <div class="card c4">
+    <h2>Crear pieza plegada</h2>
+    <div class="fields" style="grid-template-columns:1fr">
+      <div class="field"><label>Referencia</label><input id="devRef" value="PIEZA-001"></div>
+      <div class="field"><label>Material</label><select id="devMaterial"><option>Acero S235</option><option>Acero inoxidable</option><option>Aluminio</option><option>Galvanizado</option></select></div>
+      <div class="field"><label>Espesor (mm)</label><input id="devThickness" type="number" min=".1" step=".1" value="2"></div>
+      <div class="field"><label>Factor K</label><input id="devK" type="number" min=".1" max=".6" step=".01" value=".33"></div>
+      <div class="field"><label>Longitud de pieza / ancho (mm)</label><input id="devWidth" type="number" min="1" value="800"></div>
+    </div>
+    <div class="actions"><button class="btn" onclick="calculateDetailedDevelopment()">Recalcular</button><button class="btn secondary" onclick="exportDevelopmentCSV()">Exportar CSV</button></div>
+  </div>
+  <div class="card c8">
+    <h2>Desarrollo calculado</h2>
+    <div class="dev-summary">
+      <div><span>Longitud nominal</span><b id="devNominal">—</b></div>
+      <div><span>BA total</span><b id="devBATotal">—</b></div>
+      <div><span>BD total</span><b id="devBDTotal">—</b></div>
+      <div><span>Desarrollo</span><b id="devFlat">—</b></div>
+      <div><span>Peso orientativo</span><b id="devWeight">—</b></div>
+    </div>
+    <canvas id="developmentDiagram" class="dev-diagram"></canvas>
+    <div class="table-wrap"><table>
+      <thead><tr><th>#</th><th>Ala</th><th>Ángulo</th><th>Radio</th><th>V</th><th>BA</th><th>BD</th><th>Acumulado</th></tr></thead>
+      <tbody id="developmentRows"></tbody>
+    </table></div>
+  </div>
+</div>
+</section>
+
 
 <section class="page" data-page="calc">
 <div class="grid">
   <div class="card c4">
-    <h2>Comparador de matrices V</h2>
+    <h2>Comparador V multiplegado</h2>
     <div class="fields" style="grid-template-columns:1fr">
-      <div class="field"><label>Espesor (mm)</label><input id="cT" type="number" step=".1" value="2"></div>
-      <div class="field"><label>Ángulo interior (°)</label><input id="cA" type="number" value="90"></div>
-      <div class="field"><label>Ala 1 (mm)</label><input id="cL1" type="number" value="50"></div>
-      <div class="field"><label>Ala 2 (mm)</label><input id="cL2" type="number" value="100"></div>
-      <div class="field"><label>V actual</label><select id="cV1"></select></div>
-      <div class="field"><label>V alternativa</label><select id="cV2"></select></div>
-      <div class="field"><label>Factor K</label><input id="cK" type="number" step=".01" value=".33"></div>
-      <div class="field"><label>Calibración taller (mm)</label><input id="cCal" type="number" step=".01" value="0"></div>
+      <div class="field"><label>V base</label><select id="multiBaseV"></select></div>
+      <div class="field"><label>Comparar con</label>
+        <div class="checkbox-grid" id="multiVChecks"></div>
+      </div>
+      <div class="field"><label>Cota a conservar</label><select id="multiKeep"><option value="total">Longitud total</option><option value="first">Primera ala</option><option value="last">Última ala</option></select></div>
     </div>
-    <div class="actions"><button class="btn" onclick="calculateV()">Calcular pérdida/ganancia</button></div>
+    <div class="actions"><button class="btn" onclick="calculateMultiV()">Comparar todas las operaciones</button></div>
+    <div class="notice">El comparador utiliza los pliegues definidos en Multiplegado y calcula el efecto acumulado de cambiar la V.</div>
   </div>
   <div class="card c8">
-    <h2>Resultado</h2>
-    <div id="calcResult" class="muted">Pendiente de cálculo.</div>
+    <h2>Impacto acumulado por configuración</h2>
+    <div class="table-wrap"><table class="multi-v-table">
+      <thead><tr><th>Configuración</th><th>Radio total</th><th>BA total</th><th>BD total</th><th>Desarrollo</th><th>Diferencia</th><th>Corrección/ala</th><th>Riesgo</th></tr></thead>
+      <tbody id="multiVResults"></tbody>
+    </table></div>
+    <canvas id="multiVChart" class="dev-diagram"></canvas>
   </div>
-</div></section>
+</div>
+</section>
 
 
 
@@ -371,6 +434,10 @@ radial-gradient(circle at 75% 5%,#4eb9ff12,transparent 22%);background-size:34px
       <div class="sim-title-wrap">
         <h2>Simulación industrial 3D · Gemelo digital de plegadora</h2>
         <p>Escena interactiva con máquina, utillaje, topes, apoyos, chapa y secuencia multiplegado.</p>
+      </div>
+      <div class="mode-switch">
+        <button id="mode3dBtn" class="active" onclick="setSimulationMode('3d')">3D</button>
+        <button id="mode2dBtn" onclick="setSimulationMode('2d')">2D</button>
       </div>
       <div class="sim-badges">
         <span class="pill">Motor v17</span><span class="pill">Perspectiva dinámica</span><span class="pill">Utillaje enlazado</span>
@@ -429,7 +496,7 @@ radial-gradient(circle at 75% 5%,#4eb9ff12,transparent 22%);background-size:34px
         </div>
       </aside>
 
-      <div class="sim-stage-wrap">
+      <div class="sim-stage-wrap" id="sim3dWrap">
         <div class="sim-stage">
           <canvas id="sim"></canvas>
           <div class="machine-badge">Bystronic Xpert 3100 × 100 t · Mecos</div>
@@ -450,6 +517,10 @@ radial-gradient(circle at 75% 5%,#4eb9ff12,transparent 22%);background-size:34px
           </div>
         </div>
       </div>
+    </div>
+    <div class="sim2d-wrap" id="sim2dWrap">
+      <canvas id="sim2d"></canvas>
+      <div class="hud-panel hud-left"><div class="hud-label">Vista técnica 2D</div><div class="hud-value" id="sim2dInfo">Pliegue 1</div></div>
     </div>
 
     <div class="scene-toolbar">
@@ -754,10 +825,10 @@ const PAGE_META={
  rules:['Reglas del taller','Procedimientos y experiencia interna'],
  ai:['Copiloto IA','Asistente técnico de plegado']
 };
-const LABELS={dashboard:'Panel',import:'Importar',bends:'Pliegues',calc:'Comparar V',simulation:'3D',tools:'Utillaje',production:'Tiempos',quality:'Calidad',clients:'Clientes',quotes:'Presup.',planner:'Planificar',inventory:'Inventario',documents:'Docs',analytics:'Indicadores',preparation:'Preparar',strategies:'Escenarios',calibration:'Calibrar',traceability:'Trazabilidad',rules:'Reglas',ai:'IA'};
+const LABELS={dashboard:'Panel',import:'Importar',bends:'Multiplegado',development:'Desarrollo',calc:'Comparar V',simulation:'3D',tools:'Utillaje',production:'Tiempos',quality:'Calidad',clients:'Clientes',quotes:'Presup.',planner:'Planificar',inventory:'Inventario',documents:'Docs',analytics:'Indicadores',preparation:'Preparar',strategies:'Escenarios',calibration:'Calibrar',traceability:'Trazabilidad',rules:'Reglas',ai:'IA'};
 const nav=document.getElementById('nav');
 const MENU_GROUPS=[
-  ['Trabajo',['dashboard','import','bends','simulation','calc','tools']],
+  ['Trabajo',['dashboard','import','bends','development','simulation','calc','tools']],
   ['Producción',['production','quality','preparation','strategies','calibration']],
   ['Gestión',['clients','quotes','planner','inventory','documents','analytics']],
   ['Conocimiento',['traceability','rules','ai']]
@@ -791,7 +862,7 @@ function filterMenu(){
   });
 }
 function detectDevice(){const w=window.innerWidth;let d=w<=760?'Móvil':w<=1100?'Tablet':'PC';kDevice.textContent=d;deviceStatus.textContent='● '+d+' · interfaz adaptada';document.body.dataset.device=d.toLowerCase()}
-window.addEventListener('resize',()=>{detectDevice();if(document.querySelector('[data-page="simulation"]').classList.contains('active'))drawSim()});detectDevice();
+window.addEventListener('resize',()=>{detectDevice();if(document.querySelector('[data-page="simulation"]').classList.contains('active'))drawSim();if(simulationMode==='2d')drawSim2D()});detectDevice();
 
 let selectedFiles=[];const drop=document.getElementById('drop'),fileInput=document.getElementById('fileInput');
 drop.onclick=()=>fileInput.click();fileInput.onchange=e=>{selectedFiles=[...e.target.files];renderFiles()};
@@ -890,6 +961,165 @@ function selectTool(i){const t=tools[i];if(t.type==='Punzón')selPunch=i;else se
 renderTools();
 
 
+
+const V_OPTIONS=[6,12,16,22,24,32,36,40,50];
+let detailedBends=[
+  {length:120,angle:90,radius:2,direction:'Arriba',v:16,bendLength:800},
+  {length:80,angle:90,radius:2,direction:'Arriba',v:16,bendLength:800},
+  {length:55,angle:135,radius:2.5,direction:'Abajo',v:22,bendLength:800}
+];
+let simulationMode='3d';
+
+function densityForMaterial(name){
+  const n=normalizeText(name);if(n.includes('aluminio'))return 2700;if(n.includes('inox'))return 7900;return 7850;
+}
+function syncLegacyBends(){
+  bends=detailedBends.map((b,i)=>({id:i+1,angle:+b.angle,dir:b.direction,length:+b.length,radius:+b.radius,v:+b.v,bendLength:+b.bendLength}));
+  if(typeof renderBends==='function')try{renderBends()}catch(e){}
+  if(typeof renderSequenceTrack==='function')renderSequenceTrack();
+}
+function addDetailedBend(data={}){
+  detailedBends.push({length:data.length??50,angle:data.angle??90,radius:data.radius??2,direction:data.direction??'Arriba',v:data.v??16,bendLength:data.bendLength??800});
+  renderDetailedBends();calculateDetailedDevelopment();drawSim();drawSim2D();
+}
+function removeDetailedBend(i){
+  if(detailedBends.length<=1)return;
+  detailedBends.splice(i,1);renderDetailedBends();calculateDetailedDevelopment();drawSim();drawSim2D();
+}
+function updateDetailedBend(i,key,value){
+  detailedBends[i][key]=['direction'].includes(key)?value:+value;
+  syncLegacyBends();calculateDetailedDevelopment();drawSim();drawSim2D();
+}
+function loadBendExample(){
+  detailedBends=[
+    {length:100,angle:90,radius:1.8,direction:'Arriba',v:12,bendLength:600},
+    {length:70,angle:90,radius:2.2,direction:'Arriba',v:16,bendLength:600},
+    {length:45,angle:135,radius:3,direction:'Abajo',v:24,bendLength:600},
+    {length:35,angle:90,radius:2.2,direction:'Arriba',v:16,bendLength:600}
+  ];
+  renderDetailedBends();calculateDetailedDevelopment();drawSim();drawSim2D();
+}
+function renderDetailedBends(){
+  const host=document.getElementById('detailedBendRows');if(!host)return;
+  host.innerHTML=detailedBends.map((b,i)=>`<div class="bend-row-v181">
+    <div class="num">#${i+1}</div>
+    <div class="field"><label>Longitud ala (mm)</label><input type="number" step=".1" value="${b.length}" onchange="updateDetailedBend(${i},'length',this.value)"></div>
+    <div class="field"><label>Ángulo (°)</label><input type="number" min="1" max="179" step=".1" value="${b.angle}" onchange="updateDetailedBend(${i},'angle',this.value)"></div>
+    <div class="field"><label>Radio interior (mm)</label><input type="number" min=".1" step=".1" value="${b.radius}" onchange="updateDetailedBend(${i},'radius',this.value)"></div>
+    <div class="field"><label>Sentido</label><select onchange="updateDetailedBend(${i},'direction',this.value)"><option ${b.direction==='Arriba'?'selected':''}>Arriba</option><option ${b.direction==='Abajo'?'selected':''}>Abajo</option></select></div>
+    <div class="field"><label>Matriz</label><select onchange="updateDetailedBend(${i},'v',this.value)">${V_OPTIONS.map(v=>`<option value="${v}" ${+b.v===v?'selected':''}>V${v}</option>`).join('')}</select></div>
+    <div class="field"><label>Longitud pliegue (mm)</label><input type="number" min="1" step="1" value="${b.bendLength}" onchange="updateDetailedBend(${i},'bendLength',this.value)"></div>
+    <div class="delete-cell"><button class="icon-btn danger" onclick="removeDetailedBend(${i})">×</button></div>
+  </div>`).join('');
+  syncLegacyBends();
+}
+function calcBendFromInputs(b,t,k){
+  const theta=(180-Math.max(1,Math.min(179,+b.angle)))*Math.PI/180;
+  const r=Math.max(.1,+b.radius||(+b.v*.16));
+  const ba=theta*(r+k*t);
+  const setback=Math.tan(theta/2)*(r+t);
+  const bd=Math.max(0,2*setback-ba);
+  return {r,ba,bd,setback};
+}
+function calculateDetailedDevelopment(){
+  const t=+(document.getElementById('devThickness')?.value||jobThickness?.value||2);
+  const k=+(document.getElementById('devK')?.value||.33);
+  const nominal=detailedBends.reduce((s,b)=>s+(+b.length||0),0);
+  let ba=0,bd=0,acc=0;
+  const rows=detailedBends.map((b,i)=>{
+    const c=calcBendFromInputs(b,t,k);ba+=c.ba;bd+=c.bd;acc+=(+b.length||0)-c.bd;
+    return {i,b,c,acc};
+  });
+  const flat=Math.max(0,nominal-bd);
+  const width=+(document.getElementById('devWidth')?.value||detailedBends[0]?.bendLength||800);
+  const material=document.getElementById('devMaterial')?.value||jobMaterial?.value||'Acero S235';
+  const weight=flat/1000*width/1000*t/1000*densityForMaterial(material);
+  if(document.getElementById('sumBends'))sumBends.textContent=detailedBends.length;
+  if(document.getElementById('sumNominal'))sumNominal.textContent=`${nominal.toFixed(2)} mm`;
+  if(document.getElementById('sumDeveloped'))sumDeveloped.textContent=`${flat.toFixed(2)} mm`;
+  if(document.getElementById('sumDeduction'))sumDeduction.textContent=`${bd.toFixed(2)} mm`;
+  if(document.getElementById('devNominal'))devNominal.textContent=`${nominal.toFixed(2)} mm`;
+  if(document.getElementById('devBATotal'))devBATotal.textContent=`${ba.toFixed(2)} mm`;
+  if(document.getElementById('devBDTotal'))devBDTotal.textContent=`${bd.toFixed(2)} mm`;
+  if(document.getElementById('devFlat'))devFlat.textContent=`${flat.toFixed(2)} mm`;
+  if(document.getElementById('devWeight'))devWeight.textContent=`${weight.toFixed(2)} kg`;
+  if(document.getElementById('developmentRows'))developmentRows.innerHTML=rows.map(x=>`<tr><td>${x.i+1}</td><td>${(+x.b.length).toFixed(2)} mm</td><td>${x.b.angle}° ${x.b.direction}</td><td>${x.c.r.toFixed(2)} mm</td><td>V${x.b.v}</td><td>${x.c.ba.toFixed(3)}</td><td>${x.c.bd.toFixed(3)}</td><td>${x.acc.toFixed(2)}</td></tr>`).join('');
+  const warnings=[];
+  detailedBends.forEach((b,i)=>{const ratio=(+b.v)/t;if(ratio<5)warnings.push(`Pliegue ${i+1}: V estrecha para el espesor.`);if((+b.length)<(+b.v*.7))warnings.push(`Pliegue ${i+1}: ala corta respecto a V${b.v}.`)});
+  if(document.getElementById('bendWarnings'))bendWarnings.innerHTML=warnings.length?warnings.map(w=>`<div class="warntext">${w}</div>`):'<span class="good">Datos dimensionales coherentes para una comprobación inicial.</span>';
+  drawDevelopmentDiagram(rows,flat);return {nominal,ba,bd,flat,rows};
+}
+function drawDevelopmentDiagram(rows,flat){
+  const cv=document.getElementById('developmentDiagram');if(!cv)return;
+  const dpr=Math.min(devicePixelRatio||1,2),w=cv.clientWidth,h=cv.clientHeight;cv.width=w*dpr;cv.height=h*dpr;
+  const c=cv.getContext('2d');c.setTransform(dpr,0,0,dpr,0,0);c.clearRect(0,0,w,h);
+  c.fillStyle='#04101a';c.fillRect(0,0,w,h);const pad=35,y=h/2,scale=(w-pad*2)/Math.max(flat,1);
+  c.lineCap='round';c.strokeStyle='#4ce0be';c.lineWidth=12;c.beginPath();c.moveTo(pad,y);c.lineTo(w-pad,y);c.stroke();
+  let x=pad;
+  rows.forEach((r,i)=>{x+=Math.max(0,(+r.b.length-r.c.bd))*scale;c.strokeStyle='#ffbe62';c.lineWidth=2;c.beginPath();c.moveTo(x,y-24);c.lineTo(x,y+24);c.stroke();c.fillStyle='#dceaf5';c.font='11px sans-serif';c.fillText(`#${i+1} V${r.b.v}`,x-18,y-30)});
+  c.fillStyle='#8ea9bd';c.fillText(`Desarrollo ${flat.toFixed(2)} mm`,pad,25);
+}
+function exportDevelopmentCSV(){
+  const result=calculateDetailedDevelopment();
+  const lines=['pliegue,longitud_ala,angulo,sentido,radio,V,longitud_plegado,BA,BD'];
+  result.rows.forEach(x=>lines.push([x.i+1,x.b.length,x.b.angle,x.b.direction,x.c.r,x.b.v,x.b.bendLength,x.c.ba.toFixed(4),x.c.bd.toFixed(4)].join(',')));
+  const blob=new Blob([lines.join('\n')],{type:'text/csv'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`${document.getElementById('devRef')?.value||'pieza'}_desarrollo.csv`;a.click();URL.revokeObjectURL(a.href);
+}
+function initMultiV(){
+  if(document.getElementById('multiBaseV')){
+    multiBaseV.innerHTML=V_OPTIONS.map(v=>`<option value="${v}" ${v===16?'selected':''}>V${v}</option>`).join('');
+    multiVChecks.innerHTML=V_OPTIONS.map(v=>`<label class="check"><input type="checkbox" value="${v}" ${[12,16,24,32].includes(v)?'checked':''}><span>V${v}</span></label>`).join('');
+  }
+}
+function scenarioForV(V,t,k){
+  let ba=0,bd=0,radius=0;
+  detailedBends.forEach(b=>{const copy={...b,v:V,radius:Math.max(.1,V*.16)};const c=calcBendFromInputs(copy,t,k);ba+=c.ba;bd+=c.bd;radius+=c.r});
+  const nominal=detailedBends.reduce((s,b)=>s+(+b.length||0),0);
+  return {V,ba,bd,radius,flat:nominal-bd};
+}
+function calculateMultiV(){
+  const base=+multiBaseV.value,t=+(document.getElementById('devThickness')?.value||jobThickness?.value||2),k=+(document.getElementById('devK')?.value||.33);
+  const selected=[...multiVChecks.querySelectorAll('input:checked')].map(x=>+x.value);if(!selected.includes(base))selected.push(base);
+  const baseData=scenarioForV(base,t,k),data=selected.sort((a,b)=>a-b).map(v=>scenarioForV(v,t,k));
+  multiVResults.innerHTML=data.map(x=>{const diff=x.flat-baseData.flat,per=diff/Math.max(1,detailedBends.length),ratio=x.V/t,risk=ratio<5?'V estrecha':ratio>14?'Radio/deformación':'Controlado';return `<tr><td><b>V${x.V}</b>${x.V===base?' · Base':''}</td><td>${x.radius.toFixed(2)} mm</td><td>${x.ba.toFixed(2)}</td><td>${x.bd.toFixed(2)}</td><td>${x.flat.toFixed(2)} mm</td><td class="${diff<0?'bad':'good'}">${diff>=0?'+':''}${diff.toFixed(2)} mm</td><td>${per>=0?'+':''}${per.toFixed(3)} mm</td><td>${risk}</td></tr>`}).join('');
+  drawMultiVChart(data,baseData);
+}
+function drawMultiVChart(data,base){
+  const cv=document.getElementById('multiVChart');if(!cv)return;const dpr=Math.min(devicePixelRatio||1,2),w=cv.clientWidth,h=cv.clientHeight;cv.width=w*dpr;cv.height=h*dpr;
+  const c=cv.getContext('2d');c.setTransform(dpr,0,0,dpr,0,0);c.clearRect(0,0,w,h);c.fillStyle='#04101a';c.fillRect(0,0,w,h);
+  const pad=40,max=Math.max(...data.map(x=>Math.abs(x.flat-base.flat)),1);
+  data.forEach((x,i)=>{const bw=(w-pad*2)/data.length*.55,cx=pad+(i+.5)*(w-pad*2)/data.length,d=x.flat-base.flat,bh=Math.abs(d)/max*(h-100)/2,y=h/2-(d>=0?bh:0);c.fillStyle=x.V===base?'#ffbe62':'#4ce0be';c.fillRect(cx-bw/2,y,bw,bh);c.fillStyle='#dceaf5';c.font='11px sans-serif';c.fillText(`V${x.V}`,cx-10,h-24);c.fillText(`${d>=0?'+':''}${d.toFixed(2)}`,cx-17,d>=0?y-7:y+bh+15)});
+  c.strokeStyle='#54738a';c.beginPath();c.moveTo(pad,h/2);c.lineTo(w-pad,h/2);c.stroke();
+}
+function setSimulationMode(mode){
+  simulationMode=mode;
+  document.getElementById('sim3dWrap')?.classList.toggle('hidden',mode==='2d');
+  document.getElementById('sim2dWrap')?.classList.toggle('active',mode==='2d');
+  document.getElementById('mode3dBtn')?.classList.toggle('active',mode==='3d');
+  document.getElementById('mode2dBtn')?.classList.toggle('active',mode==='2d');
+  if(mode==='2d')drawSim2D();else drawSim();
+}
+function buildFoldedPolyline(stepProgress=1){
+  let pts=[[0,0]],heading=0;
+  detailedBends.forEach((b,i)=>{
+    const L=+b.length||0;const last=pts[pts.length-1];pts.push([last[0]+Math.cos(heading)*L,last[1]-Math.sin(heading)*L]);
+    if(i<detailedBends.length-1){
+      const applied=i<simStep?1:i===simStep?stepProgress:0;
+      const delta=(180-(+b.angle||90))*Math.PI/180*(b.direction==='Abajo'?-1:1)*applied;heading+=delta;
+    }
+  });return pts;
+}
+function drawSim2D(){
+  const cv=document.getElementById('sim2d');if(!cv)return;const dpr=Math.min(devicePixelRatio||1,2),w=cv.clientWidth,h=cv.clientHeight;cv.width=w*dpr;cv.height=h*dpr;
+  const c=cv.getContext('2d');c.setTransform(dpr,0,0,dpr,0,0);c.clearRect(0,0,w,h);const g=c.createLinearGradient(0,0,0,h);g.addColorStop(0,'#0a1e2d');g.addColorStop(1,'#02070c');c.fillStyle=g;c.fillRect(0,0,w,h);
+  const pts=buildFoldedPolyline(simProgress),xs=pts.map(p=>p[0]),ys=pts.map(p=>p[1]),minX=Math.min(...xs),maxX=Math.max(...xs),minY=Math.min(...ys),maxY=Math.max(...ys),scale=Math.min((w-100)/Math.max(1,maxX-minX),(h-120)/Math.max(1,maxY-minY));
+  const tx=(x)=>50+(x-minX)*scale,ty=(y)=>70+(y-minY)*scale;
+  c.lineCap='round';c.lineJoin='round';c.strokeStyle='#4ce0be';c.lineWidth=10;c.beginPath();pts.forEach((p,i)=>i?c.lineTo(tx(p[0]),ty(p[1])):c.moveTo(tx(p[0]),ty(p[1])));c.stroke();
+  pts.slice(1,-1).forEach((p,i)=>{c.fillStyle=i===simStep?'#ffbe62':'#dceaf5';c.beginPath();c.arc(tx(p[0]),ty(p[1]),6,0,Math.PI*2);c.fill();c.font='11px sans-serif';c.fillText(`#${i+1}`,tx(p[0])+8,ty(p[1])-8)});
+  c.fillStyle='#8fa9bd';c.font='12px sans-serif';c.fillText(`Perfil 2D · Pliegue ${Math.min(simStep+1,detailedBends.length)}/${detailedBends.length}`,20,25);
+  if(document.getElementById('sim2dInfo'))sim2dInfo.textContent=`Pliegue ${Math.min(simStep+1,detailedBends.length)} · ${Math.round((detailedBends[simStep]?.angle||90)*simProgress)}°`;
+}
+
 const cv=document.getElementById('sim'),ctx=cv.getContext('2d');
 let simStep=0,simProgress=0,playing=false,lastT=0;
 let cameraView='operator',renderMode='high',orbitX=0,orbitY=0,dragging=false,lastPointer=null;
@@ -907,7 +1137,7 @@ function setCameraView(name,btn){
   if(document.getElementById('statusCamera'))statusCamera.textContent=({operator:'Operador',front:'Frontal',side:'Lateral',top:'Superior',iso:'Isométrica'})[name]||name;
   if(document.getElementById('cameraSelect'))cameraSelect.value=name;
   document.querySelectorAll('.view-btn').forEach(b=>b.classList.toggle('active',b===btn));
-  orbitX=0;orbitY=0;renderSequenceTrack();drawSim();
+  orbitX=0;orbitY=0;renderSequenceTrack();drawSim();drawSim2D();
 }
 function setRenderQuality(v){renderMode=v;if(document.getElementById('statusQuality'))statusQuality.textContent=({high:'Alta',medium:'Media',mobile:'Móvil'})[v]||v;drawSim()}
 function toggleScenePart(part,btn){
@@ -1039,20 +1269,15 @@ function drawMachine(scene,w,h){
   }
 }
 function drawSheet(scene){
-  const bend=bends[Math.min(simStep,bends.length-1)]||{angle:90,dir:'Arriba'};
-  const target=Math.max(0,180-(bend.angle||90)),sign=bend.dir==='Abajo'?-1:1,ang=target*simProgress*sign*Math.PI/180;
-  const center=[0,190,0],left=[-175,190,0],right=[175*Math.cos(ang),190+Math.sin(ang)*145,0];
+  const pts=buildFoldedPolyline(simProgress);
   const finish=(document.getElementById('sheetFinish')?.value)||'steel';
-  const palette={
-    steel:['#4ce0be','#a8fff0','#177a69'],
-    inox:['#dce7ee','#ffffff','#718897'],
-    aluminium:['#b9d9ea','#effaff','#6f9ab2'],
-    galvanized:['#9fb9c8','#e8f1f5','#627b8a']
-  }[finish];
-  const thick=+(document.getElementById('visualThickness')?.value||3);
-  line3D(left,center,palette[0],8+thick,scene,12);line3D(center,right,palette[0],8+thick,scene,12);
-  line3D([-175,194,5],[0,194,5],palette[1],2,scene);line3D([0,194,5],[175*Math.cos(ang),194+Math.sin(ang)*145,5],palette[1],2,scene);
-  line3D([-175,186-thick,-4],[0,186-thick,-4],palette[2],2+thick*.6,scene);line3D([0,186-thick,-4],[175*Math.cos(ang),186-thick+Math.sin(ang)*145,-4],palette[2],2+thick*.6,scene);
+  const palette={steel:['#4ce0be','#a8fff0'],inox:['#dce7ee','#ffffff'],aluminium:['#b9d9ea','#effaff'],galvanized:['#9fb9c8','#e8f1f5']}[finish];
+  const total=Math.max(...pts.map(p=>Math.abs(p[0])),1),scale=Math.min(1.35,330/total);
+  for(let i=0;i<pts.length-1;i++){
+    const a=pts[i],b=pts[i+1];
+    line3D([(a[0]-60)*scale,190+a[1]*scale,0],[(b[0]-60)*scale,190+b[1]*scale,0],palette[0],10,scene,12);
+    line3D([(a[0]-60)*scale,194+a[1]*scale,5],[(b[0]-60)*scale,194+b[1]*scale,5],palette[1],2,scene);
+  }
 }
 function drawLights(scene,w,h){
   const lg=ctx.createLinearGradient(0,0,w,h);lg.addColorStop(0,'#ffffff10');lg.addColorStop(.4,'#0000');lg.addColorStop(1,'#50ddff08');ctx.fillStyle=lg;ctx.fillRect(0,0,w,h);
@@ -1087,7 +1312,7 @@ function drawSim(){
 }
 function animate(t){
   if(playing){if(!lastT)lastT=t;simProgress+=(t-lastT)/(1900/simSpeed);lastT=t;if(simProgress>=1){simProgress=1;if(fullSequence&&simStep<bends.length-1){simStep++;simProgress=0;lastT=t;renderSequenceTrack()}else{playing=false;fullSequence=false;if(document.getElementById('statusSequence'))statusSequence.textContent='Manual'}}drawSim()}
-  renderSequenceTrack();requestAnimationFrame(animate);
+  renderDetailedBends();initMultiV();calculateDetailedDevelopment();renderSequenceTrack();drawSim2D();requestAnimationFrame(animate);
 }
 function toggleSim(){playing=!playing;lastT=0}
 function stepSim(d){

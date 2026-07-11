@@ -1,0 +1,16 @@
+{
+  "product": "Plegar Pro",
+  "version": "18.1",
+  "base": "18.0 Industrial Vision Ultimate",
+  "codename": "Multiplegado Engineering",
+  "created": "2026-07-11T23:27:07.570056+00:00",
+  "features": [
+    "multi_bend_v_comparator",
+    "dimensional_bend_editor",
+    "full_development_builder",
+    "cumulative_3d_part_shape",
+    "2d_3d_simulation_switch",
+    "csv_development_export"
+  ],
+  "javascript_syntax": "passed"
+}
