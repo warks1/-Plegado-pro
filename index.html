@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>Plegar Pro v18.7 Estable</title>
+<title>Plegar Pro v18.8 Planos Completa</title>
 <style>
 :root{
   --bg:#030913;--panel:#081826;--panel2:#0c2334;--panel3:#102c41;
@@ -91,15 +91,22 @@ align-items:end;background:#081d2c;border:1px solid #294e68;border-radius:11px;p
  .content{padding:9px}.fields{grid-template-columns:1fr}.program-row{grid-template-columns:40px 1fr 1fr}
  .sim-stage canvas{height:520px}.kpis{grid-template-columns:1fr 1fr}
 }
+
+.plan-list{display:grid;gap:8px}.plan-card{background:#081d2c;border:1px solid #294e68;border-radius:11px;padding:10px;cursor:pointer}.plan-card.active{border-color:#42dfbe;box-shadow:0 0 0 2px #42dfbe22}.plan-card small{display:block;color:#8da7ba;margin-top:4px}
+.plan-toolbar{display:flex;gap:8px;flex-wrap:wrap}.plan-canvas{width:100%;height:430px;display:block;background:#f7f9fb;border:1px solid #294e68;border-radius:12px}.plan-grid{display:grid;grid-template-columns:340px minmax(0,1fr);gap:12px}
+.dimension-row{display:grid;grid-template-columns:1fr 1fr 1fr 38px;gap:7px;align-items:end;background:#081d2c;border:1px solid #294e68;border-radius:10px;padding:8px;margin-bottom:7px}
+@media(max-width:1000px){.plan-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
 <div class="app">
 <aside class="sidebar" id="sidebar">
-  <div class="brand">PLEGAR PRO</div><div class="version">v18.7 · Estable verificada</div>
+  <div class="brand">PLEGAR PRO</div><div class="version">v18.8 · Planos y revisiones</div>
   <nav class="nav">
     <div class="nav-title">Ingeniería</div>
     <button class="active" data-page="dashboard">Panel</button>
+    <button data-page="plans">Planos</button>
     <button data-page="program">Programar plegado</button>
     <button data-page="development">Desarrollo</button>
     <button data-page="compare">Comparador V</button>
@@ -124,10 +131,10 @@ align-items:end;background:#081d2c;border:1px solid #294e68;border-radius:11px;p
 <section class="page active" data-page="dashboard">
 <div class="grid">
   <div class="card verification">
-    <h2><span class="status-dot"></span>v18.7 · Funciones solicitadas integradas</h2>
+    <h2><span class="status-dot"></span>v18.8 · Planos, revisiones y plegado integrados</h2>
     <p class="muted">Programación dimensional, desarrollo completo, pérdida/ganancia por V, cotas interiores/exteriores y simulación 2D/3D sincronizada.</p>
     <div class="actions">
-      <button class="btn" onclick="showPage('program')">Programar plegado</button>
+      <button class="btn" onclick="showPage('plans')">Abrir Planos</button><button class="btn" onclick="showPage('program')">Programar plegado</button>
       <button class="btn" onclick="showPage('development')">Crear desarrollo</button>
       <button class="btn" onclick="showPage('compare')">Comparar V</button>
       <button class="btn" onclick="showPage('simulation')">Abrir simulación</button>
@@ -142,6 +149,45 @@ align-items:end;background:#081d2c;border:1px solid #294e68;border-radius:11px;p
     </div>
   </div>
   <div class="card"><h2>Resumen del trabajo</h2><div id="dashSummary" class="notice">Cargando programa…</div></div>
+</div>
+</section>
+
+
+<section class="page" data-page="plans">
+<div class="grid">
+  <div class="card c4">
+    <h2>Gestión de planos</h2>
+    <div class="fields" style="grid-template-columns:1fr">
+      <div class="field"><label>Referencia</label><input id="planRef" value="PLANO-001"></div>
+      <div class="field"><label>Descripción</label><input id="planName" value="Soporte plegado"></div>
+      <div class="field"><label>Cliente</label><input id="planClient" value="Cliente ejemplo"></div>
+      <div class="field"><label>Revisión</label><input id="planRevision" value="R1"></div>
+      <div class="field"><label>Material</label><select id="planMaterial"><option>Acero S235</option><option>Acero inoxidable</option><option>Aluminio</option><option>Galvanizado</option></select></div>
+      <div class="field"><label>Espesor</label><input id="planThickness" type="number" step=".1" value="2"></div>
+      <div class="field"><label>Archivo asociado</label><input id="planFile" type="file" accept=".pdf,.dxf,.dwg,.step,.stp,.svg,.png,.jpg,.jpeg"></div>
+    </div>
+    <div class="actions"><button class="btn" id="savePlan">Guardar plano</button><button class="btn secondary" id="newPlan">Nuevo</button></div>
+    <h3>Planos guardados</h3><div id="planList" class="plan-list"></div>
+  </div>
+  <div class="card c8">
+    <div class="plan-toolbar">
+      <button class="btn secondary" id="addPlanWing">Añadir pestaña</button>
+      <button class="btn secondary" id="addPlanBend">Añadir pliegue</button>
+      <button class="btn secondary" id="loadPlanToProgram">Cargar en Programación</button>
+      <button class="btn secondary" id="loadPlanToDevelopment">Cargar en Desarrollo</button>
+      <button class="btn danger" id="deletePlan">Eliminar plano</button>
+    </div>
+    <div class="plan-grid" style="margin-top:12px">
+      <div>
+        <h3>Pestañas / cotas</h3><div id="planWingRows"></div>
+        <h3>Líneas de plegado</h3><div id="planBendRows"></div>
+      </div>
+      <div>
+        <h3>Vista previa del plano</h3><canvas id="planCanvas" class="plan-canvas"></canvas>
+        <div id="planSummary" class="notice" style="margin-top:10px">Plano sin guardar.</div>
+      </div>
+    </div>
+  </div>
 </div>
 </section>
 
@@ -305,7 +351,7 @@ let model={
 };
 let sim={mode:'2d',step:0,progress:1,playing:false,last:0,frame:0};
 let lastCurve=null;
-const pages={dashboard:['Panel principal','Todos los módulos usan el mismo programa'],program:['Programar plegado','Longitud, radio, V, sentido, tope y longitud de plegado'],development:['Desarrollo','Cotas interiores o exteriores'],compare:['Comparador V','Pérdida o ganancia con varios pliegues'],simulation:['Simulación 2D/3D','Forma acumulada de la pieza'],curve:['Curva perfecta','Golpes sucesivos'],tools:['Matrices y punzones','Biblioteca multimarca'],production:['Tiempos','Preparación y fabricación'],quality:['Calidad','Primera pieza'],clients:['Clientes','WhatsApp y correo'],documents:['Documentos','Archivos y copias'],ai:['Copiloto IA','Asistencia sobre el programa']};
+const pages={dashboard:['Panel principal','Todos los módulos usan el mismo programa'],plans:['Planos','Gestión, revisiones, cotas y líneas de plegado'],program:['Programar plegado','Longitud, radio, V, sentido, tope y longitud de plegado'],development:['Desarrollo','Cotas interiores o exteriores'],compare:['Comparador V','Pérdida o ganancia con varios pliegues'],simulation:['Simulación 2D/3D','Forma acumulada de la pieza'],curve:['Curva perfecta','Golpes sucesivos'],tools:['Matrices y punzones','Biblioteca multimarca'],production:['Tiempos','Preparación y fabricación'],quality:['Calidad','Primera pieza'],clients:['Clientes','WhatsApp y correo'],documents:['Documentos','Archivos y copias'],ai:['Copiloto IA','Asistencia sobre el programa']};
 function showPage(name){
   document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.dataset.page===name));
   document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===name));
@@ -576,8 +622,92 @@ $('files').onchange=()=>{$('fileList').innerHTML=[...$('files').files].map(f=>`<
 $('backup').onclick=()=>download(JSON.stringify(model,null,2),'PlegarPro_v18_7_backup.json','application/json');$('restore').onclick=()=>$('restoreFile').click();$('restoreFile').onchange=async()=>{try{restoreModel(JSON.parse(await $('restoreFile').files[0].text()))}catch(e){alert('No se pudo restaurar: '+e.message)}};
 $('ask').onclick=()=>{const q=$('question').value.trim();if(!q)return;let a='Puedo analizar el programa actual.';if(/exterior|interior/i.test(q))a='Selecciona Interior o Exterior en Programar plegado o Desarrollo. Las cotas exteriores se convierten a cotas efectivas interiores antes de calcular el desarrollo.';else if(/perd|gan|matriz|v\d/i.test(q))a='El Comparador V calcula la diferencia acumulada para todos los pliegues y muestra pérdida o ganancia total y por pestaña.';else if(/3d|2d|simul/i.test(q))a='La simulación 2D y 3D utiliza el mismo programa y muestra la forma que adquiere la pieza en cada operación.';$('chat').innerHTML+=`<p><b>Tú:</b> ${q.replace(/[<>]/g,'')}</p><p><b>IA:</b> ${a}</p>`;$('question').value=''};
 window.addEventListener('resize',()=>{resizeSim();calculateDevelopment();compareV();drawCurve()});
+
+const PLAN_KEY='plegarpro_v18_8_plans';
+let plans=JSON.parse(localStorage.getItem(PLAN_KEY)||'[]');
+let activePlanId='';
+let planWings=[120,80,55,35];
+let planBends=[
+  {angle:90,radius:2,direction:'Arriba',v:16},
+  {angle:90,radius:2,direction:'Arriba',v:16},
+  {angle:135,radius:2.5,direction:'Abajo',v:22}
+];
+
+function planUid(){return 'plan-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,7)}
+function renderPlanEditor(){
+  $('planWingRows').innerHTML=planWings.map((w,i)=>`<div class="dimension-row">
+    <div class="field"><label>Pestaña</label><input type="number" step=".1" value="${w}" data-plan-wing="${i}"></div>
+    <div class="field"><label>Tipo de cota</label><select data-plan-wing-mode="${i}"><option>Interior</option><option>Exterior</option></select></div>
+    <div class="field"><label>Observación</label><input value="Pestaña ${i+1}" data-plan-wing-note="${i}"></div>
+    <button class="delete" data-plan-wing-remove="${i}">×</button>
+  </div>`).join('');
+  $('planBendRows').innerHTML=planBends.map((b,i)=>`<div class="dimension-row" style="grid-template-columns:1fr 1fr 1fr 1fr 38px">
+    <div class="field"><label>Ángulo</label><input type="number" value="${b.angle}" data-plan-bend="${i}" data-plan-key="angle"></div>
+    <div class="field"><label>Radio</label><input type="number" step=".1" value="${b.radius}" data-plan-bend="${i}" data-plan-key="radius"></div>
+    <div class="field"><label>Sentido</label><select data-plan-bend="${i}" data-plan-key="direction"><option ${b.direction==='Arriba'?'selected':''}>Arriba</option><option ${b.direction==='Abajo'?'selected':''}>Abajo</option></select></div>
+    <div class="field"><label>V</label><select data-plan-bend="${i}" data-plan-key="v">${VLIST.map(v=>`<option value="${v}" ${+b.v===v?'selected':''}>V${v}</option>`).join('')}</select></div>
+    <button class="delete" data-plan-bend-remove="${i}">×</button>
+  </div>`).join('');
+  document.querySelectorAll('[data-plan-wing]').forEach(el=>el.onchange=()=>{planWings[+el.dataset.planWing]=+el.value;drawPlan()});
+  document.querySelectorAll('[data-plan-bend][data-plan-key]').forEach(el=>el.onchange=()=>{const i=+el.dataset.planBend,k=el.dataset.planKey;planBends[i][k]=k==='direction'?el.value:+el.value;drawPlan()});
+  document.querySelectorAll('[data-plan-wing-remove]').forEach(el=>el.onclick=()=>{if(planWings.length>2){planWings.splice(+el.dataset.planWingRemove,1);while(planBends.length>planWings.length-1)planBends.pop();renderPlanEditor()}});
+  document.querySelectorAll('[data-plan-bend-remove]').forEach(el=>el.onclick=()=>{if(planBends.length>1){planBends.splice(+el.dataset.planBendRemove,1);if(planWings.length>planBends.length+1)planWings.splice(+el.dataset.planBendRemove+1,1);renderPlanEditor()}});
+  drawPlan();
+}
+function drawPlan(){
+  const c=$('planCanvas'),d=Math.min(devicePixelRatio||1,2),w=c.clientWidth,h=c.clientHeight;c.width=w*d;c.height=h*d;const x=c.getContext('2d');x.setTransform(d,0,0,d,0,0);x.fillStyle='#fff';x.fillRect(0,0,w,h);
+  const total=planWings.reduce((a,b)=>a+(+b||0),0),pad=50,s=(w-pad*2)/Math.max(total,1),y=h*.52;
+  x.strokeStyle='#111';x.lineWidth=3;x.beginPath();x.moveTo(pad,y);x.lineTo(w-pad,y);x.stroke();
+  let pos=pad;
+  planWings.forEach((wing,i)=>{
+    const seg=(+wing||0)*s;
+    x.strokeStyle='#666';x.lineWidth=1;x.beginPath();x.moveTo(pos,y-50);x.lineTo(pos,y+50);x.stroke();
+    x.fillStyle='#111';x.font='12px sans-serif';x.fillText(`${(+wing).toFixed(1)} mm`,pos+seg/2-25,y-62);
+    if(i<planBends.length){pos+=seg;x.strokeStyle='#d32f2f';x.lineWidth=2;x.setLineDash([7,5]);x.beginPath();x.moveTo(pos,y-70);x.lineTo(pos,y+70);x.stroke();x.setLineDash([]);x.fillStyle='#d32f2f';x.fillText(`#${i+1} ${planBends[i].angle}° V${planBends[i].v}`,pos-28,y+88);}
+    else pos+=seg;
+  });
+  x.fillStyle='#222';x.font='bold 14px sans-serif';x.fillText(`${$('planRef').value} · ${$('planRevision').value}`,20,26);
+  $('planSummary').innerHTML=`${planWings.length} pestañas · ${planBends.length} pliegues · longitud nominal ${total.toFixed(2)} mm`;
+}
+function renderPlanList(){
+  $('planList').innerHTML=plans.map(p=>`<div class="plan-card ${p.id===activePlanId?'active':''}" data-plan-id="${p.id}"><b>${p.ref} · ${p.revision}</b><small>${p.name}</small><small>${p.client} · ${p.material} ${p.thickness} mm</small></div>`).join('')||'<div class="notice">No hay planos guardados.</div>';
+  document.querySelectorAll('[data-plan-id]').forEach(el=>el.onclick=()=>loadPlan(el.dataset.planId));
+}
+function saveCurrentPlan(){
+  const file=$('planFile').files[0];
+  const existing=plans.find(p=>p.id===activePlanId);
+  const data={
+    id:existing?.id||planUid(),ref:$('planRef').value.trim(),name:$('planName').value.trim(),client:$('planClient').value.trim(),
+    revision:$('planRevision').value.trim()||'R1',material:$('planMaterial').value,thickness:+$('planThickness').value||2,
+    fileName:file?.name||existing?.fileName||'',wings:[...planWings],bends:planBends.map(b=>({...b})),updatedAt:new Date().toISOString()
+  };
+  plans=existing?plans.map(p=>p.id===data.id?data:p):[data,...plans];activePlanId=data.id;
+  localStorage.setItem(PLAN_KEY,JSON.stringify(plans));renderPlanList();drawPlan();
+}
+function loadPlan(id){
+  const p=plans.find(x=>x.id===id);if(!p)return;activePlanId=id;$('planRef').value=p.ref;$('planName').value=p.name;$('planClient').value=p.client;$('planRevision').value=p.revision;
+  $('planMaterial').value=p.material;$('planThickness').value=p.thickness;planWings=[...p.wings];planBends=p.bends.map(b=>({...b}));renderPlanList();renderPlanEditor();
+}
+function newPlanForm(){
+  activePlanId='';$('planRef').value=`PLANO-${String(plans.length+1).padStart(3,'0')}`;$('planName').value='';$('planClient').value='';$('planRevision').value='R1';$('planMaterial').value='Acero S235';$('planThickness').value=2;
+  planWings=[120,80,55,35];planBends=[{angle:90,radius:2,direction:'Arriba',v:16},{angle:90,radius:2,direction:'Arriba',v:16},{angle:135,radius:2.5,direction:'Abajo',v:22}];renderPlanEditor();renderPlanList();
+}
+function deleteCurrentPlan(){
+  if(!activePlanId)return;plans=plans.filter(p=>p.id!==activePlanId);localStorage.setItem(PLAN_KEY,JSON.stringify(plans));newPlanForm();
+}
+function loadPlanIntoModel(target){
+  model.reference=$('planRef').value||'PIEZA-001';model.material=$('planMaterial').value;model.thickness=+$('planThickness').value||2;model.wings=[...planWings];
+  model.bends=planBends.map((b,i)=>({...b,bendLength:model.width,gauge:planWings[i]||50}));
+  syncUI();renderProgram();showPage(target);
+}
+$('savePlan').onclick=saveCurrentPlan;$('newPlan').onclick=newPlanForm;$('deletePlan').onclick=deleteCurrentPlan;
+$('addPlanWing').onclick=()=>{planWings.push(50);if(planBends.length<planWings.length-1)planBends.push({angle:90,radius:2,direction:'Arriba',v:16});renderPlanEditor()};
+$('addPlanBend').onclick=()=>{planBends.push({angle:90,radius:2,direction:'Arriba',v:16});if(planWings.length<planBends.length+1)planWings.push(50);renderPlanEditor()};
+$('loadPlanToProgram').onclick=()=>loadPlanIntoModel('program');$('loadPlanToDevelopment').onclick=()=>loadPlanIntoModel('development');
+['planRef','planName','planClient','planRevision','planMaterial','planThickness'].forEach(id=>$(id).oninput=drawPlan);
+
 const saved=localStorage.getItem('plegarpro_v18_7');if(saved){try{model={...model,...JSON.parse(saved)}}catch(e){console.warn('No se pudo cargar el programa guardado',e)}}
-syncUI();renderProgram();renderTools();compareV();calculateCurve();setTimeout(resizeSim,60);
+syncUI();renderProgram();renderTools();compareV();calculateCurve();renderPlanList();renderPlanEditor();setTimeout(resizeSim,60);
 </script>
 </body>
 </html>

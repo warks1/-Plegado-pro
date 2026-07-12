@@ -1,35 +1,15 @@
 {
-  "product": "Plegar Pro",
-  "version": "18.7",
-  "status": "validated",
+  "version": "18.8",
+  "javascript": "passed",
   "checks": {
-    "javascript_syntax": "passed",
-    "missing_inline_handlers": [],
-    "critical_ids_unique": true,
-    "multi_bend_comparator": true,
-    "loss_gain": true,
-    "complete_development": true,
-    "inside_outside": true,
-    "dimensional_multi_bend": true,
-    "simulation_2d": true,
-    "simulation_3d": true,
-    "cumulative_shape": true,
-    "tool_database": true
+    "plans_page": true,
+    "plans_nav": true,
+    "save_plan": true,
+    "revisions": true,
+    "file_upload": true,
+    "preview": true,
+    "load_program": true,
+    "load_development": true
   },
-  "critical_id_counts": {
-    "programRows": 1,
-    "devCanvas": 1,
-    "compareRows": 1,
-    "compareCanvas": 1,
-    "simCanvas": 1,
-    "mode2D": 1,
-    "mode3D": 1,
-    "dimensionMode": 1,
-    "devDimensionMode": 1,
-    "wingRows": 1,
-    "devBendRows": 1,
-    "sequence": 1,
-    "toolGrid": 1
-  },
-  "validated_at": "2026-07-12T01:04:23.372006+00:00"
+  "created": "2026-07-12T01:17:02.439516+00:00"
 }
