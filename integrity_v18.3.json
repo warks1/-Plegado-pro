@@ -1,0 +1,14 @@
+{
+  "version": "18.3",
+  "javascript_syntax": "passed",
+  "checks": {
+    "static_menu_buttons": true,
+    "single_animation_loop": true,
+    "animation_init_outside_loop": true,
+    "development_meta": true,
+    "all_requested_pages": true,
+    "two_canvases": true
+  },
+  "menu_buttons": 21,
+  "created": "2026-07-12T00:01:55.316870+00:00"
+}

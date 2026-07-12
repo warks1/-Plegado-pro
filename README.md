@@ -1,18 +1,13 @@
-# Plegar Pro v18.1 Multiplegado Engineering
+# Plegar Pro v18.3 Estable Revisada
 
-Actualización realizada directamente sobre Plegar Pro v18.0 Industrial Vision Ultimate.
+Revisión completa de los fallos informados:
 
-## Novedades
-- Comparador V acumulativo para piezas con múltiples pliegues.
-- Comparación simultánea de V6, V12, V16, V22, V24, V32, V36, V40 y V50.
-- Cálculo de diferencia total y corrección media por ala.
-- Editor de desarrollo con material, espesor, K, ancho, longitudes de ala, ángulos, radios, sentidos y V.
-- Exportación del desarrollo y operaciones a CSV.
-- Multiplegado con longitud de ala, radio interior y longitud real de plegado.
-- Simulación 3D que muestra la forma acumulada que va adquiriendo la pieza.
-- Modo de simulación 2D/3D intercambiable.
-- Vista 2D técnica animada según la operación activa.
-- Conserva los módulos existentes de la versión v18.0.
+- Corregido el bucle que congelaba la aplicación.
+- La inicialización se ejecuta una sola vez.
+- Menú incorporado directamente en el HTML: siempre aparecen las opciones.
+- Eliminada la creación dinámica duplicada del menú.
+- Multiplegado, Desarrollo, Comparador V y Simulación 2D/3D accesibles desde el menú.
+- Anterior/Siguiente/Reiniciar actualizan tanto 2D como 3D.
+- JavaScript comprobado sin errores de sintaxis.
 
-## Advertencia
-Los desarrollos, radios, deducciones y cambios de medida son orientativos. Deben calibrarse con las tablas de la máquina, datos reales del material, geometría autorizada del utillaje y primera pieza.
+Abra `ABRIR_PLEGAR_PRO.html` y después pulse **ABRIR APLICACIÓN**.
