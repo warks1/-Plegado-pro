@@ -1,15 +1,16 @@
 {
-  "version": "19.3",
+  "version": "19.6",
+  "build": "2026.07.12-1960",
   "checks": {
-    "frontend": "passed",
-    "server": "passed",
-    "orbit_controls": true,
-    "touch_zoom": true,
+    "version": true,
+    "separate_pages": true,
+    "separate_nav": true,
+    "orbit": true,
     "rear_view": true,
-    "perspective": true,
     "machine_motion": true,
     "enhanced_2d": true,
-    "enhanced_3d": true
+    "enhanced_3d": true,
+    "canvas_ids": true
   },
-  "created": "2026-07-12T20:34:47.373978+00:00"
+  "validated_at": "2026-07-12T21:30:32.702520+00:00"
 }

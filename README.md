@@ -1,20 +1,14 @@
-# Plegar Pro v19.3 3D Orbit Enhanced
+# Plegar Pro v19.6 Simulación 2D/3D Separada
 
-Mejoras principales:
-- Cámara orbital libre con ratón.
-- Giro completo frontal, trasero, lateral y superior.
-- Zoom con rueda.
-- Panorámica/desplazamiento.
+Novedades:
+- Simulación 2D y Simulación 3D en módulos independientes.
+- 2D con cotas, rejilla, perfil técnico, líneas de plegado, punzón y matriz.
+- 3D con cámara orbital libre mediante ratón.
+- Vista frontal, trasera, lateral y superior.
+- Zoom, desplazamiento y perspectiva/ortográfica.
 - Controles táctiles para móvil y tablet.
-- Perspectiva u ortográfica.
-- Centrado rápido de cámara.
 - Movimiento sincronizado del ariete.
 - Plegadora más detallada.
-- Chapa extruida con iluminación y profundidad.
-- Simulación 2D con cotas, rejilla, punzón, matriz y marcadores de pliegue.
+- La secuencia de plegado se comparte entre 2D, 3D y el secuenciador anticolisión.
 
-Uso 3D:
-- Arrastrar: girar.
-- Rueda: zoom.
-- Modo Desplazar: mover la vista.
-- Dos dedos: zoom en móvil/tablet.
+Build 2026.07.12-1960.
