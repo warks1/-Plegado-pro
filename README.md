@@ -1,7 +1,20 @@
-# Plegar Pro v19.0 CAD Server + Full 3D
+# Plegar Pro v19.3 3D Orbit Enhanced
 
-Incluye servidor Node para DXF/SVG y adaptador STEP/IGES mediante FreeCAD. DWG y formatos propietarios requieren ODA, LibreDWG o conectores con licencia.
+Mejoras principales:
+- Cámara orbital libre con ratón.
+- Giro completo frontal, trasero, lateral y superior.
+- Zoom con rueda.
+- Panorámica/desplazamiento.
+- Controles táctiles para móvil y tablet.
+- Perspectiva u ortográfica.
+- Centrado rápido de cámara.
+- Movimiento sincronizado del ariete.
+- Plegadora más detallada.
+- Chapa extruida con iluminación y profundidad.
+- Simulación 2D con cotas, rejilla, punzón, matriz y marcadores de pliegue.
 
-La simulación muestra la plegadora completa: bastidor, corona, cilindros, ariete, adaptadores, punzón, matriz, mesa, bombaje, topes, apoyos y control.
-
-Uso: ejecuta INICIAR_SERVIDOR_WINDOWS.bat o INICIAR_SERVIDOR_MAC_LINUX.sh, después abre ABRIR_PLEGAR_PRO.html.
+Uso 3D:
+- Arrastrar: girar.
+- Rueda: zoom.
+- Modo Desplazar: mover la vista.
+- Dos dedos: zoom en móvil/tablet.

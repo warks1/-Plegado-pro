@@ -1,10 +1,15 @@
 {
-  "version": "19.0",
+  "version": "19.3",
   "checks": {
     "frontend": "passed",
     "server": "passed",
-    "cad_endpoint": true,
-    "full_machine": true
+    "orbit_controls": true,
+    "touch_zoom": true,
+    "rear_view": true,
+    "perspective": true,
+    "machine_motion": true,
+    "enhanced_2d": true,
+    "enhanced_3d": true
   },
-  "created": "2026-07-12T07:26:33.011310+00:00"
+  "created": "2026-07-12T20:34:47.373978+00:00"
 }
