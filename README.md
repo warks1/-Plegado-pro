@@ -1,16 +1,7 @@
-# Plegar Pro v18.9 Professional Complete
+# Plegar Pro v19.0 CAD Server + Full 3D
 
-Recupera los 20 módulos de la v18 original y añade:
-- Planos con revisiones, geometría y vista previa.
-- Importación ampliada y análisis local de fotografías.
-- Multiplegado dimensional.
-- Desarrollo interior/exterior.
-- Comparador V multiplegado.
-- Simulación 2D y 3D con plegadora completa.
-- Curva perfecta.
-- IA mejorada y auditoría del trabajo.
-- Diseño responsive para PC, tablet y móvil.
+Incluye servidor Node para DXF/SVG y adaptador STEP/IGES mediante FreeCAD. DWG y formatos propietarios requieren ODA, LibreDWG o conectores con licencia.
 
-Limitaciones:
-- Los formatos CAD nativos se registran, pero requieren un conversor de servidor para una lectura geométrica completa.
-- El análisis fotográfico local propone datos y necesita revisión humana.
+La simulación muestra la plegadora completa: bastidor, corona, cilindros, ariete, adaptadores, punzón, matriz, mesa, bombaje, topes, apoyos y control.
+
+Uso: ejecuta INICIAR_SERVIDOR_WINDOWS.bat o INICIAR_SERVIDOR_MAC_LINUX.sh, después abre ABRIR_PLEGAR_PRO.html.

@@ -1,16 +1,10 @@
 {
-  "version": "18.9",
+  "version": "19.0",
   "checks": {
-    "javascript": "passed",
-    "page_count": 23,
-    "nav_count": 23,
-    "all_critical_pages": true,
-    "nav_matches_pages": true,
-    "plan_module": true,
-    "photo_ai": true,
-    "complete_3d": true,
-    "responsive": true,
-    "ai_improved": true
+    "frontend": "passed",
+    "server": "passed",
+    "cad_endpoint": true,
+    "full_machine": true
   },
-  "created": "2026-07-12T06:49:18.045123+00:00"
+  "created": "2026-07-12T07:26:33.011310+00:00"
 }
