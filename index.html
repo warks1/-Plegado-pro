@@ -145,7 +145,7 @@ radial-gradient(circle at 50% 18%,#234968 0,#0c2338 34%,#06111c 78%);border-radi
 }
 
 
-/* v16 Estable Revisada */
+/* v16 Completa Acumulativa */
 :root{
   --metal:#cbd6df;--steel:#60788d;--machine:#15324b;--machine2:#0d2438;
   --cyan:#50ddff;--green:#47dfbd;--amber:#ffbe62;
@@ -180,7 +180,7 @@ radial-gradient(circle at 75% 5%,#4eb9ff12,transparent 22%);background-size:34px
 @media(max-width:560px){.sim-head{align-items:flex-start;flex-direction:column}.sim-badges{justify-content:flex-start}.hud-right{top:auto;bottom:62px}.graphic-strip{grid-template-columns:1fr 1fr}.sim-stage canvas{height:500px}.view-buttons{display:grid;grid-template-columns:repeat(3,1fr);width:100%}.view-btn{font-size:11px;padding:8px 6px}}
 
 
-/* v17 Estable Revisada */
+/* v17 Completa Acumulativa */
 .sim-sidepanel{
   display:grid;grid-template-columns:280px minmax(0,1fr);gap:0;background:#030910;
 }
@@ -218,7 +218,7 @@ radial-gradient(circle at 75% 5%,#4eb9ff12,transparent 22%);background-size:34px
 }
 
 
-/* v18 Estable Revisada */
+/* v18 Completa Acumulativa */
 .scene-toolbar{display:flex;gap:8px;flex-wrap:wrap;padding:10px 14px;background:#07131f;border-top:1px solid #28445d}
 .scene-toolbar .btn{padding:8px 11px}
 .scene-status{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;padding:12px 14px;background:#081521;border-top:1px solid #20394f}
@@ -239,32 +239,13 @@ radial-gradient(circle at 75% 5%,#4eb9ff12,transparent 22%);background-size:34px
 @media(max-width:560px){.scene-status{grid-template-columns:1fr 1fr}.scene-toolbar .btn{flex:1 1 120px}}
 
 
-/* v18.3 Estable Revisada */
-.mode-switch{display:flex;gap:6px;padding:5px;background:#071521;border:1px solid #2d4f68;border-radius:11px}
-.mode-switch button{border:0;background:transparent;color:#91aabd;padding:8px 13px;border-radius:8px;cursor:pointer;font-weight:800}
-.mode-switch button.active{background:#17415b;color:#fff;box-shadow:0 0 0 1px #4edcff55}
-.sim2d-wrap{display:none;min-height:500px;background:linear-gradient(180deg,#07131d,#02070c);position:relative}
-.sim2d-wrap.active{display:block}.sim-stage-wrap.hidden{display:none}
-#sim2d{width:100%;height:clamp(500px,68vh,760px);display:block}
-.bend-editor{display:grid;gap:9px}
-.bend-row-v181{display:grid;grid-template-columns:54px repeat(6,minmax(90px,1fr)) 42px;gap:7px;align-items:end;background:#0a2031;border:1px solid #294b65;border-radius:12px;padding:9px}
-.bend-row-v181 .num{display:grid;place-items:center;height:38px;border-radius:10px;background:#12334a;font-weight:900}
-.bend-row-v181 .field{margin:0}.bend-row-v181 label{font-size:10px}
-.dev-summary{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px}
-.dev-summary>div{background:#0a2031;border:1px solid #294b65;border-radius:12px;padding:10px}.dev-summary span{display:block;font-size:10px;color:#8ca7ba;text-transform:uppercase}.dev-summary b{display:block;font-size:18px;margin-top:4px}
-.multi-v-table td:first-child,.multi-v-table th:first-child{position:sticky;left:0;background:#0a1d2c;z-index:2}
-.dev-diagram{width:100%;height:330px;background:#04101a;border:1px solid #294b65;border-radius:13px}
-@media(max-width:1100px){.bend-row-v181{grid-template-columns:48px repeat(3,minmax(100px,1fr));}.bend-row-v181 .delete-cell{grid-column:-2/-1}}
-@media(max-width:700px){.bend-row-v181{grid-template-columns:42px 1fr 1fr}.dev-summary{grid-template-columns:1fr 1fr}.dev-summary>div:last-child{grid-column:1/-1}}
-
-
-.verification-card{grid-column:1/-1;border:1px solid #4ce0be;background:linear-gradient(135deg,#0b2b31,#0a1a2a);box-shadow:0 0 0 2px #4ce0be18,0 20px 50px #0005;margin-bottom:12px}
-.verify-title{display:flex;gap:12px;align-items:center}.verify-title h2{margin:0}.verify-title p{margin:4px 0 0;color:#9ab3c5}
-.verify-dot{width:14px;height:14px;border-radius:50%;background:#47dfbd;box-shadow:0 0 18px #47dfbd}
-.verify-actions{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
-.verify-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
-.verify-grid>div{background:#071923;border:1px solid #2d5665;border-radius:11px;padding:10px}.verify-grid b{display:block;font-size:18px}.verify-grid span{font-size:11px;color:#91a9bb}
-@media(max-width:700px){.verify-grid{grid-template-columns:1fr 1fr}.verify-actions .btn{flex:1 1 150px}}
+.pro-tabs{display:flex;gap:6px;flex-wrap:wrap;border-bottom:1px solid #294b65;padding-bottom:8px;margin-bottom:12px}
+.pro-tab{border:1px solid #31546d;background:#0b2132;color:#a9bfce;padding:8px 11px;border-radius:9px;cursor:pointer}.pro-tab.active{background:#15415a;border-color:#57d9ff;color:#fff}
+.pro-panel{display:none}.pro-panel.active{display:block}.pro-bend{display:grid;grid-template-columns:48px repeat(6,minmax(88px,1fr)) 38px;gap:7px;align-items:end;background:#091d2c;border:1px solid #294c65;border-radius:11px;padding:9px;margin-bottom:8px}
+.pro-num{height:38px;display:grid;place-items:center;background:#12334a;border-radius:9px;font-weight:950}.pro-delete{height:36px;border-radius:8px;border:1px solid #70434b;background:#3c2027;color:#ffbcc3;cursor:pointer}
+.pro-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.pro-kpi{background:#091b29;border:1px solid #294b64;border-radius:11px;padding:10px}.pro-kpi span{display:block;font-size:10px;color:#88a3b7}.pro-kpi b{display:block;font-size:18px;margin-top:4px}
+.pro-canvas{display:block;width:100%;height:330px;background:#030a11;border:1px solid #294c65;border-radius:12px}.db-proof{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}.db-proof>div{background:#091d2c;border:1px solid #294c65;border-radius:10px;padding:9px}
+@media(max-width:1100px){.pro-bend{grid-template-columns:44px repeat(3,minmax(90px,1fr))}.pro-kpis{grid-template-columns:1fr 1fr}}
 
 </style>
 </head>
@@ -273,39 +254,7 @@ radial-gradient(circle at 75% 5%,#4eb9ff12,transparent 22%);background-size:34px
 <aside class="sidebar">
   <div class="brand">PLEGAR <span>PRO</span></div>
   <div class="version">v14.1 Corrected Industrial OS Beta</div>
-  
-<nav class="nav" id="nav">
-  <div class="nav-group"><div class="nav-title">Trabajo</div>
-    <button class="active" data-page="dashboard" data-search="panel principal" onclick="go('dashboard')">Panel</button>
-    <button data-page="import" data-search="importar planos cad" onclick="go('import')">Importar</button>
-    <button data-page="bends" data-search="multiplegado longitudes radios" onclick="go('bends')">Multiplegado</button>
-    <button data-page="development" data-search="desarrollo ba bd pieza" onclick="go('development')">Desarrollo</button>
-    <button data-page="simulation" data-search="simulacion 2d 3d" onclick="go('simulation')">Simulación 2D/3D</button>
-    <button data-page="calc" data-search="comparador v multiplegado" onclick="go('calc')">Comparar V</button>
-    <button data-page="tools" data-search="utillaje matrices punzones" onclick="go('tools')">Utillaje</button>
-  </div>
-  <div class="nav-group"><div class="nav-title">Producción</div>
-    <button data-page="production" data-search="produccion tiempos" onclick="go('production')">Tiempos</button>
-    <button data-page="quality" data-search="calidad primera pieza" onclick="go('quality')">Calidad</button>
-    <button data-page="preparation" data-search="preparacion checklist" onclick="go('preparation')">Preparar</button>
-    <button data-page="strategies" data-search="escenarios estrategias" onclick="go('strategies')">Escenarios</button>
-    <button data-page="calibration" data-search="calibracion maquina" onclick="go('calibration')">Calibrar</button>
-  </div>
-  <div class="nav-group"><div class="nav-title">Gestión</div>
-    <button data-page="clients" data-search="clientes whatsapp correo" onclick="go('clients')">Clientes</button>
-    <button data-page="quotes" data-search="presupuestos" onclick="go('quotes')">Presupuestos</button>
-    <button data-page="planner" data-search="planificacion" onclick="go('planner')">Planificar</button>
-    <button data-page="inventory" data-search="inventario" onclick="go('inventory')">Inventario</button>
-    <button data-page="documents" data-search="documentos" onclick="go('documents')">Documentos</button>
-    <button data-page="analytics" data-search="indicadores" onclick="go('analytics')">Indicadores</button>
-  </div>
-  <div class="nav-group"><div class="nav-title">Conocimiento</div>
-    <button data-page="traceability" data-search="trazabilidad" onclick="go('traceability')">Trazabilidad</button>
-    <button data-page="rules" data-search="reglas taller" onclick="go('rules')">Reglas</button>
-    <button data-page="ai" data-search="ia copiloto" onclick="go('ai')">IA</button>
-  </div>
-</nav>
-
+  <nav class="nav" id="nav"></nav>
 </aside>
 <main class="main">
   <div class="header">
@@ -315,24 +264,7 @@ radial-gradient(circle at 75% 5%,#4eb9ff12,transparent 22%);background-size:34px
   </div>
 
 <section class="page active" data-page="dashboard">
-<div class="card verification-card">
-  <div class="verify-title"><span class="verify-dot"></span><div><h2>v18.3 · Aplicación revisada y estable</h2><p>Usa estos accesos para comprobar inmediatamente las funciones nuevas.</p></div></div>
-  <div id="runtimeState" class="muted" style="margin-top:10px">Iniciando aplicación…</div><div class="verify-actions">
-    <button class="btn" onclick="go('bends')">Multiplegado dimensional</button>
-    <button class="btn" onclick="go('development')">Crear desarrollo</button>
-    <button class="btn" onclick="go('calc')">Comparador V multiplegado</button>
-    <button class="btn" onclick="go('simulation');setSimulationMode('2d')">Abrir simulación 2D</button>
-    <button class="btn" onclick="go('simulation');setSimulationMode('3d')">Abrir simulación 3D</button>
-  </div>
-  <div class="verify-grid">
-    <div><b id="verifyBends">3</b><span>Pliegues con medidas</span></div>
-    <div><b>9</b><span>Aperturas V comparables</span></div>
-    <div><b>2D / 3D</b><span>Modos de simulación</span></div>
-    <div><b>CSV</b><span>Exportación del desarrollo</span></div>
-  </div>
-</div>
-
-<div class="version-banner"><b>VERSIÓN 18.3 · CONTENIDO VERIFICABLE</b><br><span>36 matrices Mecos, punzones solicitados, multiplegado, simulación, WhatsApp, correo, CRM, presupuestos, inventarios y más.</span><div class="actions"><button class="btn" onclick="go('tools')">Ver matrices y punzones</button><button class="btn secondary" onclick="go('clients')">Ver WhatsApp y correo</button><button class="btn secondary" onclick="go('bends')">Ver multiplegado</button></div></div>
+<div class="version-banner"><b>VERSIÓN 18.6 · CONTENIDO VERIFICABLE</b><br><span>36 matrices Mecos, punzones solicitados, multiplegado, simulación, WhatsApp, correo, CRM, presupuestos, inventarios y más.</span><div class="actions"><button class="btn" onclick="go('tools')">Ver matrices y punzones</button><button class="btn secondary" onclick="go('clients')">Ver WhatsApp y correo</button><button class="btn secondary" onclick="go('bends')">Ver multiplegado</button></div></div>
 <div class="grid">
   <div class="card"><div class="kpis">
     <div class="kpi"><span>Dispositivo</span><b id="kDevice">—</b></div>
@@ -401,89 +333,60 @@ radial-gradient(circle at 75% 5%,#4eb9ff12,transparent 22%);background-size:34px
   </div>
 </div></section>
 
-
 <section class="page" data-page="bends">
 <div class="grid">
-  <div class="card c8">
-    <div class="section-heading">
-      <div><h2>Multiplegado con datos dimensionales</h2><p class="muted">Define longitud de ala, ángulo, radio, sentido, V y longitud de plegado para cada operación.</p></div>
-      <div class="actions"><button class="btn" onclick="addDetailedBend()">Añadir pliegue</button><button class="btn secondary" onclick="loadBendExample()">Ejemplo</button></div>
-    </div>
-    <div class="bend-editor" id="detailedBendRows"></div>
+  <div class="card c5">
+    <h2>Secuencia multiplegado</h2>
+    <p class="muted">Añade tantos pliegues como necesites y ordénalos según la fabricación.</p>
+    <div class="bend-list" id="bendList"></div>
+    <div class="actions"><button class="btn" onclick="addBend()">Añadir pliegue</button><button class="btn secondary" onclick="loadExampleBends()">Ejemplo 5 pliegues</button></div>
   </div>
-  <div class="card c4">
-    <h2>Resumen de la pieza</h2>
-    <div class="dev-summary" style="grid-template-columns:1fr 1fr">
-      <div><span>Pliegues</span><b id="sumBends">0</b></div>
-      <div><span>Longitud nominal</span><b id="sumNominal">0 mm</b></div>
-      <div><span>Desarrollo</span><b id="sumDeveloped">0 mm</b></div>
-      <div><span>Deducción total</span><b id="sumDeduction">0 mm</b></div>
-    </div>
-    <div class="actions"><button class="btn" onclick="calculateDetailedDevelopment()">Calcular desarrollo</button><button class="btn secondary" onclick="go('development')">Abrir desarrollo</button></div>
-    <div id="bendWarnings" class="notice">Añade o modifica operaciones para recalcular.</div>
+  <div class="card c7">
+    <h2>Resumen de secuencia</h2>
+    <div id="bendSummary"></div>
+    <h3>Recomendación IA</h3>
+    <div class="notice" id="sequenceAdvice">Configura los pliegues para analizar la secuencia.</div>
   </div>
-</div>
-</section>
-
-
-<section class="page" data-page="development">
-<div class="grid">
-  <div class="card c4">
-    <h2>Crear pieza plegada</h2>
-    <div class="fields" style="grid-template-columns:1fr">
-      <div class="field"><label>Referencia</label><input id="devRef" value="PIEZA-001"></div>
-      <div class="field"><label>Material</label><select id="devMaterial"><option>Acero S235</option><option>Acero inoxidable</option><option>Aluminio</option><option>Galvanizado</option></select></div>
-      <div class="field"><label>Espesor (mm)</label><input id="devThickness" type="number" min=".1" step=".1" value="2"></div>
-      <div class="field"><label>Factor K</label><input id="devK" type="number" min=".1" max=".6" step=".01" value=".33"></div>
-      <div class="field"><label>Longitud de pieza / ancho (mm)</label><input id="devWidth" type="number" min="1" value="800"></div>
-    </div>
-    <div class="actions"><button class="btn" onclick="calculateDetailedDevelopment()">Recalcular</button><button class="btn secondary" onclick="exportDevelopmentCSV()">Exportar CSV</button></div>
-  </div>
-  <div class="card c8">
-    <h2>Desarrollo calculado</h2>
-    <div class="dev-summary">
-      <div><span>Longitud nominal</span><b id="devNominal">—</b></div>
-      <div><span>BA total</span><b id="devBATotal">—</b></div>
-      <div><span>BD total</span><b id="devBDTotal">—</b></div>
-      <div><span>Desarrollo</span><b id="devFlat">—</b></div>
-      <div><span>Peso orientativo</span><b id="devWeight">—</b></div>
-    </div>
-    <canvas id="developmentDiagram" class="dev-diagram"></canvas>
-    <div class="table-wrap"><table>
-      <thead><tr><th>#</th><th>Ala</th><th>Ángulo</th><th>Radio</th><th>V</th><th>BA</th><th>BD</th><th>Acumulado</th></tr></thead>
-      <tbody id="developmentRows"></tbody>
-    </table></div>
-  </div>
-</div>
-</section>
-
+</div></section>
 
 <section class="page" data-page="calc">
 <div class="grid">
   <div class="card c4">
-    <h2>Comparador V multiplegado</h2>
+    <h2>Comparador de matrices V</h2>
     <div class="fields" style="grid-template-columns:1fr">
-      <div class="field"><label>V base</label><select id="multiBaseV"></select></div>
-      <div class="field"><label>Comparar con</label>
-        <div class="checkbox-grid" id="multiVChecks"></div>
-      </div>
-      <div class="field"><label>Cota a conservar</label><select id="multiKeep"><option value="total">Longitud total</option><option value="first">Primera ala</option><option value="last">Última ala</option></select></div>
+      <div class="field"><label>Espesor (mm)</label><input id="cT" type="number" step=".1" value="2"></div>
+      <div class="field"><label>Ángulo interior (°)</label><input id="cA" type="number" value="90"></div>
+      <div class="field"><label>Ala 1 (mm)</label><input id="cL1" type="number" value="50"></div>
+      <div class="field"><label>Ala 2 (mm)</label><input id="cL2" type="number" value="100"></div>
+      <div class="field"><label>V actual</label><select id="cV1"></select></div>
+      <div class="field"><label>V alternativa</label><select id="cV2"></select></div>
+      <div class="field"><label>Factor K</label><input id="cK" type="number" step=".01" value=".33"></div>
+      <div class="field"><label>Calibración taller (mm)</label><input id="cCal" type="number" step=".01" value="0"></div>
     </div>
-    <div class="actions"><button class="btn" onclick="calculateMultiV()">Comparar todas las operaciones</button></div>
-    <div class="notice">El comparador utiliza los pliegues definidos en Multiplegado y calcula el efecto acumulado de cambiar la V.</div>
+    <div class="actions"><button class="btn" onclick="calculateV()">Calcular pérdida/ganancia</button></div>
   </div>
   <div class="card c8">
-    <h2>Impacto acumulado por configuración</h2>
-    <div class="table-wrap"><table class="multi-v-table">
-      <thead><tr><th>Configuración</th><th>Radio total</th><th>BA total</th><th>BD total</th><th>Desarrollo</th><th>Diferencia</th><th>Corrección/ala</th><th>Riesgo</th></tr></thead>
-      <tbody id="multiVResults"></tbody>
-    </table></div>
-    <canvas id="multiVChart" class="dev-diagram"></canvas>
+    <h2>Resultado</h2>
+    <div id="calcResult" class="muted">Pendiente de cálculo.</div>
   </div>
-</div>
-</section>
+</div></section>
 
 
+
+
+<section class="page" data-page="development">
+<div class="grid"><div class="card c5"><h2>Desarrollo completo</h2>
+<div class="pro-tabs"><button class="pro-tab active" data-protab="piece">Datos</button><button class="pro-tab" data-protab="wings">Pestañas</button><button class="pro-tab" data-protab="operations">Pliegues</button><button class="pro-tab" data-protab="result">Resultado</button></div>
+<div class="pro-panel active" data-propanel="piece"><div class="fields"><div class="field"><label>Referencia</label><input id="proRef" value="PIEZA-001"></div><div class="field"><label>Material</label><select id="proMaterial"><option>Acero S235</option><option>Acero inoxidable</option><option>Aluminio</option><option>Galvanizado</option></select></div><div class="field"><label>Espesor</label><input id="proT" type="number" step=".1" value="2"></div><div class="field"><label>Factor K</label><input id="proK" type="number" step=".01" value=".33"></div><div class="field"><label>Longitud plegada</label><input id="proWidth" type="number" value="800"></div></div></div>
+<div class="pro-panel" data-propanel="wings"><div id="proWingRows"></div><div class="actions"><button class="btn" onclick="proAddWing()">Añadir pestaña</button></div></div>
+<div class="pro-panel" data-propanel="operations"><div id="proBendRows"></div><div class="actions"><button class="btn" onclick="proAddBend()">Añadir pliegue</button></div></div>
+<div class="pro-panel" data-propanel="result"><div class="actions"><button class="btn" onclick="proCalculate()">Calcular</button><button class="btn secondary" onclick="proExportCSV()">Exportar CSV</button></div><div class="pro-kpis" style="margin-top:10px"><div class="pro-kpi"><span>Nominal</span><b id="proNominal">—</b></div><div class="pro-kpi"><span>BA</span><b id="proBA">—</b></div><div class="pro-kpi"><span>BD</span><b id="proBD">—</b></div><div class="pro-kpi"><span>Desarrollo</span><b id="proFlat">—</b></div></div></div></div>
+<div class="card c7"><h2>Plano de desarrollo</h2><canvas id="proDevCanvas" class="pro-canvas"></canvas><div class="table-wrap"><table><thead><tr><th>#</th><th>Pestaña</th><th>Ángulo</th><th>Radio</th><th>V</th><th>BA</th><th>BD</th></tr></thead><tbody id="proDevTable"></tbody></table></div></div></div></section>
+
+<section class="page" data-page="curve"><div class="grid"><div class="card c4"><h2>Curva perfecta</h2><div class="fields" style="grid-template-columns:1fr"><div class="field"><label>Radio interior</label><input id="curveR" type="number" step=".1" value="50"></div><div class="field"><label>Ángulo total</label><input id="curveA" type="number" value="90"></div><div class="field"><label>Espesor</label><input id="curveT" type="number" step=".1" value="2"></div><div class="field"><label>Longitud plegada</label><input id="curveLen" type="number" value="800"></div><div class="field"><label>Matriz V</label><select id="curveV"></select></div><div class="field"><label>Golpes</label><input id="curveHits" type="number" min="2" max="80" value="9"></div></div><div class="actions"><button class="btn" onclick="curveCalculate()">Calcular</button><button class="btn secondary" onclick="curveToProgram()">Crear multiplegado</button></div></div>
+<div class="card c8"><h2>Programa recomendado</h2><div class="pro-kpis"><div class="pro-kpi"><span>Golpes</span><b id="curveOHits">—</b></div><div class="pro-kpi"><span>Ángulo/golpe</span><b id="curveOAngle">—</b></div><div class="pro-kpi"><span>Paso</span><b id="curveOPitch">—</b></div><div class="pro-kpi"><span>Arco</span><b id="curveOArc">—</b></div></div><canvas id="curveCanvas" class="pro-canvas" style="margin-top:10px"></canvas><div id="curveAdvice" class="notice" style="margin-top:10px"></div><div class="table-wrap" style="margin-top:10px"><table><thead><tr><th>Golpe</th><th>Posición</th><th>Ángulo</th><th>Acumulado</th><th>Tope X</th></tr></thead><tbody id="curveRows"></tbody></table></div></div></div></section>
+
+<section class="page" data-page="database"><div class="grid"><div class="card"><h2>Base de datos completa</h2><div class="db-proof"><div><b>Mecos / Bystronic</b><br>36 matrices + 3 punzones</div><div><b>Bystronic</b><br>Registros originales</div><div><b>TRUMPF</b><br>Punzones y matrices</div><div><b>AMADA</b><br>Punzones y matrices</div><div><b>Corplec</b><br>Punzones y matrices</div><div><b>WILA</b><br>New Standard</div><div><b>Wilson Tool</b><br>European Precision</div></div><div class="tool-grid" id="fullDbGrid" style="margin-top:12px"></div></div></div></section>
 
 <section class="page" data-page="simulation">
 <div class="grid">
@@ -492,10 +395,6 @@ radial-gradient(circle at 75% 5%,#4eb9ff12,transparent 22%);background-size:34px
       <div class="sim-title-wrap">
         <h2>Simulación industrial 3D · Gemelo digital de plegadora</h2>
         <p>Escena interactiva con máquina, utillaje, topes, apoyos, chapa y secuencia multiplegado.</p>
-      </div>
-      <div class="mode-switch">
-        <button id="mode3dBtn" class="active" onclick="setSimulationMode('3d')">3D</button>
-        <button id="mode2dBtn" onclick="setSimulationMode('2d')">2D</button>
       </div>
       <div class="sim-badges">
         <span class="pill">Motor v17</span><span class="pill">Perspectiva dinámica</span><span class="pill">Utillaje enlazado</span>
@@ -554,7 +453,7 @@ radial-gradient(circle at 75% 5%,#4eb9ff12,transparent 22%);background-size:34px
         </div>
       </aside>
 
-      <div class="sim-stage-wrap" id="sim3dWrap">
+      <div class="sim-stage-wrap">
         <div class="sim-stage">
           <canvas id="sim"></canvas>
           <div class="machine-badge">Bystronic Xpert 3100 × 100 t · Mecos</div>
@@ -575,10 +474,6 @@ radial-gradient(circle at 75% 5%,#4eb9ff12,transparent 22%);background-size:34px
           </div>
         </div>
       </div>
-    </div>
-    <div class="sim2d-wrap" id="sim2dWrap">
-      <canvas id="sim2d"></canvas>
-      <div class="hud-panel hud-left"><div class="hud-label">Vista técnica 2D</div><div class="hud-value" id="sim2dInfo">Pliegue 1</div></div>
     </div>
 
     <div class="scene-toolbar">
@@ -864,8 +759,7 @@ radial-gradient(circle at 75% 5%,#4eb9ff12,transparent 22%);background-size:34px
 const PAGE_META={
  dashboard:['Panel principal','Proyecto acumulativo profesional'],
  import:['Importación universal','Planos, imágenes y modelos CAD'],
- bends:['Multiplegado dimensional','Longitudes, radios, V y medidas por operación'],
- development:['Desarrollo completo','Crea la pieza, calcula BA, BD y desarrollo total'],
+ bends:['Multiplegado','Secuencia editable de varios pliegues'],development:['Desarrollo completo','Pestañas, radios y medidas'],curve:['Curva perfecta','Golpes sucesivos'],database:['Base de datos','Matrices, punzones y fabricantes'],
  calc:['Compensación por matriz V','Desarrollo, pérdida y ganancia de medidas'],
  simulation:['Simulación 3D','Vista de plegadora, trancha, mesa y utillaje'],
  tools:['Utillaje','Biblioteca Mecos, Bystronic y multimarca'],
@@ -884,21 +778,30 @@ const PAGE_META={
  rules:['Reglas del taller','Procedimientos y experiencia interna'],
  ai:['Copiloto IA','Asistente técnico de plegado']
 };
-const LABELS={dashboard:'Panel',import:'Importar',bends:'Multiplegado',development:'Desarrollo',calc:'Comparar V',simulation:'3D',tools:'Utillaje',production:'Tiempos',quality:'Calidad',clients:'Clientes',quotes:'Presup.',planner:'Planificar',inventory:'Inventario',documents:'Docs',analytics:'Indicadores',preparation:'Preparar',strategies:'Escenarios',calibration:'Calibrar',traceability:'Trazabilidad',rules:'Reglas',ai:'IA'};
+const LABELS={dashboard:'Panel',import:'Importar',bends:'Pliegues',development:'Desarrollo',curve:'Curva',database:'Base datos',calc:'Comparar V',simulation:'3D',tools:'Utillaje',production:'Tiempos',quality:'Calidad',clients:'Clientes',quotes:'Presup.',planner:'Planificar',inventory:'Inventario',documents:'Docs',analytics:'Indicadores',preparation:'Preparar',strategies:'Escenarios',calibration:'Calibrar',traceability:'Trazabilidad',rules:'Reglas',ai:'IA'};
 const nav=document.getElementById('nav');
+const MENU_GROUPS=[
+  ['Trabajo',['dashboard','import','bends','development','curve','simulation','calc','tools','database']],
+  ['Producción',['production','quality','preparation','strategies','calibration']],
+  ['Gestión',['clients','quotes','planner','inventory','documents','analytics']],
+  ['Conocimiento',['traceability','rules','ai']]
+];
+MENU_GROUPS.forEach(([title,items])=>{
+  const group=document.createElement('div');group.className='nav-group';
+  group.innerHTML=`<div class="nav-title">${title}</div>`;
+  items.forEach((k)=>{
+    const b=document.createElement('button');
+    b.textContent=LABELS[k];
+    b.dataset.page=k;
+    b.dataset.search=(LABELS[k]+' '+PAGE_META[k][0]+' '+PAGE_META[k][1]).toLowerCase();
+    b.className=k==='dashboard'?'active':'';
+    b.onclick=()=>{go(k);if(innerWidth<=900)toggleMenu(false)};
+    group.appendChild(b);
+  });
+  nav.appendChild(group);
+});
 const launcher=document.getElementById('moduleLauncher');if(launcher){Object.entries(LABELS).forEach(([k,v])=>{launcher.insertAdjacentHTML('beforeend',`<button class="module-link" onclick="go('${k}')"><strong>${v}</strong><small>${PAGE_META[k]?.[1]||''}</small></button>`);});}
-function go(k){
-  const meta=PAGE_META[k]||[LABELS[k]||k,''];
-  const target=document.querySelector(`.page[data-page="${k}"]`);
-  if(!target){console.warn('Página no encontrada',k);return}
-  document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p===target));
-  document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===k));
-  if(window.innerWidth<=900)toggleMenu(false);
-  pageTitle.textContent=meta[0];pageSub.textContent=meta[1];
-  if(k==='simulation')setTimeout(()=>{drawSim();drawSim2D()},40);
-  if(k==='development')setTimeout(calculateDetailedDevelopment,20);
-  if(k==='calc')setTimeout(calculateMultiV,20);
-}
+function go(k){document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.dataset.page===k));document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===k));pageTitle.textContent=PAGE_META[k][0];pageSub.textContent=PAGE_META[k][1];if(k==='simulation')setTimeout(drawSim,40);if(k==='development')setTimeout(proCalculate,20);if(k==='curve')setTimeout(curveCalculate,20);if(k==='database')setTimeout(renderFullDatabase,20)}
 function toggleMenu(open){document.body.classList.toggle('menu-open',open)}
 function filterMenu(){
   const q=normalizeText(menuSearch.value);
@@ -911,13 +814,8 @@ function filterMenu(){
     g.style.display=visible?'':'none';
   });
 }
-function detectDevice(){
-  const w=window.innerWidth,d=w<=760?'Móvil':w<=1100?'Tablet':'PC';
-  const kd=document.getElementById('kDevice'),ds=document.getElementById('deviceStatus');
-  if(kd)kd.textContent=d;if(ds)ds.textContent='● '+d+' · interfaz adaptada';
-  document.body.dataset.device=d.toLowerCase();
-}
-window.addEventListener('resize',()=>{detectDevice();if(document.querySelector('[data-page="simulation"]').classList.contains('active'))drawSim();if(simulationMode==='2d')drawSim2D()});detectDevice();
+function detectDevice(){const w=window.innerWidth;let d=w<=760?'Móvil':w<=1100?'Tablet':'PC';kDevice.textContent=d;deviceStatus.textContent='● '+d+' · interfaz adaptada';document.body.dataset.device=d.toLowerCase()}
+window.addEventListener('resize',()=>{detectDevice();if(document.querySelector('[data-page="simulation"]').classList.contains('active'))drawSim()});detectDevice();
 
 let selectedFiles=[];const drop=document.getElementById('drop'),fileInput=document.getElementById('fileInput');
 drop.onclick=()=>fileInput.click();fileInput.onchange=e=>{selectedFiles=[...e.target.files];renderFiles()};
@@ -932,7 +830,7 @@ let bends=[
  {angle:88,dir:'Abajo',length:85},
  {angle:90,dir:'Arriba',length:40}
 ];
-function renderBends(){if(!document.getElementById('bendList')){if(document.getElementById('kBends'))kBends.textContent=bends.length;if(document.getElementById('pBends'))pBends.value=bends.length;return;}bendList.innerHTML='';bends.forEach((b,i)=>{const div=document.createElement('div');div.className='bend-item';div.innerHTML=`<div class="bend-num">#${i+1}</div>
+function renderBends(){bendList.innerHTML='';bends.forEach((b,i)=>{const div=document.createElement('div');div.className='bend-item';div.innerHTML=`<div class="bend-num">#${i+1}</div>
 <div class="field"><label>Ángulo</label><input type="number" value="${b.angle}" onchange="updateBend(${i},'angle',this.value)"></div>
 <div class="field"><label>Sentido</label><select onchange="updateBend(${i},'dir',this.value)"><option ${b.dir==='Arriba'?'selected':''}>Arriba</option><option ${b.dir==='Abajo'?'selected':''}>Abajo</option></select></div>
 <button class="btn danger" onclick="removeBend(${i})">Eliminar</button>`;bendList.appendChild(div)});
@@ -941,10 +839,10 @@ function updateBend(i,k,v){bends[i][k]=k==='angle'?+v:v;renderBendSummary()}
 function removeBend(i){bends.splice(i,1);if(!bends.length)bends.push({angle:90,dir:'Arriba',length:50});renderBends();resetSim()}
 function addBend(){bends.push({angle:90,dir:bends.length%2?'Abajo':'Arriba',length:50});renderBends();resetSim()}
 function loadExampleBends(){bends=[{angle:90,dir:'Arriba'},{angle:30,dir:'Arriba'},{angle:88,dir:'Abajo'},{angle:90,dir:'Arriba'},{angle:60,dir:'Abajo'}];renderBends();resetSim()}
-function renderBendSummary(){if(!document.getElementById('bendSummary'))return;const rows=bends.map((b,i)=>`<tr><td>${i+1}</td><td>${b.angle}°</td><td>${b.dir}</td><td>${i===0?'Interior inicial':i===bends.length-1?'Cierre final':'Intermedio'}</td></tr>`).join('');
+function renderBendSummary(){const rows=bends.map((b,i)=>`<tr><td>${i+1}</td><td>${b.angle}°</td><td>${b.dir}</td><td>${i===0?'Interior inicial':i===bends.length-1?'Cierre final':'Intermedio'}</td></tr>`).join('');
 bendSummary.innerHTML=`<div class="table-wrap"><table><tr><th>Paso</th><th>Ángulo</th><th>Sentido</th><th>Función</th></tr>${rows}</table></div>`;
 sequenceAdvice.textContent=bends.length>4?'Secuencia compleja: revisar primero pliegues interiores, cierres y posibles bloqueos. Conviene reducir giros y agrupar pliegues con el mismo montaje.':'La secuencia es viable de forma preliminar. La simulación permite revisar cada paso.'}
-// El editor antiguo no se inicializa: v18.2 usa el editor dimensional.
+renderBends();
 
 const V_LIST=[6,12,16,22,24,32,36,40,50];
 V_LIST.forEach(v=>{cV1.add(new Option('V'+v,v));cV2.add(new Option('V'+v,v))});cV1.value='16';cV2.value='12';
@@ -971,6 +869,25 @@ tools.push(
  {brand:'TRUMPF',family:'TRUMPF',type:'Punzón',name:'Punzón estándar 30°',angle:30,r:1,shape:'Recto',ref:'TRU-P-30'},
  {brand:'AMADA',family:'AMADA',type:'Matriz',name:'Matriz estándar V16 88°',angle:88,v:16,shape:'V',ref:'AMA-V16-88'},
  {brand:'Corplec',family:'Corplec',type:'Matriz',name:'Matriz estándar V12 90°',angle:90,v:12,shape:'V',ref:'COR-V12-90'}
+);
+
+tools.push(
+ {brand:'TRUMPF',family:'TRUMPF',type:'Punzón',name:'Punzón estándar 88°',angle:88,r:1,shape:'Recto',ref:'TRU-P-88'},
+ {brand:'TRUMPF',family:'TRUMPF',type:'Punzón',name:'Punzón pata de cabra 90°',angle:90,r:1.5,shape:'Pata de cabra',ref:'TRU-P-PC90'},
+ {brand:'TRUMPF',family:'TRUMPF',type:'Matriz',name:'Matriz V12 90°',angle:90,v:12,shape:'V',ref:'TRU-V12-90'},
+ {brand:'TRUMPF',family:'TRUMPF',type:'Matriz',name:'Matriz V24 90°',angle:90,v:24,shape:'V',ref:'TRU-V24-90'},
+ {brand:'AMADA',family:'AMADA',type:'Punzón',name:'Punzón recto 88°',angle:88,r:1,shape:'Recto',ref:'AMA-P-88'},
+ {brand:'AMADA',family:'AMADA',type:'Punzón',name:'Punzón pata de cabra 90°',angle:90,r:1.5,shape:'Pata de cabra',ref:'AMA-P-PC90'},
+ {brand:'AMADA',family:'AMADA',type:'Matriz',name:'Matriz V12 88°',angle:88,v:12,shape:'V',ref:'AMA-V12-88'},
+ {brand:'AMADA',family:'AMADA',type:'Matriz',name:'Matriz V24 88°',angle:88,v:24,shape:'V',ref:'AMA-V24-88'},
+ {brand:'Corplec',family:'Corplec',type:'Punzón',name:'Punzón recto 90°',angle:90,r:1,shape:'Recto',ref:'COR-P-90'},
+ {brand:'Corplec',family:'Corplec',type:'Punzón',name:'Punzón pata de cabra 90°',angle:90,r:1.5,shape:'Pata de cabra',ref:'COR-P-PC90'},
+ {brand:'Corplec',family:'Corplec',type:'Matriz',name:'Matriz V16 90°',angle:90,v:16,shape:'V',ref:'COR-V16-90'},
+ {brand:'Corplec',family:'Corplec',type:'Matriz',name:'Matriz V24 90°',angle:90,v:24,shape:'V',ref:'COR-V24-90'},
+ {brand:'WILA',family:'WILA New Standard',type:'Punzón',name:'WILA New Standard 90°',angle:90,r:1,shape:'Recto',ref:'WILA-P-90'},
+ {brand:'WILA',family:'WILA New Standard',type:'Matriz',name:'WILA V16 90°',angle:90,v:16,shape:'V',ref:'WILA-V16-90'},
+ {brand:'Wilson Tool',family:'European Precision',type:'Punzón',name:'Wilson pata de cabra 90°',angle:90,r:1.5,shape:'Pata de cabra',ref:'WIL-P-PC90'},
+ {brand:'Wilson Tool',family:'European Precision',type:'Matriz',name:'Wilson V24 90°',angle:90,v:24,shape:'V',ref:'WIL-V24-90'}
 );
 let selPunch=null,selDie=null;
 function normalizeText(value){
@@ -1016,165 +933,6 @@ function selectTool(i){const t=tools[i];if(t.type==='Punzón')selPunch=i;else se
 renderTools();
 
 
-
-const V_OPTIONS=[6,12,16,22,24,32,36,40,50];
-let detailedBends=[
-  {length:120,angle:90,radius:2,direction:'Arriba',v:16,bendLength:800},
-  {length:80,angle:90,radius:2,direction:'Arriba',v:16,bendLength:800},
-  {length:55,angle:135,radius:2.5,direction:'Abajo',v:22,bendLength:800}
-];
-let simulationMode='3d';
-
-function densityForMaterial(name){
-  const n=normalizeText(name);if(n.includes('aluminio'))return 2700;if(n.includes('inox'))return 7900;return 7850;
-}
-function syncLegacyBends(){
-  bends=detailedBends.map((b,i)=>({id:i+1,angle:+b.angle,dir:b.direction,length:+b.length,radius:+b.radius,v:+b.v,bendLength:+b.bendLength}));
-  if(typeof renderBends==='function')try{renderBends()}catch(e){}
-  if(typeof renderSequenceTrack==='function')renderSequenceTrack();
-}
-function addDetailedBend(data={}){
-  detailedBends.push({length:data.length??50,angle:data.angle??90,radius:data.radius??2,direction:data.direction??'Arriba',v:data.v??16,bendLength:data.bendLength??800});
-  renderDetailedBends();calculateDetailedDevelopment();drawSim();drawSim2D();
-}
-function removeDetailedBend(i){
-  if(detailedBends.length<=1)return;
-  detailedBends.splice(i,1);renderDetailedBends();calculateDetailedDevelopment();drawSim();drawSim2D();
-}
-function updateDetailedBend(i,key,value){
-  detailedBends[i][key]=['direction'].includes(key)?value:+value;
-  syncLegacyBends();calculateDetailedDevelopment();if(document.getElementById('verifyBends'))verifyBends.textContent=detailedBends.length;drawSim();drawSim2D();
-}
-function loadBendExample(){
-  detailedBends=[
-    {length:100,angle:90,radius:1.8,direction:'Arriba',v:12,bendLength:600},
-    {length:70,angle:90,radius:2.2,direction:'Arriba',v:16,bendLength:600},
-    {length:45,angle:135,radius:3,direction:'Abajo',v:24,bendLength:600},
-    {length:35,angle:90,radius:2.2,direction:'Arriba',v:16,bendLength:600}
-  ];
-  renderDetailedBends();calculateDetailedDevelopment();drawSim();drawSim2D();
-}
-function renderDetailedBends(){
-  const host=document.getElementById('detailedBendRows');if(!host)return;
-  host.innerHTML=detailedBends.map((b,i)=>`<div class="bend-row-v181">
-    <div class="num">#${i+1}</div>
-    <div class="field"><label>Longitud ala (mm)</label><input type="number" step=".1" value="${b.length}" onchange="updateDetailedBend(${i},'length',this.value)"></div>
-    <div class="field"><label>Ángulo (°)</label><input type="number" min="1" max="179" step=".1" value="${b.angle}" onchange="updateDetailedBend(${i},'angle',this.value)"></div>
-    <div class="field"><label>Radio interior (mm)</label><input type="number" min=".1" step=".1" value="${b.radius}" onchange="updateDetailedBend(${i},'radius',this.value)"></div>
-    <div class="field"><label>Sentido</label><select onchange="updateDetailedBend(${i},'direction',this.value)"><option ${b.direction==='Arriba'?'selected':''}>Arriba</option><option ${b.direction==='Abajo'?'selected':''}>Abajo</option></select></div>
-    <div class="field"><label>Matriz</label><select onchange="updateDetailedBend(${i},'v',this.value)">${V_OPTIONS.map(v=>`<option value="${v}" ${+b.v===v?'selected':''}>V${v}</option>`).join('')}</select></div>
-    <div class="field"><label>Longitud pliegue (mm)</label><input type="number" min="1" step="1" value="${b.bendLength}" onchange="updateDetailedBend(${i},'bendLength',this.value)"></div>
-    <div class="delete-cell"><button class="icon-btn danger" onclick="removeDetailedBend(${i})">×</button></div>
-  </div>`).join('');
-  syncLegacyBends();
-}
-function calcBendFromInputs(b,t,k){
-  const theta=(180-Math.max(1,Math.min(179,+b.angle)))*Math.PI/180;
-  const r=Math.max(.1,+b.radius||(+b.v*.16));
-  const ba=theta*(r+k*t);
-  const setback=Math.tan(theta/2)*(r+t);
-  const bd=Math.max(0,2*setback-ba);
-  return {r,ba,bd,setback};
-}
-function calculateDetailedDevelopment(){
-  const t=+(document.getElementById('devThickness')?.value||jobThickness?.value||2);
-  const k=+(document.getElementById('devK')?.value||.33);
-  const nominal=detailedBends.reduce((s,b)=>s+(+b.length||0),0);
-  let ba=0,bd=0,acc=0;
-  const rows=detailedBends.map((b,i)=>{
-    const c=calcBendFromInputs(b,t,k);ba+=c.ba;bd+=c.bd;acc+=(+b.length||0)-c.bd;
-    return {i,b,c,acc};
-  });
-  const flat=Math.max(0,nominal-bd);
-  const width=+(document.getElementById('devWidth')?.value||detailedBends[0]?.bendLength||800);
-  const material=document.getElementById('devMaterial')?.value||jobMaterial?.value||'Acero S235';
-  const weight=flat/1000*width/1000*t/1000*densityForMaterial(material);
-  if(document.getElementById('sumBends'))sumBends.textContent=detailedBends.length;
-  if(document.getElementById('sumNominal'))sumNominal.textContent=`${nominal.toFixed(2)} mm`;
-  if(document.getElementById('sumDeveloped'))sumDeveloped.textContent=`${flat.toFixed(2)} mm`;
-  if(document.getElementById('sumDeduction'))sumDeduction.textContent=`${bd.toFixed(2)} mm`;
-  if(document.getElementById('devNominal'))devNominal.textContent=`${nominal.toFixed(2)} mm`;
-  if(document.getElementById('devBATotal'))devBATotal.textContent=`${ba.toFixed(2)} mm`;
-  if(document.getElementById('devBDTotal'))devBDTotal.textContent=`${bd.toFixed(2)} mm`;
-  if(document.getElementById('devFlat'))devFlat.textContent=`${flat.toFixed(2)} mm`;
-  if(document.getElementById('devWeight'))devWeight.textContent=`${weight.toFixed(2)} kg`;
-  if(document.getElementById('developmentRows'))developmentRows.innerHTML=rows.map(x=>`<tr><td>${x.i+1}</td><td>${(+x.b.length).toFixed(2)} mm</td><td>${x.b.angle}° ${x.b.direction}</td><td>${x.c.r.toFixed(2)} mm</td><td>V${x.b.v}</td><td>${x.c.ba.toFixed(3)}</td><td>${x.c.bd.toFixed(3)}</td><td>${x.acc.toFixed(2)}</td></tr>`).join('');
-  const warnings=[];
-  detailedBends.forEach((b,i)=>{const ratio=(+b.v)/t;if(ratio<5)warnings.push(`Pliegue ${i+1}: V estrecha para el espesor.`);if((+b.length)<(+b.v*.7))warnings.push(`Pliegue ${i+1}: ala corta respecto a V${b.v}.`)});
-  if(document.getElementById('bendWarnings'))bendWarnings.innerHTML=warnings.length?warnings.map(w=>`<div class="warntext">${w}</div>`):'<span class="good">Datos dimensionales coherentes para una comprobación inicial.</span>';
-  drawDevelopmentDiagram(rows,flat);return {nominal,ba,bd,flat,rows};
-}
-function drawDevelopmentDiagram(rows,flat){
-  const cv=document.getElementById('developmentDiagram');if(!cv)return;
-  const dpr=Math.min(devicePixelRatio||1,2),w=cv.clientWidth,h=cv.clientHeight;cv.width=w*dpr;cv.height=h*dpr;
-  const c=cv.getContext('2d');c.setTransform(dpr,0,0,dpr,0,0);c.clearRect(0,0,w,h);
-  c.fillStyle='#04101a';c.fillRect(0,0,w,h);const pad=35,y=h/2,scale=(w-pad*2)/Math.max(flat,1);
-  c.lineCap='round';c.strokeStyle='#4ce0be';c.lineWidth=12;c.beginPath();c.moveTo(pad,y);c.lineTo(w-pad,y);c.stroke();
-  let x=pad;
-  rows.forEach((r,i)=>{x+=Math.max(0,(+r.b.length-r.c.bd))*scale;c.strokeStyle='#ffbe62';c.lineWidth=2;c.beginPath();c.moveTo(x,y-24);c.lineTo(x,y+24);c.stroke();c.fillStyle='#dceaf5';c.font='11px sans-serif';c.fillText(`#${i+1} V${r.b.v}`,x-18,y-30)});
-  c.fillStyle='#8ea9bd';c.fillText(`Desarrollo ${flat.toFixed(2)} mm`,pad,25);
-}
-function exportDevelopmentCSV(){
-  const result=calculateDetailedDevelopment();
-  const lines=['pliegue,longitud_ala,angulo,sentido,radio,V,longitud_plegado,BA,BD'];
-  result.rows.forEach(x=>lines.push([x.i+1,x.b.length,x.b.angle,x.b.direction,x.c.r,x.b.v,x.b.bendLength,x.c.ba.toFixed(4),x.c.bd.toFixed(4)].join(',')));
-  const blob=new Blob([lines.join('\n')],{type:'text/csv'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`${document.getElementById('devRef')?.value||'pieza'}_desarrollo.csv`;a.click();URL.revokeObjectURL(a.href);
-}
-function initMultiV(){
-  if(document.getElementById('multiBaseV')){
-    multiBaseV.innerHTML=V_OPTIONS.map(v=>`<option value="${v}" ${v===16?'selected':''}>V${v}</option>`).join('');
-    multiVChecks.innerHTML=V_OPTIONS.map(v=>`<label class="check"><input type="checkbox" value="${v}" ${[12,16,24,32].includes(v)?'checked':''}><span>V${v}</span></label>`).join('');
-  }
-}
-function scenarioForV(V,t,k){
-  let ba=0,bd=0,radius=0;
-  detailedBends.forEach(b=>{const copy={...b,v:V,radius:Math.max(.1,V*.16)};const c=calcBendFromInputs(copy,t,k);ba+=c.ba;bd+=c.bd;radius+=c.r});
-  const nominal=detailedBends.reduce((s,b)=>s+(+b.length||0),0);
-  return {V,ba,bd,radius,flat:nominal-bd};
-}
-function calculateMultiV(){
-  const base=+multiBaseV.value,t=+(document.getElementById('devThickness')?.value||jobThickness?.value||2),k=+(document.getElementById('devK')?.value||.33);
-  const selected=[...multiVChecks.querySelectorAll('input:checked')].map(x=>+x.value);if(!selected.includes(base))selected.push(base);
-  const baseData=scenarioForV(base,t,k),data=selected.sort((a,b)=>a-b).map(v=>scenarioForV(v,t,k));
-  multiVResults.innerHTML=data.map(x=>{const diff=x.flat-baseData.flat,per=diff/Math.max(1,detailedBends.length),ratio=x.V/t,risk=ratio<5?'V estrecha':ratio>14?'Radio/deformación':'Controlado';return `<tr><td><b>V${x.V}</b>${x.V===base?' · Base':''}</td><td>${x.radius.toFixed(2)} mm</td><td>${x.ba.toFixed(2)}</td><td>${x.bd.toFixed(2)}</td><td>${x.flat.toFixed(2)} mm</td><td class="${diff<0?'bad':'good'}">${diff>=0?'+':''}${diff.toFixed(2)} mm</td><td>${per>=0?'+':''}${per.toFixed(3)} mm</td><td>${risk}</td></tr>`}).join('');
-  drawMultiVChart(data,baseData);
-}
-function drawMultiVChart(data,base){
-  const cv=document.getElementById('multiVChart');if(!cv)return;const dpr=Math.min(devicePixelRatio||1,2),w=cv.clientWidth,h=cv.clientHeight;cv.width=w*dpr;cv.height=h*dpr;
-  const c=cv.getContext('2d');c.setTransform(dpr,0,0,dpr,0,0);c.clearRect(0,0,w,h);c.fillStyle='#04101a';c.fillRect(0,0,w,h);
-  const pad=40,max=Math.max(...data.map(x=>Math.abs(x.flat-base.flat)),1);
-  data.forEach((x,i)=>{const bw=(w-pad*2)/data.length*.55,cx=pad+(i+.5)*(w-pad*2)/data.length,d=x.flat-base.flat,bh=Math.abs(d)/max*(h-100)/2,y=h/2-(d>=0?bh:0);c.fillStyle=x.V===base?'#ffbe62':'#4ce0be';c.fillRect(cx-bw/2,y,bw,bh);c.fillStyle='#dceaf5';c.font='11px sans-serif';c.fillText(`V${x.V}`,cx-10,h-24);c.fillText(`${d>=0?'+':''}${d.toFixed(2)}`,cx-17,d>=0?y-7:y+bh+15)});
-  c.strokeStyle='#54738a';c.beginPath();c.moveTo(pad,h/2);c.lineTo(w-pad,h/2);c.stroke();
-}
-function setSimulationMode(mode){
-  simulationMode=mode;
-  document.getElementById('sim3dWrap')?.classList.toggle('hidden',mode==='2d');
-  document.getElementById('sim2dWrap')?.classList.toggle('active',mode==='2d');
-  document.getElementById('mode3dBtn')?.classList.toggle('active',mode==='3d');
-  document.getElementById('mode2dBtn')?.classList.toggle('active',mode==='2d');
-  if(mode==='2d')drawSim2D();else drawSim();
-}
-function buildFoldedPolyline(stepProgress=1){
-  let pts=[[0,0]],heading=0;
-  detailedBends.forEach((b,i)=>{
-    const L=+b.length||0;const last=pts[pts.length-1];pts.push([last[0]+Math.cos(heading)*L,last[1]-Math.sin(heading)*L]);
-    if(i<detailedBends.length-1){
-      const applied=i<simStep?1:i===simStep?stepProgress:0;
-      const delta=(180-(+b.angle||90))*Math.PI/180*(b.direction==='Abajo'?-1:1)*applied;heading+=delta;
-    }
-  });return pts;
-}
-function drawSim2D(){
-  const cv=document.getElementById('sim2d');if(!cv)return;const dpr=Math.min(devicePixelRatio||1,2),w=cv.clientWidth,h=cv.clientHeight;cv.width=w*dpr;cv.height=h*dpr;
-  const c=cv.getContext('2d');c.setTransform(dpr,0,0,dpr,0,0);c.clearRect(0,0,w,h);const g=c.createLinearGradient(0,0,0,h);g.addColorStop(0,'#0a1e2d');g.addColorStop(1,'#02070c');c.fillStyle=g;c.fillRect(0,0,w,h);
-  const pts=buildFoldedPolyline(simProgress),xs=pts.map(p=>p[0]),ys=pts.map(p=>p[1]),minX=Math.min(...xs),maxX=Math.max(...xs),minY=Math.min(...ys),maxY=Math.max(...ys),scale=Math.min((w-100)/Math.max(1,maxX-minX),(h-120)/Math.max(1,maxY-minY));
-  const tx=(x)=>50+(x-minX)*scale,ty=(y)=>70+(y-minY)*scale;
-  c.lineCap='round';c.lineJoin='round';c.strokeStyle='#4ce0be';c.lineWidth=10;c.beginPath();pts.forEach((p,i)=>i?c.lineTo(tx(p[0]),ty(p[1])):c.moveTo(tx(p[0]),ty(p[1])));c.stroke();
-  pts.slice(1,-1).forEach((p,i)=>{c.fillStyle=i===simStep?'#ffbe62':'#dceaf5';c.beginPath();c.arc(tx(p[0]),ty(p[1]),6,0,Math.PI*2);c.fill();c.font='11px sans-serif';c.fillText(`#${i+1}`,tx(p[0])+8,ty(p[1])-8)});
-  c.fillStyle='#8fa9bd';c.font='12px sans-serif';c.fillText(`Perfil 2D · Pliegue ${Math.min(simStep+1,detailedBends.length)}/${detailedBends.length}`,20,25);
-  if(document.getElementById('sim2dInfo'))sim2dInfo.textContent=`Pliegue ${Math.min(simStep+1,detailedBends.length)} · ${Math.round((detailedBends[simStep]?.angle||90)*simProgress)}°`;
-}
-
 const cv=document.getElementById('sim'),ctx=cv.getContext('2d');
 let simStep=0,simProgress=0,playing=false,lastT=0;
 let cameraView='operator',renderMode='high',orbitX=0,orbitY=0,dragging=false,lastPointer=null;
@@ -1192,7 +950,7 @@ function setCameraView(name,btn){
   if(document.getElementById('statusCamera'))statusCamera.textContent=({operator:'Operador',front:'Frontal',side:'Lateral',top:'Superior',iso:'Isométrica'})[name]||name;
   if(document.getElementById('cameraSelect'))cameraSelect.value=name;
   document.querySelectorAll('.view-btn').forEach(b=>b.classList.toggle('active',b===btn));
-  orbitX=0;orbitY=0;renderSequenceTrack();drawSim();drawSim2D();
+  orbitX=0;orbitY=0;renderSequenceTrack();drawSim();
 }
 function setRenderQuality(v){renderMode=v;if(document.getElementById('statusQuality'))statusQuality.textContent=({high:'Alta',medium:'Media',mobile:'Móvil'})[v]||v;drawSim()}
 function toggleScenePart(part,btn){
@@ -1324,15 +1082,20 @@ function drawMachine(scene,w,h){
   }
 }
 function drawSheet(scene){
-  const pts=buildFoldedPolyline(simProgress);
+  const bend=bends[Math.min(simStep,bends.length-1)]||{angle:90,dir:'Arriba'};
+  const target=Math.max(0,180-(bend.angle||90)),sign=bend.dir==='Abajo'?-1:1,ang=target*simProgress*sign*Math.PI/180;
+  const center=[0,190,0],left=[-175,190,0],right=[175*Math.cos(ang),190+Math.sin(ang)*145,0];
   const finish=(document.getElementById('sheetFinish')?.value)||'steel';
-  const palette={steel:['#4ce0be','#a8fff0'],inox:['#dce7ee','#ffffff'],aluminium:['#b9d9ea','#effaff'],galvanized:['#9fb9c8','#e8f1f5']}[finish];
-  const total=Math.max(...pts.map(p=>Math.abs(p[0])),1),scale=Math.min(1.35,330/total);
-  for(let i=0;i<pts.length-1;i++){
-    const a=pts[i],b=pts[i+1];
-    line3D([(a[0]-60)*scale,190+a[1]*scale,0],[(b[0]-60)*scale,190+b[1]*scale,0],palette[0],10,scene,12);
-    line3D([(a[0]-60)*scale,194+a[1]*scale,5],[(b[0]-60)*scale,194+b[1]*scale,5],palette[1],2,scene);
-  }
+  const palette={
+    steel:['#4ce0be','#a8fff0','#177a69'],
+    inox:['#dce7ee','#ffffff','#718897'],
+    aluminium:['#b9d9ea','#effaff','#6f9ab2'],
+    galvanized:['#9fb9c8','#e8f1f5','#627b8a']
+  }[finish];
+  const thick=+(document.getElementById('visualThickness')?.value||3);
+  line3D(left,center,palette[0],8+thick,scene,12);line3D(center,right,palette[0],8+thick,scene,12);
+  line3D([-175,194,5],[0,194,5],palette[1],2,scene);line3D([0,194,5],[175*Math.cos(ang),194+Math.sin(ang)*145,5],palette[1],2,scene);
+  line3D([-175,186-thick,-4],[0,186-thick,-4],palette[2],2+thick*.6,scene);line3D([0,186-thick,-4],[175*Math.cos(ang),186-thick+Math.sin(ang)*145,-4],palette[2],2+thick*.6,scene);
 }
 function drawLights(scene,w,h){
   const lg=ctx.createLinearGradient(0,0,w,h);lg.addColorStop(0,'#ffffff10');lg.addColorStop(.4,'#0000');lg.addColorStop(1,'#50ddff08');ctx.fillStyle=lg;ctx.fillRect(0,0,w,h);
@@ -1366,39 +1129,16 @@ function drawSim(){
   if(document.getElementById('statSequence'))statSequence.textContent=`${bends.length} pliegues`;
 }
 function animate(t){
-  if(playing){
-    if(!lastT)lastT=t;
-    simProgress+=(t-lastT)/(1900/simSpeed);
-    lastT=t;
-    if(simProgress>=1){
-      simProgress=1;
-      if(fullSequence&&simStep<bends.length-1){
-        simStep++;
-        simProgress=0;
-        lastT=t;
-        renderSequenceTrack();
-      }else{
-        playing=false;
-        fullSequence=false;
-        if(document.getElementById('statusSequence'))statusSequence.textContent='Manual';
-      }
-    }
-    if(simulationMode==='3d')drawSim();
-    else drawSim2D();
-  }
-  requestAnimationFrame(animate);
+  if(playing){if(!lastT)lastT=t;simProgress+=(t-lastT)/(1900/simSpeed);lastT=t;if(simProgress>=1){simProgress=1;if(fullSequence&&simStep<bends.length-1){simStep++;simProgress=0;lastT=t;renderSequenceTrack()}else{playing=false;fullSequence=false;if(document.getElementById('statusSequence'))statusSequence.textContent='Manual'}}drawSim()}
+  renderSequenceTrack();requestAnimationFrame(animate);
 }
 function toggleSim(){playing=!playing;lastT=0}
 function stepSim(d){
   if(d>0){if(simProgress<1)simProgress=1;else{simStep=Math.min(bends.length-1,simStep+1);simProgress=0}}
   else{if(simProgress>0)simProgress=0;else simStep=Math.max(0,simStep-1)}
-  if(simulationMode==='3d')drawSim();else drawSim2D();
+  drawSim();
 }
-function resetSim(){
-  simStep=0;simProgress=0;playing=false;fullSequence=false;
-  if(document.getElementById('statusSequence'))statusSequence.textContent='Manual';
-  renderSequenceTrack();drawSim();drawSim2D();
-}
+function resetSim(){simStep=0;simProgress=0;playing=false;fullSequence=false;if(document.getElementById('statusSequence'))statusSequence.textContent='Manual';renderSequenceTrack();drawSim()}
 cv.addEventListener('pointerdown',e=>{dragging=true;lastPointer=[e.clientX,e.clientY];cv.setPointerCapture(e.pointerId)});
 cv.addEventListener('pointermove',e=>{if(!dragging)return;orbitX+=(e.clientX-lastPointer[0])*.18;orbitY=Math.max(-25,Math.min(55,orbitY+(e.clientY-lastPointer[1])*.12));lastPointer=[e.clientX,e.clientY];drawSim()});
 cv.addEventListener('pointerup',()=>{dragging=false;lastPointer=null});
@@ -1416,6 +1156,7 @@ cv.addEventListener('touchmove',e=>{
 },{passive:false});
 cv.addEventListener('touchend',()=>{pinchDistance=0});
 cv.addEventListener('wheel',e=>{e.preventDefault();orbitY=Math.max(-25,Math.min(55,orbitY+e.deltaY*.025));drawSim()},{passive:false});
+requestAnimationFrame(animate);
 
 function calcProduction(){const q=+pQty.value,b=+pBends.value,bt=+pBend.value,ha=+pHandle.value,pr=+pProg.value,to=+pTool.value,se=+pSetup.value;const per=b*(bt+ha),run=per*q/60,total=pr+to+se+run;kTime.textContent=total.toFixed(0)+' min';productionResult.innerHTML=`<div class="table-wrap"><table><tr><td>Programación</td><td>${pr.toFixed(1)} min</td></tr><tr><td>Montaje/cambio de utillaje</td><td>${to.toFixed(1)} min</td></tr><tr><td>Reglaje y primera pieza</td><td>${se.toFixed(1)} min</td></tr><tr><td>Tiempo por pieza</td><td>${per.toFixed(0)} s</td></tr><tr><td>Serie</td><td>${run.toFixed(1)} min</td></tr><tr><th>Total</th><th>${total.toFixed(1)} min</th></tr></table></div><div class="progress"><i style="width:100%"></i></div>`}
 let timerInt=null,timerSec=0;function tick(){timerSec++;timer.textContent=[Math.floor(timerSec/3600),Math.floor(timerSec%3600/60),timerSec%60].map(x=>String(x).padStart(2,'0')).join(':')}function startTimer(){if(!timerInt)timerInt=setInterval(tick,1000)}function pauseTimer(){clearInterval(timerInt);timerInt=null}function resetTimer(){pauseTimer();timerSec=0;timer.textContent='00:00:00'}
@@ -1524,34 +1265,23 @@ function addRule(){rules.unshift({condition:ruleCondition.value.trim(),action:ru
 function renderRules(){ruleList.innerHTML=rules.map((r,i)=>`<div class="rule-row"><div><b>SI</b><br>${r.condition}</div><div><b>ENTONCES</b><br>${r.action}</div><button class="btn danger" onclick="rules.splice(${i},1);localStorage.setItem(RULE_KEY,JSON.stringify(rules));renderRules()">Eliminar</button></div>`).join('')}
 renderRules();
 
+
+let proWings=[120,80,55,35],proBends=[{angle:90,radius:2,dir:'Arriba',v:16,bendLength:800,gauge:120},{angle:90,radius:2,dir:'Arriba',v:16,bendLength:800,gauge:80},{angle:135,radius:2.5,dir:'Abajo',v:22,bendLength:800,gauge:55}],curveData=null;
+function proBindTabs(){document.querySelectorAll('.pro-tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.pro-tab').forEach(x=>x.classList.toggle('active',x===b));document.querySelectorAll('.pro-panel').forEach(x=>x.classList.toggle('active',x.dataset.propanel===b.dataset.protab));if(b.dataset.protab==='result')proCalculate()})}
+function proRender(){proWingRows.innerHTML=proWings.map((w,i)=>`<div class="pro-bend" style="grid-template-columns:48px 1fr 38px"><div class="pro-num">#${i+1}</div><div class="field"><label>Longitud de pestaña</label><input type="number" step=".1" value="${w}" onchange="proWings[${i}]=+this.value;proCalculate()"></div><button class="pro-delete" onclick="proRemoveWing(${i})">×</button></div>`).join('');proBendRows.innerHTML=proBends.map((b,i)=>`<div class="pro-bend"><div class="pro-num">#${i+1}</div><div class="field"><label>Ángulo</label><input type="number" value="${b.angle}" onchange="proSetBend(${i},'angle',this.value)"></div><div class="field"><label>Radio</label><input type="number" step=".1" value="${b.radius}" onchange="proSetBend(${i},'radius',this.value)"></div><div class="field"><label>Sentido</label><select onchange="proSetBend(${i},'dir',this.value)"><option ${b.dir==='Arriba'?'selected':''}>Arriba</option><option ${b.dir==='Abajo'?'selected':''}>Abajo</option></select></div><div class="field"><label>Matriz</label><select onchange="proSetBend(${i},'v',this.value)">${V_LIST.map(v=>`<option value="${v}" ${+b.v===v?'selected':''}>V${v}</option>`).join('')}</select></div><div class="field"><label>Long. plegado</label><input type="number" value="${b.bendLength}" onchange="proSetBend(${i},'bendLength',this.value)"></div><div class="field"><label>Tope X</label><input type="number" step=".1" value="${b.gauge}" onchange="proSetBend(${i},'gauge',this.value)"></div><button class="pro-delete" onclick="proRemoveBend(${i})">×</button></div>`).join('');proCalculate()}
+function proSetBend(i,k,v){proBends[i][k]=k==='dir'?v:+v;proCalculate()} function proAddWing(){proWings.push(50);if(proBends.length<proWings.length-1)proBends.push({angle:90,radius:2,dir:'Arriba',v:16,bendLength:+proWidth.value||800,gauge:50});proRender()} function proRemoveWing(i){if(proWings.length<=2)return;proWings.splice(i,1);while(proBends.length>proWings.length-1)proBends.pop();proRender()} function proAddBend(){proBends.push({angle:90,radius:2,dir:'Arriba',v:16,bendLength:+proWidth.value||800,gauge:50});if(proWings.length<proBends.length+1)proWings.push(50);proRender()} function proRemoveBend(i){if(proBends.length<=1)return;proBends.splice(i,1);if(proWings.length>proBends.length+1)proWings.splice(i+1,1);proRender()}
+function proBCalc(b,t,k){const r=Math.max(.1,+b.radius),th=(180-Math.max(1,Math.min(179,+b.angle)))*Math.PI/180,ba=th*(r+k*t),sb=Math.tan(th/2)*(r+t),bd=Math.max(0,2*sb-ba);return{r,ba,bd}}
+function proCalculate(){const t=+proT.value||2,k=+proK.value||.33,nom=proWings.reduce((a,b)=>a+(+b||0),0);let ba=0,bd=0;const rows=proBends.map((b,i)=>{const c=proBCalc(b,t,k);ba+=c.ba;bd+=c.bd;return{i,b,c}}),flat=Math.max(0,nom-bd);proNominal.textContent=nom.toFixed(2)+' mm';proBA.textContent=ba.toFixed(2)+' mm';proBD.textContent=bd.toFixed(2)+' mm';proFlat.textContent=flat.toFixed(2)+' mm';proDevTable.innerHTML=rows.map(x=>`<tr><td>${x.i+1}</td><td>${(proWings[x.i]||0).toFixed(2)}</td><td>${x.b.angle}°</td><td>${x.c.r.toFixed(2)}</td><td>V${x.b.v}</td><td>${x.c.ba.toFixed(3)}</td><td>${x.c.bd.toFixed(3)}</td></tr>`).join('');proDraw(rows,flat);return{rows,flat}}
+function proDraw(rows,flat){const c=proDevCanvas,d=Math.min(devicePixelRatio||1,2),w=c.clientWidth,h=c.clientHeight;c.width=w*d;c.height=h*d;const x=c.getContext('2d');x.setTransform(d,0,0,d,0,0);x.fillStyle='#030a11';x.fillRect(0,0,w,h);const pad=35,y=h/2,s=(w-pad*2)/Math.max(flat,1);x.strokeStyle='#43d6b8';x.lineWidth=12;x.beginPath();x.moveTo(pad,y);x.lineTo(w-pad,y);x.stroke();let pos=pad;rows.forEach((r,i)=>{pos+=Math.max(0,(proWings[i]||0)-r.c.bd)*s;x.strokeStyle='#ffbd62';x.lineWidth=2;x.beginPath();x.moveTo(pos,y-25);x.lineTo(pos,y+25);x.stroke()})}
+function proExportCSV(){const r=proCalculate(),lines=['pliegue,pestana,angulo,radio,V,longitud_plegado,tope_X,BA,BD'];r.rows.forEach(x=>lines.push([x.i+1,proWings[x.i],x.b.angle,x.b.radius,x.b.v,x.b.bendLength,x.b.gauge,x.c.ba.toFixed(4),x.c.bd.toFixed(4)].join(',')));const b=new Blob([lines.join('\n')],{type:'text/csv'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='desarrollo.csv';a.click();URL.revokeObjectURL(a.href)}
+function curveCalculate(){const R=+curveR.value||1,A=Math.max(1,Math.min(180,+curveA.value||90)),t=+curveT.value||1,Vv=+curveV.value||16,hits=Math.max(2,Math.min(80,Math.round(+curveHits.value||9))),arc=2*Math.PI*(R+t*.33)*(A/360),ang=A/hits,pitch=arc/hits,program=Array.from({length:hits},(_,i)=>({n:i+1,pos:(i+1)*pitch,ang,cum:(i+1)*ang,gauge:Math.max(0,arc-(i+1)*pitch)}));curveData={R,A,t,Vv,hits,arc,ang,pitch,program};curveOHits.textContent=hits;curveOAngle.textContent=ang.toFixed(2)+'°';curveOPitch.textContent=pitch.toFixed(2)+' mm';curveOArc.textContent=arc.toFixed(2)+' mm';curveRows.innerHTML=program.map(x=>`<tr><td>${x.n}</td><td>${x.pos.toFixed(2)}</td><td>${x.ang.toFixed(2)}°</td><td>${x.cum.toFixed(2)}°</td><td>${x.gauge.toFixed(2)}</td></tr>`).join('');curveAdvice.innerHTML=`Radio ${R.toFixed(2)} mm · ${hits} golpes · paso ${pitch.toFixed(2)} mm`;curveDraw()}
+function curveDraw(){if(!curveData)return;const d=curveData,c=curveCanvas,p=Math.min(devicePixelRatio||1,2),w=c.clientWidth,h=c.clientHeight;c.width=w*p;c.height=h*p;const x=c.getContext('2d');x.setTransform(p,0,0,p,0,0);x.fillStyle='#030a11';x.fillRect(0,0,w,h);const cx=w/2,cy=h*.78,s=Math.min((w-100)/(2*(d.R+d.t)),(h-90)/(d.R+d.t));x.strokeStyle='#43d6b8';x.lineWidth=10;x.beginPath();for(let i=0;i<=d.hits;i++){const a=(-90+i*d.ang)*Math.PI/180,xx=cx+Math.cos(a)*(d.R+d.t*.5)*s,yy=cy+Math.sin(a)*(d.R+d.t*.5)*s;i?x.lineTo(xx,yy):x.moveTo(xx,yy)}x.stroke()}
+function curveToProgram(){if(!curveData)curveCalculate();const d=curveData;bends=Array.from({length:d.hits},(_,i)=>({angle:180-d.ang,dir:'Arriba',length:d.pitch,radius:Math.max(.1,d.R/d.hits),v:d.Vv,bendLength:+curveLen.value||800,gauge:Math.max(0,d.arc-(i+1)*d.pitch)}));renderBends();resetSim();go('bends')}
+function renderFullDatabase(){if(!document.getElementById('fullDbGrid'))return;fullDbGrid.innerHTML=tools.map(t=>`<div class="tool-card"><b>${t.name}</b><small>${t.brand} · ${t.family}</small><small>${t.type} · ${t.angle}° · ${t.v?'V'+t.v:'R'+(t.r||'—')}</small><small>${t.ref}</small></div>`).join('')}
+proBindTabs();proRender();curveV.innerHTML=V_LIST.map(v=>`<option value="${v}" ${v===16?'selected':''}>V${v}</option>`).join('');curveCalculate();renderFullDatabase();
+
 if('serviceWorker' in navigator){navigator.serviceWorker.getRegistrations().then(rs=>rs.forEach(r=>r.unregister()));}if('caches' in window){caches.keys().then(keys=>keys.forEach(k=>caches.delete(k)));}
 setTimeout(drawSim,100);
-
-
-function startPlegarPro(){
-  try{
-    renderDetailedBends();
-    initMultiV();
-    calculateDetailedDevelopment();
-    renderSequenceTrack();
-    drawSim2D();
-    if(document.getElementById('verifyBends'))verifyBends.textContent=detailedBends.length;
-    if(document.getElementById('runtimeState')){
-      runtimeState.textContent='Aplicación iniciada correctamente';
-      runtimeState.className='good';
-    }
-    requestAnimationFrame(animate);
-  }catch(error){
-    console.error('Plegar Pro startup error',error);
-    const state=document.getElementById('runtimeState');
-    if(state){
-      state.textContent='Error de inicio: '+error.message;
-      state.className='bad';
-    }
-  }
-}
-if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',startPlegarPro);
-else startPlegarPro();
 
 </script>
 </body>
