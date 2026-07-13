@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
 <meta name="theme-color" content="#071522">
-<title>Plegar Pro v19.6 Simulación 2D/3D Separada</title>
+<title>Plegar Pro v19.8 Simulación Corregida</title>
 <style>
 :root{
  --bg:#030914;--panel:#081827;--panel2:#0d2435;--panel3:#123047;--line:#2d536d;
@@ -85,12 +85,84 @@ h2{font-size:16px;margin:0 0 12px}h3{font-size:14px;margin:15px 0 8px}.muted{col
 #sim3DCanvas{touch-action:none}
 .machine-detail{filter:drop-shadow(0 8px 14px #0008)}
 
+
+/* v19.8 PC Experience */
+:root{
+ --pc-glass:rgba(8,24,39,.82);
+ --pc-glass-2:rgba(12,36,53,.74);
+ --pc-border:rgba(121,194,226,.18);
+ --pc-shadow:0 28px 80px rgba(0,0,0,.45);
+}
+body{overflow:hidden}
+.app{height:100vh;min-height:0;background:linear-gradient(145deg,#06101a,#0a1e2e 45%,#03101a)}
+.desktop-shell{height:100vh;display:flex;flex-direction:column;overflow:hidden}
+.window-bar{height:42px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;background:linear-gradient(180deg,#0d2231,#081722);border-bottom:1px solid #24465c;box-shadow:0 2px 12px #0006;user-select:none}
+.window-brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.02em}
+.window-logo-mini{width:24px;height:24px;border-radius:7px;background:linear-gradient(145deg,#58e5c8,#3ba7ff);display:grid;place-items:center;box-shadow:0 0 18px #42dfbe55}
+.window-controls{display:flex;gap:6px}.window-control{width:28px;height:22px;border-radius:6px;border:1px solid #2e536b;background:#102536;color:#9bb5c6;display:grid;place-items:center;font-size:12px}.window-control.close{background:#4a2028;color:#ffccd1}
+.workspace{flex:1;min-height:0;display:grid;grid-template-columns:280px minmax(0,1fr)}
+.sidebar{height:auto;position:relative;background:linear-gradient(180deg,rgba(7,20,32,.97),rgba(4,14,24,.98));border-right:1px solid #24475e;padding:14px 12px;box-shadow:12px 0 35px #0004}
+.sidebar-header{display:flex;align-items:center;gap:12px;padding:6px 6px 14px;border-bottom:1px solid #1e3c51;margin-bottom:10px}
+.app-logo{width:48px;height:48px;border-radius:14px;background:linear-gradient(145deg,#56e6c8,#2d9cff 55%,#7766ff);display:grid;place-items:center;box-shadow:0 12px 28px #0006,0 0 26px #43d6b855}
+.app-logo svg{width:32px;height:32px}
+.brand-wrap .brand{font-size:18px}.brand-wrap .version{margin:2px 0 0}
+.nav button{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:11px;transition:.18s ease}
+.nav button::before{content:'◆';font-size:8px;color:#4d7087}
+.nav button.active{background:linear-gradient(90deg,#153b52,#112f42);box-shadow:inset 3px 0 0 #42dfbe,0 8px 22px #0003}
+.main{display:flex;flex-direction:column;min-height:0;background:radial-gradient(circle at 85% 0,#173e59 0,#07131f 36%,#030914 78%)}
+.topbar{position:relative;top:auto;min-height:68px;padding:12px 18px;background:linear-gradient(180deg,rgba(8,24,37,.96),rgba(7,19,30,.9));border-bottom:1px solid #24475d;box-shadow:0 8px 28px #0004}
+.topbar-actions{margin-left:auto;display:flex;align-items:center;gap:8px}
+.top-chip{padding:7px 10px;border-radius:999px;border:1px solid #2d536d;background:#0b2435;color:#9cb7c9;font-size:11px}
+.content{flex:1;min-height:0;overflow:auto;padding:16px}
+.card{background:linear-gradient(145deg,rgba(13,35,52,.96),rgba(6,21,33,.96));border:1px solid rgba(79,129,161,.42);box-shadow:0 18px 45px #0004}
+.page-title-icon{width:38px;height:38px;border-radius:11px;background:linear-gradient(145deg,#174761,#0d2e43);display:grid;place-items:center;border:1px solid #35617e;color:#62e3ca;font-weight:900}
+.statusbar{height:30px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;background:#07141e;border-top:1px solid #24475d;color:#7f9aae;font-size:10px}
+.splash-screen{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;background:radial-gradient(circle at 50% 20%,#173d58,#06121d 55%,#02070b);transition:opacity .55s ease,visibility .55s ease}
+.splash-screen.hidden{opacity:0;visibility:hidden}
+.splash-card{width:min(92vw,560px);padding:36px;border-radius:24px;background:linear-gradient(145deg,rgba(15,43,62,.96),rgba(6,19,30,.96));border:1px solid rgba(108,195,229,.24);box-shadow:0 35px 90px #0008;text-align:center}
+.splash-logo{width:108px;height:108px;margin:0 auto 20px;border-radius:30px;background:linear-gradient(145deg,#57e6c8,#2d9cff 55%,#7666ff);display:grid;place-items:center;box-shadow:0 22px 52px #0007,0 0 55px #42dfbe44;animation:floatLogo 2.2s ease-in-out infinite}
+.splash-logo svg{width:70px;height:70px}
+.splash-title{font-size:34px;font-weight:950;letter-spacing:.04em}.splash-subtitle{color:#98b6c9;margin-top:6px}
+.splash-progress{height:8px;background:#04111c;border:1px solid #315772;border-radius:999px;overflow:hidden;margin-top:26px}
+.splash-progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,#42dfbe,#59d9ff,#7569ff);animation:loadBar 1.75s ease forwards}
+.splash-note{font-size:11px;color:#7895a8;margin-top:10px}
+.welcome-hero{display:grid;grid-template-columns:1.3fr .7fr;gap:18px;align-items:center;padding:22px;border-radius:18px;background:linear-gradient(135deg,#0e2c40,#0a1d2d 55%,#071522);border:1px solid #2c566f;box-shadow:0 24px 55px #0005}
+.hero-logo{width:150px;height:150px;border-radius:36px;background:linear-gradient(145deg,#57e6c8,#2d9cff 55%,#7666ff);display:grid;place-items:center;box-shadow:0 28px 60px #0007,0 0 48px #42dfbe33}
+.hero-logo svg{width:98px;height:98px}
+@keyframes loadBar{to{width:100%}}@keyframes floatLogo{50%{transform:translateY(-8px)}}
+@media(max-width:900px){body{overflow:auto}.workspace{grid-template-columns:1fr}.desktop-shell{height:auto;min-height:100vh}.window-bar{display:none}.sidebar{position:fixed;height:100vh}.welcome-hero{grid-template-columns:1fr}.hero-logo{margin:auto}}
+
 </style>
 </head>
 <body>
-<div class="app">
+
+<div class="splash-screen" id="splashScreen">
+  <div class="splash-card">
+    <div class="splash-logo"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
+<path d="M12 18h40v8H20v9h25v8H20v11h-8V18Z" fill="white"/>
+<path d="M29 27h23v8H37v19h-8V27Z" fill="rgba(255,255,255,.72)"/>
+</svg></div>
+    <div class="splash-title">PLEGAR PRO</div>
+    <div class="splash-subtitle">Industrial Engineering Suite · v19.8</div>
+    <div class="splash-progress"><span></span></div>
+    <div class="splash-note">Iniciando módulos de ingeniería, CAD y simulación…</div>
+  </div>
+</div>
+<div class="desktop-shell">
+  <div class="window-bar">
+    <div class="window-brand"><div class="window-logo-mini">P</div><span>Plegar Pro v19.8</span></div>
+    <div class="window-controls"><div class="window-control">—</div><div class="window-control">□</div><div class="window-control close">×</div></div>
+  </div>
+  <div class="workspace">
+<div class="app" style="display:contents">
 <aside class="sidebar" id="sidebar">
- <div class="brand">PLEGAR PRO</div><div class="pill" style="margin:7px 0">BUILD 2026.07.12-1960</div><div class="version">v19.6 · Simulación 2D/3D Separada</div>
+ <div class="sidebar-header">
+<div class="app-logo"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
+<path d="M12 18h40v8H20v9h25v8H20v11h-8V18Z" fill="white"/>
+<path d="M29 27h23v8H37v19h-8V27Z" fill="rgba(255,255,255,.72)"/>
+</svg></div>
+<div class="brand-wrap"><div class="brand">PLEGAR PRO</div><div class="version">v19.8 · Simulación Corregida</div></div>
+</div>
  <nav class="nav">
   <div class="nav-title">Ingeniería</div>
   <button class="active" data-page="dashboard">Panel</button>
@@ -139,10 +211,27 @@ h2{font-size:16px;margin:0 0 12px}h3{font-size:14px;margin:15px 0 8px}.muted{col
 <header class="topbar"><button class="menu-btn" id="menuBtn">☰</button><div><h1 id="pageTitle">Panel principal</h1><p id="pageSub">Todos los módulos están conectados al mismo trabajo</p></div></header>
 <div class="content">
 
-<section class="page active" data-page="dashboard">
+<section class="page active" data-page="dashboard"><div class="card verification" style="margin-bottom:12px"><h2><span class="status-dot"></span>v19.8 · Simulación reparada</h2><div class="checks"><div class="check"><b class="good">✓ Reproducción 2D</b><br><span class="small muted">Play, pausa y pasos</span></div><div class="check"><b class="good">✓ Reproducción 3D</b><br><span class="small muted">Ariete sincronizado</span></div><div class="check"><b class="good">✓ Cámaras</b><br><span class="small muted">Libre y preajustes</span></div><div class="check"><b class="good">✓ Ratón y táctil</b><br><span class="small muted">Órbita, pan y zoom</span></div></div></div>
+<div class="welcome-hero" style="margin-bottom:14px">
+  <div>
+    <div class="pill">INDUSTRIAL ENGINEERING SUITE</div>
+    <h2 style="font-size:28px;margin-top:12px">Bienvenido a Plegar Pro</h2>
+    <p class="muted" style="font-size:14px;line-height:1.6">Software técnico para programación de plegado, desarrollo, oficina técnica, simulación 2D/3D, secuencias anticolisión e importación CAD.</p>
+    <div class="actions">
+      <button class="btn" onclick="showPage('plans')">Nuevo proyecto</button>
+      <button class="btn secondary" onclick="showPage('bends')">Programar plegado</button>
+      <button class="btn secondary" onclick="showPage('simulation3d')">Abrir 3D</button>
+    </div>
+  </div>
+  <div class="hero-logo"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
+<path d="M12 18h40v8H20v9h25v8H20v11h-8V18Z" fill="white"/>
+<path d="M29 27h23v8H37v19h-8V27Z" fill="rgba(255,255,255,.72)"/>
+</svg></div>
+</div>
+
 <div class="card verification" id="releaseCard" style="margin-bottom:12px">
-  <h2><span class="status-dot"></span>Plegar Pro v19.6 · Actualización cargada</h2>
-  <p><b>Compilación:</b> 2026.07.12-1960</p>
+  <h2><span class="status-dot"></span>Plegar Pro v19.8 · Actualización cargada</h2>
+  <p><b>Compilación:</b> 2026.07.12-1980</p>
   <div class="checks">
     <div class="check"><b class="good">✓ Cámara orbital</b><br><span class="small muted">Ratón y táctil</span></div>
     <div class="check"><b class="good">✓ Vista trasera</b><br><span class="small muted">Giro 360°</span></div>
@@ -153,7 +242,7 @@ h2{font-size:16px;margin:0 0 12px}h3{font-size:14px;margin:15px 0 8px}.muted{col
 </div>
 
 <div class="grid">
- <div class="card verification"><h2><span class="status-dot"></span>v19.6 · Simulación 2D y 3D separadas con cámara orbital</h2><p class="muted">Recupera los 20 módulos de la v18 original y añade Planos avanzado, Desarrollo, importación IA, simulación 2D/3D completa e IA mejorada.</p>
+ <div class="card verification"><h2><span class="status-dot"></span>v19.8 · Reproducción 2D/3D y cámaras reparadas</h2><p class="muted">Recupera los 20 módulos de la v18 original y añade Planos avanzado, Desarrollo, importación IA, simulación 2D/3D completa e IA mejorada.</p>
  <div class="actions"><button class="btn" onclick="showPage('plans')">Planos</button><button class="btn" onclick="showPage('bends')">Programar</button><button class="btn" onclick="showPage('development')">Desarrollo</button><button class="btn" onclick="showPage('simulation')">Simulación</button></div></div>
  <div class="card"><div class="kpis"><div class="kpi"><span>Módulos</span><b>25</b></div><div class="kpi"><span>Pliegues</span><b id="dashBends">0</b></div><div class="kpi"><span>Desarrollo</span><b id="dashFlat">—</b></div><div class="kpi"><span>Dispositivo</span><b id="deviceLabel">PC</b></div></div></div>
  <div class="card"><h2>Estado de la aplicación</h2><div class="checks"><div class="check"><b class="good">✓ Menús</b><br><span class="small muted">25 páginas registradas</span></div><div class="check"><b class="good">✓ Programación</b><br><span class="small muted">Datos compartidos</span></div><div class="check"><b class="good">✓ 2D/3D</b><br><span class="small muted">Forma acumulada</span></div><div class="check"><b class="good">✓ Copias</b><br><span class="small muted">JSON local</span></div></div></div>
@@ -587,7 +676,7 @@ h2{font-size:16px;margin:0 0 12px}h3{font-size:14px;margin:15px 0 8px}.muted{col
 </div></section>
 <section class="page" data-page="ai"><div class="card"><h2>Copiloto IA mejorado</h2><div id="chat" class="ai-chat"><div class="msg ai">Puedo analizar el programa actual, comparar V, revisar el desarrollo, detectar riesgos y preparar una lista de comprobación.</div></div><div class="actions"><input id="question" style="flex:1;background:#04111c;border:1px solid #315772;color:white;border-radius:9px;padding:9px" placeholder="Pregunta sobre la pieza actual"><button class="btn" id="ask">Preguntar</button><button class="btn secondary" id="aiAudit">Auditar trabajo</button></div></div></section>
 
-</div><footer style="position:fixed;right:10px;bottom:8px;z-index:90;background:#061621e8;border:1px solid #35617e;border-radius:9px;padding:6px 9px;font-size:10px;color:#9fc0d4">Plegar Pro v19.6 · 2026.07.12-1960</footer></main></div>
+</div><footer style="position:fixed;right:10px;bottom:8px;z-index:90;background:#061621e8;border:1px solid #35617e;border-radius:9px;padding:6px 9px;font-size:10px;color:#9fc0d4">Plegar Pro v19.8 · 2026.07.12-1980</footer></main></div>
 <script>
 'use strict';
 const $=id=>document.getElementById(id);
@@ -731,7 +820,7 @@ let sim2DPlaying=false,sim3DPlaying=false,sim2DFrame=0,sim3DFrame=0;
 function animateModule(kind,last=0){
   const now=performance.now(),delta=last?now-last:0,stepEl=$(kind==='2d'?'sim2DStep':'sim3DStep'),progressEl=$(kind==='2d'?'sim2DProgress':'sim3DProgress');
   let p=+progressEl.value/100;p+=delta/1500;
-  if(p>=1){p=1;if(+stepEl.value<model.bends.length-1){stepEl.value=+stepEl.value+1;p=0}else{if(kind==='2d')sim2DPlaying=false;else sim3DPlaying=false}}
+  if(p>=1){p=1;if(+stepEl.value<model.bends.length-1){stepEl.value=+stepEl.value+1;p=0}else{if(kind==='2d'){sim2DPlaying=false;$('play2D').textContent='Reproducir'}else{sim3DPlaying=false;$('play3D').textContent='Reproducir'}}}
   progressEl.value=Math.round(p*100);kind==='2d'?draw2DModule():draw3DModule();
   if((kind==='2d'?sim2DPlaying:sim3DPlaying)){const id=requestAnimationFrame(t=>animateModule(kind,now));if(kind==='2d')sim2DFrame=id;else sim3DFrame=id}
 }
@@ -743,7 +832,24 @@ function setup3DOrbit(){
   const end=()=>{sim.camera.dragging=false;stage.classList.remove('dragging')};
   canvas.addEventListener('pointerup',end);canvas.addEventListener('pointercancel',end);canvas.addEventListener('pointerleave',e=>{if(e.buttons===0)end()});
   canvas.addEventListener('wheel',e=>{e.preventDefault();sim.camera.zoom=Math.max(.55,Math.min(1.8,sim.camera.zoom*(e.deltaY>0?.92:1.08)));$('cameraZoom').value=Math.round(sim.camera.zoom*100);draw3DModule()},{passive:false});
+  let pinchDistance=0;
+  canvas.addEventListener('touchstart',e=>{if(e.touches.length===2)pinchDistance=Math.hypot(e.touches[1].clientX-e.touches[0].clientX,e.touches[1].clientY-e.touches[0].clientY)},{passive:false});
+  canvas.addEventListener('touchmove',e=>{if(e.touches.length!==2||!pinchDistance)return;e.preventDefault();const dist=Math.hypot(e.touches[1].clientX-e.touches[0].clientX,e.touches[1].clientY-e.touches[0].clientY);sim.camera.zoom=Math.max(.55,Math.min(1.8,sim.camera.zoom*dist/pinchDistance));pinchDistance=dist;$('cameraZoom').value=Math.round(sim.camera.zoom*100);draw3DModule()},{passive:false});
 }
+function renderSequence(){
+  normalizeSequenceAfterGeometryChange();
+  if($('sim2DStep'))renderSequence2D();
+  if($('sim3DStep'))renderSequence3D();
+}
+function drawSim(){
+  if($('sim2DCanvas'))draw2DModule();
+  if($('sim3DCanvas'))draw3DModule();
+}
+function resizeSim(){
+  if($('sim2DCanvas'))resize2D();
+  if($('sim3DCanvas'))resize3D();
+}
+
 function calculateCurve(){const R=+$('curveRadius').value||1,A=Math.max(1,Math.min(180,+$('curveAngle').value||90)),t=+$('curveThickness').value||1,hits=Math.max(2,Math.min(80,Math.round(+$('curveHits').value||9))),v=+$('curveV').value||16,arc=2*Math.PI*(R+t*.33)*(A/360),angle=A/hits,pitch=arc/hits;lastCurve={R,A,t,hits,v,arc,angle,pitch};$('curveOutHits').textContent=hits;$('curveOutAngle').textContent=angle.toFixed(2)+'°';$('curveOutPitch').textContent=pitch.toFixed(2)+' mm';$('curveOutArc').textContent=arc.toFixed(2)+' mm';$('curveAdvice').innerHTML=angle>12?'<span class="warn">Aumenta golpes.</span>':'<span class="good">Distribución adecuada.</span>';drawCurve()}
 function drawCurve(){if(!lastCurve)return;const d=lastCurve,c=$('curveCanvas'),p=Math.min(devicePixelRatio||1,2),w=c.clientWidth,h=c.clientHeight;c.width=w*p;c.height=h*p;const x=c.getContext('2d');x.setTransform(p,0,0,p,0,0);x.fillStyle='#02080e';x.fillRect(0,0,w,h);const cx=w/2,cy=h*.8,s=Math.min((w-100)/(2*(d.R+d.t)),(h-90)/(d.R+d.t));x.strokeStyle='#42dfbe';x.lineWidth=11;x.beginPath();for(let i=0;i<=d.hits;i++){const a=(-90+i*d.angle)*Math.PI/180,xx=cx+Math.cos(a)*(d.R+d.t*.5)*s,yy=cy+Math.sin(a)*(d.R+d.t*.5)*s;i?x.lineTo(xx,yy):x.moveTo(xx,yy)}x.stroke()}
 const tools=[];VLIST.forEach(v=>[30,60,88,90].forEach(a=>tools.push({type:'Matriz',brand:'Mecos',family:'Bystronic',name:`Matriz Mecos V${v} ${a}°`,v,angle:a})));tools.push({type:'Punzón',brand:'Mecos',family:'Bystronic',name:'Punzón recto 30°',angle:30},{type:'Punzón',brand:'Mecos',family:'Bystronic',name:'Punzón recto 88°',angle:88},{type:'Punzón',brand:'Mecos',family:'Bystronic',name:'Punzón pata de cabra 90°',angle:90},{type:'Punzón',brand:'TRUMPF',family:'TRUMPF',name:'Punzón estándar 88°',angle:88},{type:'Matriz',brand:'TRUMPF',family:'TRUMPF',name:'Matriz V16 90°',v:16,angle:90},{type:'Punzón',brand:'AMADA',family:'AMADA',name:'Punzón pata de cabra 90°',angle:90},{type:'Matriz',brand:'AMADA',family:'AMADA',name:'Matriz V24 88°',v:24,angle:88},{type:'Punzón',brand:'Corplec',family:'Corplec',name:'Punzón recto 90°',angle:90},{type:'Matriz',brand:'WILA',family:'New Standard',name:'WILA V16 90°',v:16,angle:90},{type:'Matriz',brand:'Wilson Tool',family:'European Precision',name:'Wilson V24 90°',v:24,angle:90});
@@ -776,15 +882,44 @@ $('sim2DProgress').oninput=draw2DModule;
 $('sim2DDimensionMode').onchange=draw2DModule;
 $('sim2DDisplay').onchange=draw2DModule;
 $('sim2DScale').oninput=draw2DModule;
-$('play2D').onclick=()=>{sim2DPlaying=!sim2DPlaying;if(sim2DPlaying){$('sim2DProgress').value=0;cancelAnimationFrame(sim2DFrame);animateModule('2d')}};
+$('play2D').onclick=()=>{
+  sim2DPlaying=!sim2DPlaying;
+  $('play2D').textContent=sim2DPlaying?'Pausar':'Reproducir';
+  if(sim2DPlaying){
+    if(+$('sim2DProgress').value>=100&&+$('sim2DStep').value>=model.bends.length-1){
+      $('sim2DStep').value=0;$('sim2DProgress').value=0;
+    }
+    cancelAnimationFrame(sim2DFrame);
+    animateModule('2d');
+  }
+};
 $('previous2D').onclick=()=>{$('sim2DStep').value=Math.max(0,+$('sim2DStep').value-1);$('sim2DProgress').value=100;draw2DModule()};
 $('next2D').onclick=()=>{$('sim2DStep').value=Math.min(model.bends.length-1,+$('sim2DStep').value+1);$('sim2DProgress').value=100;draw2DModule()};
 $('reset2D').onclick=()=>{sim2DPlaying=false;cancelAnimationFrame(sim2DFrame);$('sim2DStep').value=0;$('sim2DProgress').value=0;draw2DModule()};
 $('sim3DStep').onchange=draw3DModule;
 $('sim3DProgress').oninput=draw3DModule;
-['camera','cameraZoom','cameraPerspective','cameraControlMode','finish','quality','machineView','machineMotion'].forEach(id=>$(id).onchange=draw3DModule);
+$('camera').onchange=()=>{
+  if($('camera').value!=='free'){
+    const preset=cameraPreset($('camera').value);
+    sim.camera.yaw=preset.yaw;
+    sim.camera.pitch=preset.pitch;
+  }
+  updateCameraReadout();
+  draw3DModule();
+};
+['cameraPerspective','cameraControlMode','finish','quality','machineView','machineMotion'].forEach(id=>$(id).onchange=draw3DModule);
 $('cameraZoom').oninput=()=>{sim.camera.zoom=+$('cameraZoom').value/100;draw3DModule()};
-$('play3D').onclick=()=>{sim3DPlaying=!sim3DPlaying;if(sim3DPlaying){$('sim3DProgress').value=0;cancelAnimationFrame(sim3DFrame);animateModule('3d')}};
+$('play3D').onclick=()=>{
+  sim3DPlaying=!sim3DPlaying;
+  $('play3D').textContent=sim3DPlaying?'Pausar':'Reproducir';
+  if(sim3DPlaying){
+    if(+$('sim3DProgress').value>=100&&+$('sim3DStep').value>=model.bends.length-1){
+      $('sim3DStep').value=0;$('sim3DProgress').value=0;
+    }
+    cancelAnimationFrame(sim3DFrame);
+    animateModule('3d');
+  }
+};
 $('previous3D').onclick=()=>{$('sim3DStep').value=Math.max(0,+$('sim3DStep').value-1);$('sim3DProgress').value=100;draw3DModule()};
 $('next3D').onclick=()=>{$('sim3DStep').value=Math.min(model.bends.length-1,+$('sim3DStep').value+1);$('sim3DProgress').value=100;draw3DModule()};
 $('reset3D').onclick=()=>{sim3DPlaying=false;cancelAnimationFrame(sim3DFrame);$('sim3DStep').value=0;$('sim3DProgress').value=0;draw3DModule()};
@@ -1173,32 +1308,15 @@ async function convertCadOnServer(){const files=[...$('importFiles').files];if(!
 $('sendCadServer').onclick=convertCadOnServer;$('cadServerUrl').onchange=checkCadServer;['machineView','machineMotion'].forEach(id=>$(id).onchange=resizeSim);
 
 function resetCameraView(){
-  sim.camera={yaw:-.66,pitch:.42,zoom:1,panX:0,panY:0,dragging:false,lastX:0,lastY:0,pinch:0};
-  $('camera').value='free';$('cameraZoom').value=100;updateCameraReadout();draw3DModule();
+  sim.camera={yaw:-.66,pitch:.42,zoom:1,panX:0,panY:0,dragging:false,lastX:0,lastY:0,pinch:0,autoOrbit:false};
+  $('camera').value='free';
+  $('cameraZoom').value=100;
+  updateCameraReadout();
+  draw3DModule();
 }
-function pointerPos(e){const r=$('simCanvas').getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top}}
-function setupCameraControls(){
-  const canvas=$('simCanvas'),stage=canvas.parentElement;
-  canvas.addEventListener('pointerdown',e=>{if(sim.mode!=='3d')return;sim.camera.dragging=true;sim.camera.lastX=e.clientX;sim.camera.lastY=e.clientY;canvas.setPointerCapture?.(e.pointerId);stage.classList.add('dragging')});
-  canvas.addEventListener('pointermove',e=>{if(!sim.camera.dragging||sim.mode!=='3d')return;const dx=e.clientX-sim.camera.lastX,dy=e.clientY-sim.camera.lastY;sim.camera.lastX=e.clientX;sim.camera.lastY=e.clientY;
-    if($('cameraControlMode').value==='pan'){sim.camera.panX+=dx;sim.camera.panY+=dy}else{sim.camera.yaw+=dx*.008;sim.camera.pitch=Math.max(-1.25,Math.min(1.35,sim.camera.pitch+dy*.006));$('camera').value='free'}
-    updateCameraReadout();draw3DModule()
-  });
-  const end=()=>{sim.camera.dragging=false;stage.classList.remove('dragging')};
-  canvas.addEventListener('pointerup',end);canvas.addEventListener('pointercancel',end);canvas.addEventListener('pointerleave',e=>{if(e.buttons===0)end()});
-  canvas.addEventListener('wheel',e=>{if(sim.mode!=='3d')return;e.preventDefault();sim.camera.zoom=Math.max(.55,Math.min(1.8,sim.camera.zoom*(e.deltaY>0?.92:1.08)));$('cameraZoom').value=Math.round(sim.camera.zoom*100);updateCameraReadout();draw3DModule()},{passive:false});
-  let touches=[];
-  canvas.addEventListener('touchstart',e=>{touches=[...e.touches];if(touches.length===2)sim.camera.pinch=Math.hypot(touches[1].clientX-touches[0].clientX,touches[1].clientY-touches[0].clientY)},{passive:false});
-  canvas.addEventListener('touchmove',e=>{if(sim.mode!=='3d')return;e.preventDefault();const now=[...e.touches];if(now.length===2&&sim.camera.pinch){const dist=Math.hypot(now[1].clientX-now[0].clientX,now[1].clientY-now[0].clientY);sim.camera.zoom=Math.max(.55,Math.min(1.8,sim.camera.zoom*dist/sim.camera.pinch));sim.camera.pinch=dist;$('cameraZoom').value=Math.round(sim.camera.zoom*100);drawSim()}},{passive:false});
-}
-$('cameraZoom').oninput=()=>{sim.camera.zoom=+$('cameraZoom').value/100;updateCameraReadout();draw3DModule()};
-$('cameraPerspective').onchange=drawSim;$('cameraControlMode').onchange=()=>{};
-$('camera').onchange=()=>{if($('camera').value!=='free'){const p=cameraPreset($('camera').value);sim.camera.yaw=p.yaw;sim.camera.pitch=p.pitch;updateCameraReadout()}drawSim()};
-$('resetCamera').onclick=resetCameraView;
 
-
-const APP_VERSION='19.6';
-const BUILD_ID='2026.07.12-1960';
+const APP_VERSION='19.8';
+const BUILD_ID='2026.07.12-1980';
 function setOrbitPreset(yaw,pitch){
   sim.camera.yaw=yaw;sim.camera.pitch=pitch;
   $('camera').value='free';updateCameraReadout();draw3DModule();
@@ -1220,7 +1338,7 @@ function autoOrbitFrame(){
 function runRuntimeSelfCheck(){
   const requiredIds=['sim2DCanvas','sim3DCanvas','cameraZoom','cameraPerspective','cameraControlMode','machineView','machineMotion','resetCamera'];
   const missing=requiredIds.filter(id=>!document.getElementById(id));
-  const functionsOk=typeof draw2DModule==='function'&&typeof draw3DModule==='function'&&typeof setup3DOrbit==='function';
+  const functionsOk=typeof draw2DModule==='function'&&typeof draw3DModule==='function'&&typeof setup3DOrbit==='function'&&typeof renderSequence==='function';
   const node=$('runtimeCheck');
   if(node){
     if(!missing.length&&functionsOk){
@@ -1232,9 +1350,16 @@ function runRuntimeSelfCheck(){
   document.title=`Plegar Pro v${APP_VERSION} · ${BUILD_ID}`;
 }
 
+
+function initializeDesktopExperience(){
+  const splash=$('splashScreen');
+  setTimeout(()=>splash?.classList.add('hidden'),1850);
+  document.documentElement.classList.add('pc-experience');
+}
+
 const saved=localStorage.getItem('pp189_model');if(saved){try{model={...model,...JSON.parse(saved)}}catch(e){}}
 function detectDevice(){const w=innerWidth,d=w<=760?'Móvil':w<=1100?'Tablet':'PC';$('deviceLabel').textContent=d}
-syncUI();normalizeSequenceAfterGeometryChange();renderBends();renderSequenceEditor();renderTools();renderTechnicalSummary();renderMaterialRules();renderControlPlan();renderRoute();runApproval();setup3DOrbit();renderSequence2D();renderSequence3D();resize2D();resize3D();updateCameraReadout();runRuntimeSelfCheck();renderPreparationDetailed();calculateStrategySet();renderCalibrationRows();renderPlannerDetailed();renderInventoryDetailed();renderDocumentsDetailed();renderTraceDetailed();renderRequirements();renderChanges();renderTechnicalDocs();renderIncidents();renderAnalyticsDetailed();renderPlanList();renderPlanGeometry();renderPlanHistory();drawPlan();compareV();calculateCurve();renderPreparation();renderPlanner();renderInventory();detectDevice();setTimeout(resizeSim,60);
+initializeDesktopExperience();syncUI();normalizeSequenceAfterGeometryChange();renderBends();renderSequenceEditor();renderTools();renderTechnicalSummary();renderMaterialRules();renderControlPlan();renderRoute();runApproval();setup3DOrbit();renderSequence2D();renderSequence3D();resize2D();resize3D();updateCameraReadout();runRuntimeSelfCheck();renderPreparationDetailed();calculateStrategySet();renderCalibrationRows();renderPlannerDetailed();renderInventoryDetailed();renderDocumentsDetailed();renderTraceDetailed();renderRequirements();renderChanges();renderTechnicalDocs();renderIncidents();renderAnalyticsDetailed();renderPlanList();renderPlanGeometry();renderPlanHistory();drawPlan();compareV();calculateCurve();renderPreparation();renderPlanner();renderInventory();detectDevice();setTimeout(resizeSim,60);
 </script>
-</body>
+</div><div class="statusbar"><span>PLEGAR PRO · Sistema listo</span><span>Build 2026.07.12-1980</span></div></div></body>
 </html>

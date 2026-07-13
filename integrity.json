@@ -1,16 +1,24 @@
 {
-  "version": "19.6",
-  "build": "2026.07.12-1960",
+  "version": "19.8",
+  "build": "2026.07.12-1980",
   "checks": {
     "version": true,
-    "separate_pages": true,
-    "separate_nav": true,
-    "orbit": true,
-    "rear_view": true,
-    "machine_motion": true,
-    "enhanced_2d": true,
-    "enhanced_3d": true,
-    "canvas_ids": true
+    "render_sequence_defined": true,
+    "reset_camera_unique": true,
+    "draw_sim_compat": true,
+    "resize_sim_compat": true,
+    "play_2d_binding": true,
+    "play_3d_binding": true,
+    "camera_binding": true,
+    "orbit_binding": true,
+    "no_old_canvas": true,
+    "no_old_setup": true
   },
-  "validated_at": "2026-07-12T21:30:32.702520+00:00"
+  "legacy_token_counts": {
+    "$('simCanvas')": 0,
+    "setupCameraControls()": 0,
+    "$('mode2D')": 0,
+    "$('mode3D')": 0
+  },
+  "validated_at": "2026-07-12T21:56:21.709395+00:00"
 }
