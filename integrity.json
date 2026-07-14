@@ -1,16 +1,14 @@
 {
-  "version": "19.6",
-  "build": "2026.07.12-1960",
+  "version": "28.1",
+  "build": "2026.07.14-2810",
   "checks": {
     "version": true,
-    "separate_pages": true,
-    "separate_nav": true,
-    "orbit": true,
-    "rear_view": true,
-    "machine_motion": true,
-    "enhanced_2d": true,
-    "enhanced_3d": true,
-    "canvas_ids": true
+    "assets": true,
+    "pages": true,
+    "analyzer_registered": true,
+    "beta_registered": true,
+    "js_syntax": true,
+    "github_pages": true
   },
-  "validated_at": "2026-07-12T21:30:32.702520+00:00"
+  "validated_at": "2026-07-14T20:49:23.132741+00:00"
 }

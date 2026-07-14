@@ -1,8 +1,9 @@
 {
-  "name": "Plegar Pro v18.9 Professional Complete",
-  "short_name": "Plegar Pro",
-  "start_url": "index.html",
+  "name": "Plegar Pro v28.1 Industrial Intelligence Beta",
+  "short_name": "Plegar Pro 28.1",
+  "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#030914",
-  "theme_color": "#071522"
+  "background_color": "#07111f",
+  "theme_color": "#07111f",
+  "version": "20.3"
 }
