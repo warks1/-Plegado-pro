@@ -1,21 +1,14 @@
-# Plegar Pro v28.1 Industrial Intelligence Beta
+# Plegar Pro v19.6 Simulación 2D/3D Separada
 
-Beta descargable real y acumulativa construida desde el paquete funcional completo anterior.
+Novedades:
+- Simulación 2D y Simulación 3D en módulos independientes.
+- 2D con cotas, rejilla, perfil técnico, líneas de plegado, punzón y matriz.
+- 3D con cámara orbital libre mediante ratón.
+- Vista frontal, trasera, lateral y superior.
+- Zoom, desplazamiento y perspectiva/ortográfica.
+- Controles táctiles para móvil y tablet.
+- Movimiento sincronizado del ariete.
+- Plegadora más detallada.
+- La secuencia de plegado se comparte entre 2D, 3D y el secuenciador anticolisión.
 
-## Incluye
-- Simulación 2D y 3D.
-- Centro maestro de reproducción.
-- Analizador inteligente de matrices V.
-- Comparación de desarrollo, medidas, radios, fuerza y riesgo de agujeros.
-- Importación universal preliminar.
-- Multiplegado.
-- Punzones, matrices y montajes.
-- Producción, calidad, clientes, presupuestos, planificación, inventario y documentos.
-- Núcleo industrial, centro del sistema e IA.
-- Centro de la beta con diagnóstico y exportación del estado.
-
-## Abrir
-Ejecuta `INICIAR_PC.bat` en Windows o abre `index.html`.
-
-## Importante
-Los cálculos son orientativos y deben validarse con la tabla real de la máquina, herramientas, material y primera pieza. Los formatos CAD propietarios requieren conversores o SDK externos.
+Build 2026.07.12-1960.
