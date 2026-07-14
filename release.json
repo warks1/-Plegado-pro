@@ -1,16 +1,30 @@
 {
   "product": "Plegar Pro",
-  "version": "18.1",
-  "base": "18.0 Industrial Vision Ultimate",
-  "codename": "Multiplegado Engineering",
-  "created": "2026-07-11T23:27:07.570056+00:00",
-  "features": [
-    "multi_bend_v_comparator",
-    "dimensional_bend_editor",
-    "full_development_builder",
-    "cumulative_3d_part_shape",
-    "2d_3d_simulation_switch",
-    "csv_development_export"
+  "version": "28.1",
+  "build": "2026.07.14-2810",
+  "name": "Industrial Intelligence Beta",
+  "base": "20.5 functional package",
+  "cumulative": true,
+  "preserves_previous_modules": true,
+  "included": [
+    "2D simulation",
+    "3D simulation",
+    "Simulation Control Center",
+    "Intelligent V Analyzer",
+    "Universal import",
+    "Tooling libraries",
+    "Production",
+    "Quality",
+    "CRM",
+    "Planning",
+    "Inventory",
+    "Documentation",
+    "Engineering Core",
+    "System Center",
+    "AI Copilot"
   ],
-  "javascript_syntax": "passed"
+  "limitations": [
+    "CAD proprietary formats require external converters",
+    "Engineering calculations are preliminary and must be validated in the workshop"
+  ]
 }

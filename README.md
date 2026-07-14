@@ -1,14 +1,21 @@
-# Plegar Pro v18.0 Industrial Vision Ultimate
+# Plegar Pro v28.1 Industrial Intelligence Beta
 
-Incluye todo lo anterior y añade:
-- Secuencia automática completa de todos los pliegues.
-- Control de velocidad: lenta, normal y rápida.
-- Captura de la escena 3D en PNG.
-- Línea visual de secuencia con pliegues activos y completados.
-- Matriz 3D adaptada a la V seleccionada.
-- Punzón 3D adaptado a recto o pata de cabra.
-- Diagnóstico visual de posibles interferencias.
-- Panel ampliado de estado de cámara, calidad, velocidad y secuencia.
-- Mejoras adicionales de acabado y navegación táctil.
+Beta descargable real y acumulativa construida desde el paquete funcional completo anterior.
 
-Los cálculos, geometrías y colisiones son orientativos hasta validarse con datos y modelos reales.
+## Incluye
+- Simulación 2D y 3D.
+- Centro maestro de reproducción.
+- Analizador inteligente de matrices V.
+- Comparación de desarrollo, medidas, radios, fuerza y riesgo de agujeros.
+- Importación universal preliminar.
+- Multiplegado.
+- Punzones, matrices y montajes.
+- Producción, calidad, clientes, presupuestos, planificación, inventario y documentos.
+- Núcleo industrial, centro del sistema e IA.
+- Centro de la beta con diagnóstico y exportación del estado.
+
+## Abrir
+Ejecuta `INICIAR_PC.bat` en Windows o abre `index.html`.
+
+## Importante
+Los cálculos son orientativos y deben validarse con la tabla real de la máquina, herramientas, material y primera pieza. Los formatos CAD propietarios requieren conversores o SDK externos.

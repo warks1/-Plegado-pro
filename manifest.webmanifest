@@ -1,9 +1,9 @@
 {
-  "name": "Plegar Pro v18.0 Industrial Vision Ultimate",
-  "short_name": "Plegar Pro v18",
-  "start_url": "./index.html?v=15",
+  "name": "Plegar Pro v28.1 Industrial Intelligence Beta",
+  "short_name": "Plegar Pro 28.1",
+  "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#050b13",
+  "background_color": "#07111f",
   "theme_color": "#07111f",
-  "icons": []
+  "version": "20.3"
 }
