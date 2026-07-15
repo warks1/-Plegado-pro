@@ -1,13 +1,24 @@
-# Plegar Pro v28.1.3 Beta Estable Acumulativa
+# Plegar Pro v28.5.0 Materials & V Optimization
 
-- Parte del paquete completo v28.1.2.
-- Logo moderno restaurado.
-- Pantalla de inicio y apariencia tipo software de PC.
-- Todos los módulos heredados conservados.
-- Reproducción 2D completa.
-- Reproducción 3D configurada para recorrer toda la secuencia.
-- Cámaras libre, frontal, trasera, lateral, superior e isométrica.
-- Autocomprobación de menú, páginas y motores.
-- HTML autónomo sin dependencias externas.
+Base acumulativa: v28.4.0.
 
-Abra `PLEGAR_PRO_v28_1_3.html`.
+## Conservado
+- 35 páginas anteriores.
+- Decisiones, escenarios, producción, programación, validación, recuperación e historial.
+- Simulaciones 2D/3D.
+- Pieza acabada.
+- Cámaras táctiles y de PC.
+- Informes y expedientes.
+
+## Nuevo
+- Perfiles de material S235, S275, S355, Inox 304, Aluminio 5754 y Galvanizado.
+- Espesor y longitud de plegado configurables.
+- Biblioteca de perfiles personalizados.
+- Comparador simultáneo V6–V50.
+- Radio, BD, desarrollo, tonelaje, ala mínima, riesgo y puntuación.
+- Aplicación automática de la mejor V.
+- Exportación del comparador.
+- Estimación de preparación, plegado, cambios y tiempo total.
+- Control integral de integridad acumulativa.
+
+Abra `PLEGAR_PRO_v28_5_0.html`.

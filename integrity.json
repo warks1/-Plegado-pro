@@ -1,31 +1,19 @@
 {
   "product": "Plegar Pro",
-  "version": "28.1.3",
-  "build": "2026.07.15-2813",
-  "base": "28.1.2",
+  "version": "28.5.0",
+  "build": "2026.07.15-2850",
+  "base": "28.4.0",
   "cumulative": true,
   "checks": {
-    "version_visible": true,
-    "logo_present": true,
-    "splash_present": true,
-    "2d_engine": true,
-    "3d_engine": true,
-    "camera_controls": true,
-    "page_count": true
+    "version": true,
+    "materials_page": true,
+    "profiles": true,
+    "multi_v": true,
+    "times": true,
+    "integrity": true,
+    "page_count": true,
+    "previous_features": true
   },
-  "page_count": 28,
-  "validated_at": "2026-07-15T05:27:45.413060+00:00",
-  "browser_runtime": {
-    "nav_count": 28,
-    "menu_failures": [],
-    "2d_progressed": true,
-    "3d_progressed": true,
-    "rear_camera": "Trasera",
-    "front_camera": "Frontal",
-    "runtime_status": "Inicio correcto. 28 módulos, 28 páginas y motores 2D/3D disponibles.",
-    "title": "Plegar Pro v28.1.3 · 2026.07.15-2813",
-    "page_errors": [],
-    "splash_hidden": true
-  },
-  "status": "validated"
+  "page_count": 36,
+  "validated_at": "2026-07-15T17:05:23.199989+00:00"
 }
