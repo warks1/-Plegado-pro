@@ -1,15 +1,13 @@
-# Plegar Pro v28.1.2 Beta Funcional
+# Plegar Pro v28.1.3 Beta Estable Acumulativa
 
-Beta acumulativa corregida.
+- Parte del paquete completo v28.1.2.
+- Logo moderno restaurado.
+- Pantalla de inicio y apariencia tipo software de PC.
+- Todos los módulos heredados conservados.
+- Reproducción 2D completa.
+- Reproducción 3D configurada para recorrer toda la secuencia.
+- Cámaras libre, frontal, trasera, lateral, superior e isométrica.
+- Autocomprobación de menú, páginas y motores.
+- HTML autónomo sin dependencias externas.
 
-## Apertura
-- Abre `index.html`, o
-- abre `PLEGAR_PRO_v28_1_2.html` (archivo autónomo), o
-- ejecuta `INICIAR_PC.bat`.
-
-## Correcciones
-- Estilos integrados: no aparece fondo blanco aunque falten carpetas externas.
-- Menú generado y enlazado con 28 módulos.
-- Orden de inicio corregido para que el motor 2D no detenga JavaScript.
-- Reproducción 2D y 3D, cámaras y controles revisados.
-- Analizador V, Centro de simulación, Núcleo y Centro del sistema incluidos.
+Abra `PLEGAR_PRO_v28_1_3.html`.
