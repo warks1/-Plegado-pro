@@ -1,19 +1,16 @@
 {
   "product": "Plegar Pro",
-  "version": "28.5.0",
-  "build": "2026.07.15-2850",
-  "base": "28.4.0",
+  "version": "28.5.1",
+  "build": "2026.07.15-2851",
+  "base": "28.5.0",
   "cumulative": true,
   "checks": {
     "version": true,
-    "materials_page": true,
-    "profiles": true,
-    "multi_v": true,
-    "times": true,
-    "integrity": true,
-    "page_count": true,
+    "safe_boot": true,
+    "force_open": true,
+    "guarded_init": true,
+    "github_files": true,
     "previous_features": true
   },
-  "page_count": 36,
-  "validated_at": "2026-07-15T17:05:23.199989+00:00"
+  "validated_at": "2026-07-15T18:00:47.210371+00:00"
 }

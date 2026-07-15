@@ -1,24 +1,20 @@
-# Plegar Pro v28.5.0 Materials & V Optimization
+# Plegar Pro v28.5.1 GitHub Pages Hotfix
 
-Base acumulativa: v28.4.0.
+Base acumulativa: v28.5.0.
 
-## Conservado
-- 35 páginas anteriores.
-- Decisiones, escenarios, producción, programación, validación, recuperación e historial.
-- Simulaciones 2D/3D.
-- Pieza acabada.
-- Cámaras táctiles y de PC.
-- Informes y expedientes.
+## Corrección principal
+La pantalla del logo ya no puede bloquear indefinidamente la aplicación en GitHub Pages.
 
-## Nuevo
-- Perfiles de material S235, S275, S355, Inox 304, Aluminio 5754 y Galvanizado.
-- Espesor y longitud de plegado configurables.
-- Biblioteca de perfiles personalizados.
-- Comparador simultáneo V6–V50.
-- Radio, BD, desarrollo, tonelaje, ala mínima, riesgo y puntuación.
-- Aplicación automática de la mejor V.
-- Exportación del comparador.
-- Estimación de preparación, plegado, cambios y tiempo total.
-- Control integral de integridad acumulativa.
+## Cambios
+- Arranque seguro independiente del resto de módulos.
+- El logo se cierra aunque un módulo falle.
+- Botón «Entrar sin esperar».
+- Panel visible con el error de arranque.
+- Inicialización protegida módulo por módulo.
+- `index.html` preparado para GitHub Pages.
+- `404.html` de respaldo.
+- Archivo `.nojekyll`.
+- Todos los módulos anteriores conservados.
 
-Abra `PLEGAR_PRO_v28_5_0.html`.
+## Publicación
+Sube todos los archivos del ZIP a la raíz del repositorio. En GitHub Pages selecciona la rama principal y la carpeta `/ (root)`.
