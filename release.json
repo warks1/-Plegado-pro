@@ -1,30 +1,10 @@
 {
   "product": "Plegar Pro",
-  "version": "28.1",
-  "build": "2026.07.14-2810",
-  "name": "Industrial Intelligence Beta",
-  "base": "20.5 functional package",
+  "version": "28.1.2",
+  "build": "2026.07.14-2812",
+  "name": "Beta Funcional",
+  "base": "28.1.1",
   "cumulative": true,
-  "preserves_previous_modules": true,
-  "included": [
-    "2D simulation",
-    "3D simulation",
-    "Simulation Control Center",
-    "Intelligent V Analyzer",
-    "Universal import",
-    "Tooling libraries",
-    "Production",
-    "Quality",
-    "CRM",
-    "Planning",
-    "Inventory",
-    "Documentation",
-    "Engineering Core",
-    "System Center",
-    "AI Copilot"
-  ],
-  "limitations": [
-    "CAD proprietary formats require external converters",
-    "Engineering calculations are preliminary and must be validated in the workshop"
-  ]
+  "standalone_html": true,
+  "preserves_previous_modules": true
 }

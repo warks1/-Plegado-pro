@@ -1,21 +1,15 @@
-# Plegar Pro v28.1 Industrial Intelligence Beta
+# Plegar Pro v28.1.2 Beta Funcional
 
-Beta descargable real y acumulativa construida desde el paquete funcional completo anterior.
+Beta acumulativa corregida.
 
-## Incluye
-- Simulación 2D y 3D.
-- Centro maestro de reproducción.
-- Analizador inteligente de matrices V.
-- Comparación de desarrollo, medidas, radios, fuerza y riesgo de agujeros.
-- Importación universal preliminar.
-- Multiplegado.
-- Punzones, matrices y montajes.
-- Producción, calidad, clientes, presupuestos, planificación, inventario y documentos.
-- Núcleo industrial, centro del sistema e IA.
-- Centro de la beta con diagnóstico y exportación del estado.
+## Apertura
+- Abre `index.html`, o
+- abre `PLEGAR_PRO_v28_1_2.html` (archivo autónomo), o
+- ejecuta `INICIAR_PC.bat`.
 
-## Abrir
-Ejecuta `INICIAR_PC.bat` en Windows o abre `index.html`.
-
-## Importante
-Los cálculos son orientativos y deben validarse con la tabla real de la máquina, herramientas, material y primera pieza. Los formatos CAD propietarios requieren conversores o SDK externos.
+## Correcciones
+- Estilos integrados: no aparece fondo blanco aunque falten carpetas externas.
+- Menú generado y enlazado con 28 módulos.
+- Orden de inicio corregido para que el motor 2D no detenga JavaScript.
+- Reproducción 2D y 3D, cámaras y controles revisados.
+- Analizador V, Centro de simulación, Núcleo y Centro del sistema incluidos.
