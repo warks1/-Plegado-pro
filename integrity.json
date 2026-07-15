@@ -1,16 +1,18 @@
 {
   "product": "Plegar Pro",
-  "version": "28.5.1",
-  "build": "2026.07.15-2851",
-  "base": "28.5.0",
+  "version": "28.5.2",
+  "build": "2026.07.15-2852",
+  "base": "28.5.1",
   "cumulative": true,
+  "fixed_error": "ReferenceError: Cannot access 'simStep' before initialization",
   "checks": {
     "version": true,
-    "safe_boot": true,
-    "force_open": true,
-    "guarded_init": true,
+    "render_bends_guard": true,
+    "safe_refresh": true,
+    "simulation_ready": true,
+    "no_early_draw_calls": true,
     "github_files": true,
     "previous_features": true
   },
-  "validated_at": "2026-07-15T18:00:47.210371+00:00"
+  "validated_at": "2026-07-15T18:29:09.522888+00:00"
 }
