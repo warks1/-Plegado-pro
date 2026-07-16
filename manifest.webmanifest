@@ -1,8 +1,11 @@
 {
-  "name": "Plegar Pro v28.1.2",
+  "name": "Plegar Pro",
   "short_name": "Plegar Pro",
+  "description": "Software profesional de programación y simulación de plegado de chapa.",
   "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
-  "background_color": "#050b13",
-  "theme_color": "#07111f"
+  "background_color": "#07111f",
+  "theme_color": "#0b2638",
+  "icons": []
 }

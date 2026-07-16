@@ -1,0 +1,10 @@
+{
+  "product": "Plegar Pro",
+  "version": "1.0.0",
+  "channel": "Professional Core RC1",
+  "build": "2026.07.16-1000",
+  "base_version": "28.5.2",
+  "offline_enabled": true,
+  "cumulative": true,
+  "production_ready": false
+}
