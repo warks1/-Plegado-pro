@@ -1,1 +1,8 @@
-{"name":"Plegar Pro v30 VERIFIED","short_name":"PlegarPro30","start_url":"./index.html?build=30rc4","display":"standalone","background_color":"#07101a","theme_color":"#ffb454"}
+{
+  "name": "Plegar Pro v31 Industrial Edition",
+  "short_name": "PlegarPro31",
+  "start_url": "./index.html?v=31-industrial",
+  "display": "standalone",
+  "background_color": "#07101a",
+  "theme_color": "#07101a"
+}
