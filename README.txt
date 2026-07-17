@@ -1,9 +1,4 @@
-Plegar Pro Professional v29.0 RC3 Beta
+Plegar Pro v30 Professional RC4 VERIFIED
 
-Novedades:
-- Número de versión visible actualizado a v29.0 RC3.
-- Barra de carga animada durante los 5 segundos de la pantalla de inicio.
-- Indicador de porcentaje de carga.
-- Aviso de nueva compilación en el panel principal para evitar confusión con la caché.
-
-Abre index.html en Safari, Chrome o Edge. Si el navegador conserva una versión anterior, cierra la pestaña y vuelve a abrir este archivo nuevo.
+Esta compilación se identifica por una insignia naranja fija BUILD 30 RC4 y una barra de carga de 5 segundos.
+Abra index.html en Chrome, Edge o Safari.
