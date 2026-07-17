@@ -1,19 +1,19 @@
 {
   "product": "Plegar Pro",
   "version": "1.0.0",
-  "channel": "Professional Core RC1",
-  "build": "2026.07.16-1000",
-  "base": "28.5.2",
+  "channel": "Professional Core RC2",
+  "base": "RC1",
+  "build": "2026.07.17-1002",
   "cumulative": true,
-  "production_ready": false,
   "checks": {
     "version": true,
-    "professional_page": true,
-    "safe_boot": true,
-    "offline_files": true,
-    "page_count": true,
-    "previous_features": true
+    "project3d": true,
+    "unified": true,
+    "orbit": true,
+    "consolidated_menu": true,
+    "pages": true,
+    "syntax": true
   },
-  "page_count": 37,
-  "validated_at": "2026-07-16T05:15:44.361123+00:00"
+  "page_count": 39,
+  "validated_at": "2026-07-17T15:46:57.354649+00:00"
 }
