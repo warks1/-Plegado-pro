@@ -1,7 +1,13 @@
-PLEGAR PRO v31 INDUSTRIAL EDITION
+PLEGAR PRO v32.0 · TECHNICAL WORKSTATION
 
-Abrir index.html en Chrome, Edge o Safari.
-Esta compilación usa una marca visible PLEGAR PRO v31 · NUEVA BASE y barra de carga de 5 segundos.
-Incluye programación multiplegado, simulaciones 2D/3D, curva perfecta, desarrollo multiplegado, módulos navegables e IA local demostrativa.
+1. Descomprime el ZIP.
+2. Abre index.html en Chrome, Edge o Safari.
+3. Para GitHub Pages, sustituye el index.html anterior por este.
 
-IMPORTANTE: los cálculos son de demostración y deben validarse antes de fabricar.
+Cambios principales:
+- Eliminados los grandes mensajes de compilación del panel.
+- Menú principal más compacto.
+- Módulo Técnico completamente editable.
+- Pliegues ilimitados sincronizados con Programación 3D y Desarrollo.
+- Utillaje, Biblioteca, Producción e IA navegables y funcionales.
+- Barra de carga de 5 segundos.
