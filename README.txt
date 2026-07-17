@@ -1,13 +1,9 @@
-PLEGAR PRO v32.0 · TECHNICAL WORKSTATION
+PLEGAR PRO PROFESSIONAL v33
 
-1. Descomprime el ZIP.
-2. Abre index.html en Chrome, Edge o Safari.
-3. Para GitHub Pages, sustituye el index.html anterior por este.
+Beta acumulativa limpia para pruebas.
 
-Cambios principales:
-- Eliminados los grandes mensajes de compilación del panel.
-- Menú principal más compacto.
-- Módulo Técnico completamente editable.
-- Pliegues ilimitados sincronizados con Programación 3D y Desarrollo.
-- Utillaje, Biblioteca, Producción e IA navegables y funcionales.
-- Barra de carga de 5 segundos.
+Incluye los módulos anteriores y recupera Oficina técnica, Comparador V, Planos, Calidad, CRM/comunicación, Ajustes, IA, Producción, Biblioteca, Utillaje, Desarrollo, Curva Perfecta y simulaciones 2D/3D.
+
+Para probar: abre index.html. Para GitHub Pages: sustituye los archivos de la raíz por los de esta carpeta.
+
+Nota: la plegadora 3D es una representación visual interactiva inspirada en una configuración industrial. No es un modelo CAD oficial ni una simulación certificada para fabricación. Los cálculos deben validarse antes de producir.

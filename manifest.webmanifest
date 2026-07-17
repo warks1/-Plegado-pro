@@ -1,8 +1,1 @@
-{
-  "name": "Plegar Pro v31 Industrial Edition",
-  "short_name": "PlegarPro31",
-  "start_url": "./index.html?v=31-industrial",
-  "display": "standalone",
-  "background_color": "#07101a",
-  "theme_color": "#07101a"
-}
+{"name": "Plegar Pro Professional", "short_name": "Plegar Pro", "start_url": "./index.html", "display": "standalone", "background_color": "#07101a", "theme_color": "#07111f"}
