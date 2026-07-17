@@ -1,1 +1,8 @@
-{"name":"Plegar Pro Professional v28","short_name":"Plegar Pro","start_url":"./index.html","display":"standalone","background_color":"#07101a","theme_color":"#07111f"}
+{
+  "name": "Plegar Pro Professional v29 RC3",
+  "short_name": "Plegar Pro v29",
+  "start_url": "./index.html?v=29.0.0-rc3",
+  "display": "standalone",
+  "background_color": "#07101a",
+  "theme_color": "#07111f"
+}
