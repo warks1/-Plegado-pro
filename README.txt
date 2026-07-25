@@ -1,3 +1,5 @@
-Plegar Pro v38 Professional Validated Recovery
-Abrir index.html o publicar estos archivos en GitHub Pages.
-Se han corregido motores 2D/3D responsivos y navegación.
+Plegar Pro v21.0 Industrial Beta
+
+Abra index.html o súbalo a la raíz de GitHub Pages.
+La beta guarda datos en localStorage.
+Los cálculos deben validarse antes de fabricar.
