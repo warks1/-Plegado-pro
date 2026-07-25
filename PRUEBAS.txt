@@ -1,8 +1,9 @@
-COMPROBACIONES
-- Estructura HTML: OK
-- Sintaxis JavaScript con Node: OK
-- Navegación: implementada
-- Reproducción 2D/3D: implementada
-- Cámara orbital y cámaras predefinidas: implementadas
-- Guardado/recuperación: implementados
-- Exportación JSON/SVG: implementada
+PRUEBAS REALIZADAS
+1. Sintaxis JavaScript con Node.js.
+2. IDs HTML sin duplicados.
+3. Funciones onclick disponibles.
+4. Calculadora independiente del estado de Programar.
+5. Envío Calculadora -> Comparador V.
+6. Cambio en Comparador no altera módulos restantes.
+7. Persistencia LocalStorage con clave v43.
+8. ZIP creado y comprobado.

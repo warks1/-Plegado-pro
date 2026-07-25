@@ -1,14 +1,16 @@
-PLEGAR PRO v40.0 PROFESSIONAL FINAL BETA
+PLEGAR PRO v43 — DESARROLLO + COMPARADOR V
 
-Abrir:
-- Descomprime el ZIP.
-- Abre index.html con Chrome, Edge, Safari o Firefox.
-- Para GitHub Pages, sube index.html a la raíz del repositorio.
+Actualización acumulativa sobre v42.
 
-Esta beta incluye navegación completa, oficina técnica, desarrollo multiplegado,
-comparador V, simulación 2D/3D, cámara orbital, reproducción, utillaje,
-colisiones básicas, IA local, planos, SVG, producción, calidad, CRM,
-guardado y recuperación.
+NOVEDAD PRINCIPAL
+- Calculadora de Desarrollo independiente.
+- Sincronización exclusiva con el Comparador de V.
+- No modifica Programar, 2D, 3D, Simulación, Producción ni Calidad.
+- Parámetros: material, espesor, factor K, V de referencia, punzón, longitud de plegado, tolerancia y tipo de cotas.
+- Pliegues independientes y editables.
+- BA, BD, desarrollo, radio estimado, fuerza y ala mínima.
+- Comparación múltiple de V con variación dimensional, fuerza y compatibilidad.
+- Selección recomendada, resumen y gráfico.
 
-Aviso: los resultados técnicos deben verificarse con la máquina real,
-catálogos oficiales y pruebas de taller antes de fabricar.
+Abrir index.html en un navegador moderno.
+Los cálculos son orientativos y deben validarse con tablas oficiales, ensayos reales y documentación de máquina/utillaje.
