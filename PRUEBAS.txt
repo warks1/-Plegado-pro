@@ -1,0 +1,8 @@
+COMPROBACIONES
+- Estructura HTML: OK
+- Sintaxis JavaScript con Node: OK
+- Navegación: implementada
+- Reproducción 2D/3D: implementada
+- Cámara orbital y cámaras predefinidas: implementadas
+- Guardado/recuperación: implementados
+- Exportación JSON/SVG: implementada
