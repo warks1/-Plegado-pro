@@ -1,0 +1,19 @@
+import {useMemo,useState} from 'react';
+import {Page} from '../../components/Page';
+import {evaluateQualityGate} from '../../core/audit/engine';
+import {useActiveProject,useAppStore} from '../../store/useAppStore';
+import type {QualityIssue} from '../../types/domain';
+
+export function QualityGatePage(){
+ const project=useActiveProject();
+ const store=useAppStore();
+ const [module,setModule]=useState('Interfaz');const [severity,setSeverity]=useState<QualityIssue['severity']>('major');const [title,setTitle]=useState('');const [description,setDescription]=useState('');
+ const result=useMemo(()=>evaluateQualityGate({project,selectedMachineId:store.selectedMachineId,selectedPunchId:store.selectedPunchId,selectedDieId:store.selectedDieId,documents:store.documents,revisions:store.revisions,routes:store.routes,orders:store.orders,quality:store.quality,releases:store.releases,issues:store.issues}),[project,store.selectedMachineId,store.selectedPunchId,store.selectedDieId,store.documents,store.revisions,store.routes,store.orders,store.quality,store.releases,store.issues]);
+ const projectIssues=store.issues.filter(i=>!i.projectId||i.projectId===project.id);
+ return <Page title="Puerta de calidad" subtitle="Criterios objetivos antes de considerar una candidata a versión 1.0">
+  <div className="stats"><div className="stat"><span>Puntuación</span><strong>{result.score}%</strong></div><div className="stat"><span>Bloqueos</span><strong>{result.blocking}</strong></div><div className="stat"><span>Incidencias abiertas</span><strong>{result.openIssues}</strong></div><div className="stat"><span>Estado</span><strong>{result.readyForRc?'Apta para RC':'No apta'}</strong></div></div>
+  <div className="two-col"><section className="panel"><h3>Comprobaciones automáticas</h3><div className="requirements-table">{result.checks.map(c=><article key={c.id} className={`requirement ${c.ok?'implemented':'pending'}`}><div><strong>{c.label}</strong><small>{c.detail}</small></div><span>{c.ok?'Correcto':c.severity==='critical'?'Bloqueante':'Pendiente'}</span></article>)}</div></section>
+  <form className="panel form" onSubmit={e=>{e.preventDefault();if(!title.trim())return;store.addIssue({id:crypto.randomUUID(),projectId:project.id,module,severity,title:title.trim(),description:description.trim(),status:'open',source:'manual',createdAt:new Date().toISOString()});setTitle('');setDescription('')}}><h3>Registrar incidencia</h3><label>Módulo<input value={module} onChange={e=>setModule(e.target.value)}/></label><label>Severidad<select value={severity} onChange={e=>setSeverity(e.target.value as QualityIssue['severity'])}><option value="critical">Crítica</option><option value="major">Mayor</option><option value="minor">Menor</option><option value="info">Informativa</option></select></label><label>Título<input value={title} onChange={e=>setTitle(e.target.value)} required/></label><label>Descripción<textarea value={description} onChange={e=>setDescription(e.target.value)}/></label><button type="submit">Registrar incidencia</button></form></div>
+  <section className="panel"><h3>Registro de incidencias</h3>{projectIssues.length===0?<p className="muted">No hay incidencias registradas.</p>:<div className="requirements-table">{projectIssues.map(i=><article key={i.id} className={`requirement ${i.status==='resolved'?'implemented':'partial'}`}><div><b>{i.module} · {i.severity}</b><strong>{i.title}</strong><small>{i.description||'Sin descripción'} · {new Date(i.createdAt).toLocaleString()}</small></div><select value={i.status} onChange={e=>store.updateIssue(i.id,{status:e.target.value as QualityIssue['status']})}><option value="open">Abierta</option><option value="in-progress">En curso</option><option value="resolved">Resuelta</option><option value="accepted">Aceptada</option></select></article>)}</div>}</section>
+ </Page>
+}
