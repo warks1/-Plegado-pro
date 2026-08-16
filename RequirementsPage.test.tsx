@@ -1,0 +1,2 @@
+import {render,screen} from '@testing-library/react';import {RequirementsPage} from './RequirementsPage';
+describe('RequirementsPage',()=>{it('muestra estados honestos',()=>{render(<RequirementsPage/>);expect(screen.getByText('Matriz de requisitos')).toBeInTheDocument();expect(screen.getByText('Réplicas CAD oficiales de máquinas y utillaje')).toBeInTheDocument();expect(screen.getAllByText('Pendiente').length).toBeGreaterThan(0)})});
