@@ -1,8 +1,5 @@
 import {describe,expect,it} from 'vitest';
-import {evaluateBendCollisions,collisionSummary} from './engine';
-import type {Machine,Project,Tool} from '../../types/domain';
-const project:Project={id:'x',name:'x',customer:'x',material:'S235',thickness:4,width:500,length:800,updatedAt:'',bends:[{id:'b',position:5,length:900,angle:30,radius:2,direction:'positive',side:'interior',fixedFace:'left',punchId:'p',dieId:'d',backgaugeX:5,correction:0,order:1}]};
-const machine:Machine={id:'m',manufacturer:'Test',name:'M',forceT:100,lengthMm:700,strokeMm:200,daylightMm:100,throatMm:300,axes:[],clamp:'European',source:'reconstructed',verified:false};
-const punch:Tool={id:'p',kind:'punch',manufacturer:'Test',family:'x',name:'P',angle:30,radius:1,height:70,width:20,loadKnM:500,clamp:'European',lengths:[835],source:'reconstructed',verified:false};
-const die:Tool={id:'d',kind:'die',manufacturer:'Test',family:'x',name:'D',angle:85,radius:2,height:40,width:60,v:12,loadKnM:500,clamp:'European',lengths:[835],source:'reconstructed',verified:false};
-describe('collision engine',()=>{it('detecta incompatibilidades bloqueantes',()=>{const f=evaluateBendCollisions(project,machine,punch,die);expect(collisionSummary(f).blocking).toBeGreaterThan(0);expect(collisionSummary(f).ready).toBe(false)})});
+import {createSimulationFrames} from './engine';
+import type {Project} from '../../types/domain';
+const project:Project={id:'p',name:'P',customer:'C',material:'S235JR',thickness:2,width:500,length:1000,updatedAt:'x',bends:[{id:'b1',position:200,length:500,angle:90,radius:2,direction:'positive',side:'interior',fixedFace:'left',punchId:'p',dieId:'d',backgaugeX:200,correction:0,order:1}]};
+describe('motor de simulación',()=>{it('genera estados de posicionamiento y plegado',()=>{const frames=createSimulationFrames(project);expect(frames).toHaveLength(4);expect(frames.at(-1)?.status).toBe('complete');expect(frames.at(-1)?.achievedAngle).toBe(90)})});
