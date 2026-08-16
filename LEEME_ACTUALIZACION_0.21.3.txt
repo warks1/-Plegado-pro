@@ -1,0 +1,8 @@
+PLEGAR PRO v0.21.3
+
+- Calculadora multiplegado con apertura V independiente por pliegue.
+- Programador profesional con plano 2D, vista 3D y propiedades simultáneas.
+- Secuencia de pliegues sincronizada con el proyecto activo.
+- Mejoras visuales globales y paneles de simulación de altura completa.
+
+Ejecuta ACTUALIZAR_PLEGAR_PRO.bat con Plegar Pro cerrado.

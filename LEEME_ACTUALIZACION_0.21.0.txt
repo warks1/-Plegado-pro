@@ -1,0 +1,18 @@
+PLEGAR PRO 0.21.0 - ACTUALIZACION ACUMULATIVA
+
+1. Cierre Plegar Pro y las pestañas 127.0.0.1.
+2. Descomprima completamente el ZIP.
+3. Ejecute ACTUALIZAR_PLEGAR_PRO.bat.
+4. La actualización conserva datos y crea copia de seguridad.
+
+CAMBIOS PRINCIPALES
+- Nuevo módulo Programar pieza desde cero.
+- Importación por cámara, foto y archivo con reconstrucción editable.
+- Programación 2D con acercar, alejar, centrar, voltear y arrastrar.
+- Programación 3D y CAD/CAM con panel lateral completo.
+- CAD/CAM con longitud, radio, tipo y sentido de cada pliegue.
+- Simulación 3D reforzada para evitar escenario vacío.
+- Utillaje con profundidad 3D visible y más referencias Bystronic.
+- Materiales y proveedores ampliados sin borrar datos propios.
+
+Las reconstrucciones automáticas y paramétricas requieren validación técnica antes de fabricar.

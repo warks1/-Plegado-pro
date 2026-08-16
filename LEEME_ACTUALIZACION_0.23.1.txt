@@ -1,0 +1,9 @@
+PLEGAR PRO 0.23.1
+
+1. Cierre Plegar Pro y todas las ventanas del navegador abiertas en 127.0.0.1.
+2. Descomprima completamente este ZIP.
+3. Ejecute ACTUALIZAR_PLEGAR_PRO.bat.
+4. Espere a que aparezca ACTUALIZACION COMPLETADA CORRECTAMENTE.
+5. Abra el acceso directo Plegar Pro del escritorio.
+
+Esta revision instala en una carpeta nueva, no elimina la version anterior y evita sustituir carpetas bloqueadas.

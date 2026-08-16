@@ -1,0 +1,18 @@
+PLEGAR PRO - ACTUALIZACIÓN ACUMULATIVA v0.21.0
+
+1. Cierre Plegar Pro y todas las pestañas 127.0.0.1.
+2. Descomprima completamente este ZIP.
+3. Ejecute ACTUALIZAR_PLEGAR_PRO.bat.
+4. Espere a que aparezca ACTUALIZACION COMPLETADA CORRECTAMENTE.
+5. Abra el acceso directo Plegar Pro del escritorio.
+
+La actualización conserva los datos del navegador porque mantiene el mismo origen local.
+Antes de cambiar archivos crea una copia de seguridad automática de la versión instalada.
+
+CAMBIOS PRINCIPALES
+- Reparación automática de textos UTF-8 del menú.
+- Desarrollo con vista plana, pieza plegada y vista dividida.
+- CAD/CAM 3D manipulable con ratón y pantalla táctil.
+- Catálogo inicial visible desde el primer arranque, con búsqueda y filtros.
+- Biblioteca ampliada de máquinas, punzones y matrices paramétricas.
+- Programación y simulación mantienen cotas y controles táctiles.

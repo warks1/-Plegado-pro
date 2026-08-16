@@ -1,0 +1,12 @@
+PLEGAR PRO v0.21.2 - ACTUALIZACION ACUMULATIVA
+
+1. Cierre Plegar Pro y todas las ventanas del navegador abiertas en 127.0.0.1.
+2. Ejecute ACTUALIZAR_PLEGAR_PRO.bat.
+3. Abra el acceso directo habitual de Plegar Pro.
+
+NOVEDADES PRINCIPALES
+- Calculadora de desarrollo multiplegado con tramos, alas, pliegues arriba/abajo y BA/BD individual.
+- Añadir y eliminar pliegues libremente.
+- Longitud plana total calculada para toda la pieza.
+- Plegadora completa reforzada en Simulacion 3D: bastidor, bancada, ariete, cilindros, resguardos, consola, laser de seguridad, punzon, matriz y chapa.
+- Mejora grafica global de visores CAD, 3D, paneles, metales e iluminacion.

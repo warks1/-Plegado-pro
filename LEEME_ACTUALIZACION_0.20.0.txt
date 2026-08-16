@@ -1,0 +1,14 @@
+PLEGAR PRO 0.21.0 - ACTUALIZACION FUNCIONAL
+
+Cambios principales:
+- Correccion de textos y codificacion UTF-8.
+- Programacion 2D con lineas de pliegue arrastrables mediante raton o pantalla tactil.
+- Cotas generales y por pliegue visibles/ocultables.
+- Programacion 3D con giro libre, desplazamiento, zoom y doble clic para centrar.
+- Utillaje 3D manipulable con raton, tactil y rueda.
+- Mejora visual de simulaciones y diferenciacion de maquina, chapa y utillaje.
+- Biblioteca inicial de materiales ampliada.
+- Version visible v0.21.0.
+
+Instalacion:
+Ejecute INSTALAR_PLEGAR_PRO.bat desde una carpeta descomprimida.

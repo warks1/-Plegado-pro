@@ -1,0 +1,10 @@
+PLEGAR PRO v0.22.0
+
+- Rediseño visual inspirado en el boceto 2.
+- Nuevo formulario superior claro para añadir pliegues.
+- Programador con vistas 2D y 3D sincronizadas, propiedades y secuencia.
+- Simulación con controles superiores y línea temporal por pasos.
+- Simulación 2D técnica con deformación, ángulo, radio, V, X e Y.
+- Mejora general de paneles, botones, menú y adaptación táctil.
+
+Ejecuta ACTUALIZAR_PLEGAR_PRO.bat con Plegar Pro cerrado.

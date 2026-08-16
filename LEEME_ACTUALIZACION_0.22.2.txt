@@ -1,0 +1,2 @@
+PLEGAR PRO v0.22.2
+Actualización acumulativa: simulación industrial, máquina diferenciada por fabricante, pieza plegable visible, cotas ampliadas y mejoras del programador.

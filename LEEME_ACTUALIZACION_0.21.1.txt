@@ -1,0 +1,8 @@
+PLEGAR PRO v0.21.2 - BOTONES Y SINCRONIZACION
+
+- Botones superiores: deshacer/rehacer cuando hay cambios; atrás/adelante cuando no los hay.
+- Tarjetas de Proyectos, Ordenes, Produccion, Incidencias y Recordatorios abren sus módulos.
+- Materiales favoritos, máquina activa y vista previa tienen acciones visibles.
+- Nuevo módulo independiente Calculadora de desarrollo.
+- Barra de flujo sincronizado para Programar, 2D, 3D, CAD/CAM, Simulación 2D y Simulación 3D.
+- Todos esos módulos trabajan con el mismo proyecto activo.

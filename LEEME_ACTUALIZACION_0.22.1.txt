@@ -1,0 +1,13 @@
+PLEGAR PRO v0.22.2
+
+Actualización acumulativa sobre v0.22.0.
+
+MEJORAS PRINCIPALES
+- Botones táctiles Deshacer y Rehacer con estado activo/desactivado real.
+- Programador con parámetros completos: posición, longitud, ángulo, radio, sentido, tipo, ala fija, punzón, matriz/AV y corrección.
+- Líneas de pliegue arrastrables en el visor 2D.
+- Secuencia con selección y reordenación visible.
+- Gestos de dos dedos para zoom y desplazamiento en Programación 3D y Simulación.
+- Auditoría funcional específica de historial, programador, simulación y sincronización.
+
+Cierra Plegar Pro, descomprime el ZIP y ejecuta ACTUALIZAR_PLEGAR_PRO.bat.

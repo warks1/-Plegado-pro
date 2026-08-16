@@ -1,0 +1,14 @@
+PLEGAR PRO v0.23.0
+Actualizacion acumulativa sobre v0.22.2.
+
+CAMBIO PRINCIPAL
+- Simulacion 2D reconstruida con la composicion de la referencia aprobada.
+- Simulacion 3D reconstruida con plegadora completa, pieza visible y secuencia inferior.
+- Barra superior de reproduccion, panel lateral de datos y miniaturas por paso.
+- Angulo, radio, espesor, apertura V y recorrido Y visibles.
+- Adaptacion para PC, tablet y movil.
+
+INSTALACION
+1. Cierre Plegar Pro y todas las pestanas 127.0.0.1.
+2. Descomprima completamente este ZIP.
+3. Ejecute ACTUALIZAR_PLEGAR_PRO.bat.
